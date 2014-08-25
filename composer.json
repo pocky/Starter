@@ -1,0 +1,26 @@
+{
+    "name": "black/common",
+    "type": "library",
+    "description": "Common Library for Black projects",
+    "keywords": ["library", "Black"],
+    "homepage": "http://www.lablackroom.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexandre 'pocky' Balmes",
+            "email": "alexandre@lablackroom.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "black/ddd-php": "1.*",
+        "black/cqrs-php": "1.*",
+        "doctrine/common": "2.5.*@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Black\\Component\\Common\\": "src/Common"
+        }
+    }
+}
