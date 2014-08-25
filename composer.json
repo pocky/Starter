@@ -16,7 +16,7 @@
         "php": ">=5.4.0",
         "black/ddd-php": "1.*",
         "black/cqrs-php": "1.*",
-        "doctrine/common": "2.5.*@dev"
+        "doctrine/common": "2.4.*"
     },
     "autoload": {
         "psr-4": {
