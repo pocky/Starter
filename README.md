@@ -3,6 +3,8 @@ CommonBundle
 
 Common Library for Black Projects.
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/028d5650-8ae8-48e0-b3a4-0ad6a61a7d6a/big.png)](https://insight.sensiolabs.com/projects/028d5650-8ae8-48e0-b3a4-0ad6a61a7d6a)
+
 Installation
 ------------
 
