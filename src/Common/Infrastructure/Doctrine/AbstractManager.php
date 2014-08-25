@@ -72,4 +72,4 @@ abstract class AbstractManager implements Manager
     {
         return $this->class;
     }
-} 
+}
