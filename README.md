@@ -1,5 +1,5 @@
-CommonBundle
-============
+Common
+======
 
 Common Library for Black Projects.
 
@@ -8,7 +8,7 @@ Common Library for Black Projects.
 Installation
 ------------
 
-The recomanded way to install Common is through [Composer][2]:
+The recommended way to install Common is through [Composer][2]:
 
 ```json
 {
