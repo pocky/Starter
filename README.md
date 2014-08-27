@@ -49,3 +49,4 @@ Alexandre "pocky" Balmes [alexandre@lablackroom.com][4]. Send me [Flattrs][5] if
 [4]: mailto:alexandre@lablackroom.com
 [5]: https://flattr.com/profile/alexandre.balmes
 [6]: http://www.amazon.fr/registry/wishlist/3OR3EENRA5TSK
+[7]: https://packagist.org/packages/black/common

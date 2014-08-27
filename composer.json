@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Black\\Component\\Common\\": "src/Common"
+            "Black\\Component\\Common\\": "src/Black/Component/Common/"
         }
     }
 }
