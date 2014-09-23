@@ -56,14 +56,6 @@ abstract class CommonManager implements Manager
     }
 
     /**
-     * @return \Doctrine\Common\Persistence\ObjectRepository
-     */
-    public function getRepository()
-    {
-        return $this->repository;
-    }
-
-    /**
      * @return mixed|void
      */
     public function flush()

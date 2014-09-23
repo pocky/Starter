@@ -27,16 +27,9 @@ interface Manager
     public function getManager();
 
     /**
-     * Return the object repository
-     *
-     * @return mixed
-     */
-    public function getRepository();
-
-    /**
      * Flush the curent manager
      *
      * @return mixed
      */
     public function flush();
-} 
+}
