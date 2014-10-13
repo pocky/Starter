@@ -39,11 +39,11 @@ abstract class CommonManager implements Manager
      * @param ObjectManager $om
      * @param $class
      */
-    public function __construct(ObjectManager $om, $class)
+    public function __construct(ObjectManager $manager, $class)
     {
-        $this->manager    = $om;
-        $this->repository = $om->getRepository($class);
-        $metadata         = $om->getClassMetadata($class);
+        $this->manager    = $manager;
+        $this->repository = $manager->getRepository($class);
+        $metadata         = $manager->getClassMetadata($class);
         $this->class      = $metadata->getName();
     }
 

@@ -24,14 +24,14 @@ class NotSpecification implements Specification
     /**
      * @var Specification
      */
-    protected $s;
+    protected $spec;
 
     /**
      * @param Specification $s
      */
-    public function __construct(Specification $s)
+    public function __construct(Specification $spec)
     {
-        $this->s = $s;
+        $this->spec = $spec;
     }
 
     /**
@@ -41,6 +41,6 @@ class NotSpecification implements Specification
      */
     public function isSatisfiedBy($subject)
     {
-        return !$this->s->isSatisfiedBy($subject);
+        return !$this->spec->isSatisfiedBy($subject);
     }
 }

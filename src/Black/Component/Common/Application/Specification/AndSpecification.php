@@ -24,21 +24,21 @@ class AndSpecification implements Specification
     /**
      * @var Specification
      */
-    protected $s1;
+    protected $spec1;
 
     /**
      * @var Specification
      */
-    protected $s2;
+    protected $spec2;
 
     /**
      * @param Specification $s1
      * @param Specification $s2
      */
-    public function __construct(Specification $s1, Specification $s2)
+    public function __construct(Specification $spec1, Specification $spec2)
     {
-        $this->s1 = $s1;
-        $this->s2 = $s2;
+        $this->spec1 = $spec1;
+        $this->spec2 = $spec2;
     }
 
     /**
@@ -48,7 +48,7 @@ class AndSpecification implements Specification
      */
     public function isSatisfiedBy($subject)
     {
-        return $this->s1->isSatisfiedBy($subject)
-            && $this->s2->isSatisfiedBy($subject);
+        return $this->spec1->isSatisfiedBy($subject)
+            && $this->spec2->isSatisfiedBy($subject);
     }
 }

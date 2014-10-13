@@ -1,0 +1,4 @@
+suites:
+    black_common_suite:
+        namespace: Black\Component\Common
+        spec_path: ./src/Black/Component/Common

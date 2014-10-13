@@ -24,21 +24,21 @@ class OrSpecification implements Specification
     /**
      * @var Specification
      */
-    protected $s1;
+    protected $spec1;
 
     /**
      * @var Specification
      */
-    protected $s2;
+    protected $spec2;
 
     /**
-     * @param Specification $s1
-     * @param Specification $s2
+     * @param Specification $spec1
+     * @param Specification $spec2
      */
-    public function __construct(Specification $s1, Specification $s2)
+    public function __construct(Specification $spec1, Specification $spec2)
     {
-        $this->s1 = $s1;
-        $this->s2 = $s2;
+        $this->s1 = $spec1;
+        $this->s2 = $spec2;
     }
 
     /**
