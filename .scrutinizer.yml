@@ -5,4 +5,4 @@ tools:
 
 filter:
   excluded_paths:
-    - 'src/Black/Component/Common/spec/*'
+    - spec/*
