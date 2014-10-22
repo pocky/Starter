@@ -32,8 +32,8 @@ class AndSpecification implements Specification
     protected $spec2;
 
     /**
-     * @param Specification $s1
-     * @param Specification $s2
+     * @param Specification $spec1
+     * @param Specification $spec2
      */
     public function __construct(Specification $spec1, Specification $spec2)
     {

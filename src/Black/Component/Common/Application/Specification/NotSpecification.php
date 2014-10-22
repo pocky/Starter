@@ -27,7 +27,7 @@ class NotSpecification implements Specification
     protected $spec;
 
     /**
-     * @param Specification $s
+     * @param Specification $spec
      */
     public function __construct(Specification $spec)
     {

@@ -17,11 +17,6 @@
             "Black\\Component\\Common\\": "src/Black/Component/Common/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "spec\\": "spec/"
-        }
-    },
     "require": {
         "php": ">=5.4.0",
         "black/ddd-php": "~1.0",

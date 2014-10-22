@@ -36,7 +36,7 @@ abstract class CommonManager implements Manager
     protected $class;
 
     /**
-     * @param ObjectManager $om
+     * @param ObjectManager $manager
      * @param $class
      */
     public function __construct(ObjectManager $manager, $class)
