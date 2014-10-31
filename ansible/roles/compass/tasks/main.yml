@@ -1,0 +1,6 @@
+---
+- name: Install compass
+  gem: name=compass
+
+- name: Install compass for npm
+  npm: name=compass global=yes

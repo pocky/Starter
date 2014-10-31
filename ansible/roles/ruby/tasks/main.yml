@@ -1,0 +1,7 @@
+---
+- name: Ruby | Install ruby
+  action: apt pkg={{ item }} state=installed
+  tags: ruby
+  with_items:
+    - ruby-full
+    - rubygems1.8
