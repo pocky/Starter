@@ -16,6 +16,9 @@
         "tests"
     ],
     "dependencies": {
-        "admin-lte": "1.3"
+        "admin-lte": "latest",
+        "requirejs": "latest",
+        "jquery": "2.0.2",
+        "sass-bootstrap": "latest"
     }
 }

@@ -1,0 +1,12 @@
+{% set assetsPath = 'assets-built' %}
+
+<script src="{{ asset(assetsPath ~ '/vendor/requirejs/require.js') }}"></script>
+<script>
+    requirejs.config({
+        baseUrl: '/{{ assetsPath }}/js'
+    });
+
+    require(['common'], function (common) {
+        require(['{{ module }}'])
+    });
+</script>
