@@ -1,0 +1,17 @@
+suites:
+  black_commmon_suite:
+    namespace: Black\Component\Common
+    spec_path: ./vendor/black/common/
+    src_path: ./vendor/black/common/src/
+  black_page_suite:
+    namespace: Black\Component\Page
+    spec_path: ./vendor/black/page/
+    src_path: ./vendor/black/page/src/
+  black_user_suite:
+    namespace: Black\Component\User
+    spec_path: ./vendor/black/user/
+    src_path: ./vendor/black/user/src/
+  black_group_suite:
+    namespace: Black\Component\Group
+    spec_path: ./vendor/black/group/
+    src_path: ./vendor/black/group/src/
