@@ -1,0 +1,7 @@
+---
+- name: Provisioning for Starter
+  hosts: all
+  sudo: yes
+  roles:
+    - nodejs
+    - bower
