@@ -1,2 +1,7 @@
+blackroom_app:
+    resource: "@BlackroomAppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 elfinder:
     resource: "@FMElfinderBundle/Resources/config/routing.yml"

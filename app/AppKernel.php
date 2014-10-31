@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
             new Black\Bundle\GeneratorBundle\BlackGeneratorBundle(),
+            new Blackroom\AppBundle\BlackroomAppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
