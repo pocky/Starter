@@ -1,0 +1,21 @@
+{
+    "name": "starter",
+    "version": "0.0.1",
+    "homepage": "https://github.com/pocky/Starter",
+    "authors": [
+        "Alexandre 'pocky' Balmes <alexandre@lablackroom.com>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "web/assets/vendor",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "admin-lte": "1.3"
+    }
+}
