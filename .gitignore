@@ -11,4 +11,7 @@
 !bin/console
 !bin/symfony_requirements
 /composer.phar
-/web/assets/
+/web/assets/vendor/
+/web/assets-built/
+.sass-cache/
+node_modules/
