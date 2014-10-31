@@ -1,5 +1,5 @@
-blackroom_app:
-    resource: "@BlackroomAppBundle/Controller/"
+application:
+    resource: "@ApplicationBundle/Controller/"
     type:     annotation
     prefix:   /
 

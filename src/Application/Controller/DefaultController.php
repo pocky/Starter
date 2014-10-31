@@ -1,6 +1,6 @@
 <?php
 
-namespace Blackroom\AppBundle\Controller;
+namespace Application\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;

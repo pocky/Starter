@@ -194,5 +194,5 @@ fm_elfinder:
                       upload_allow: ['all']
                       upload_max_size: 20M
 
-blackroom_app:
+application:
     db_driver: mongodb

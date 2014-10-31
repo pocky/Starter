@@ -1,19 +1,20 @@
 <?php
 
-namespace Blackroom\AppBundle;
+namespace Application;
 
-use Blackroom\AppBundle\DependencyInjection\BlackroomAppExtension;
+use Application\DependencyInjection\ApplicationExtension;
 use Doctrine\Bundle\MongoDBBundle\DependencyInjection\Compiler\DoctrineMongoDBMappingsPass;
+use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\Console\Application;
 
-class BlackroomAppBundle extends Bundle
+class ApplicationBundle extends Bundle
 {
     public function getContainerExtension()
     {
-        return new BlackroomAppExtension();
+        return new ApplicationExtension();
     }
 
     public function build(ContainerBuilder $container)
@@ -21,7 +22,7 @@ class BlackroomAppBundle extends Bundle
         parent::build($container);
 
         $mappings = array(
-            realpath($this->getPath().'/Resources/config/doctrine/model') => 'Domain\Model',
+            realpath($this->getPath() . '/Resources/config/doctrine/model') => 'Domain\Model',
         );
 
         $ormCompilerClass = 'Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass';
@@ -31,7 +32,7 @@ class BlackroomAppBundle extends Bundle
                 DoctrineOrmMappingsPass::createXmlMappingDriver(
                     $mappings,
                     [],
-                    'blackroom_app.backend_type_orm'
+                    'application.backend_type_orm'
                 ));
         }
 
@@ -42,7 +43,7 @@ class BlackroomAppBundle extends Bundle
                 DoctrineMongoDBMappingsPass::createXmlMappingDriver(
                     $mappings,
                     [],
-                    'blackroom_app.backend_type_mongodb'
+                    'application.backend_type_mongodb'
                 ));
         }
     }

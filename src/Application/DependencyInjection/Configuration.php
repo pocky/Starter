@@ -1,6 +1,6 @@
 <?php
 
-namespace Blackroom\AppBundle\DependencyInjection;
+namespace Application\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -12,8 +12,14 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
+    /**
+     * @var
+     */
     private $alias;
 
+    /**
+     * @param $alias
+     */
     public function __construct($alias)
     {
         $this->alias = $alias;

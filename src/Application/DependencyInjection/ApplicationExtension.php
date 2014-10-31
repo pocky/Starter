@@ -1,6 +1,6 @@
 <?php
 
-namespace Blackroom\AppBundle\DependencyInjection;
+namespace Application\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class BlackroomAppExtension extends Extension
+class ApplicationExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -27,7 +27,7 @@ class BlackroomAppExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         if (!isset($config['db_driver'])) {
-            throw new \InvalidArgumentException('You must provide the blackroom_app.db_driver configuration');
+            throw new \InvalidArgumentException('You must provide the application.db_driver configuration');
         }
 
         try {
@@ -45,8 +45,11 @@ class BlackroomAppExtension extends Extension
         }
     }
 
+    /**
+     * @return string
+     */
     public function getAlias()
     {
-        return 'blackroom_app';
+        return 'application';
     }
 }
