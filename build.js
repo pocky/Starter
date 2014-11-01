@@ -2,7 +2,7 @@
     mainConfigFile: 'web/assets/js/common.js',
     baseUrl: './js',
     appDir: 'web/assets',
-    dir: 'web/assets-built',
+    dir: 'web/assets-prod',
     modules: [
         {
             name: 'common',

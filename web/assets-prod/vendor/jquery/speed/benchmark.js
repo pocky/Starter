@@ -1,0 +1,1 @@
+function benchmark(e,t,n){e=e.toString();var r=e.indexOf("{")+1,i=e.lastIndexOf("}");return e=e.substring(r,i),benchmarkString(e,t,n)}function benchmarkString(e,t,n){var e=(new Function("i","var t=new Date; while(i--) {"+e+"}; return new Date - t"))(t);return e.displayName=n||"benchmarked",e};

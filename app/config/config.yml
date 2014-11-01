@@ -2,6 +2,9 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
+parameters:
+    assets_directory: 'assets'
+
 framework:
     esi:             { enabled: true }
     translator:      { fallback: "%locale%" }
@@ -28,6 +31,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        assetsPath:   "%assets_directory%"
 
 # Assetic Configuration
 assetic:
