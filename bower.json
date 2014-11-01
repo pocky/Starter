@@ -3,6 +3,7 @@
     "dependencies": {
         "admin-lte": "latest",
         "requirejs": "latest",
-        "jquery": "2.0.2"
+        "jquery": "latest",
+        "bootstrap": "latest"
     }
 }

@@ -1,6 +1,7 @@
 var gulp = require('gulp');
-var compass = require('gulp-compass');
-var minifyCSS = require('gulp-minify-css');
+var less = require('gulp-less');
+var path = require('path');
+var minifyCSS = require('gulp-minify');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var gulpif = require('gulp-if');
@@ -14,11 +15,10 @@ gulp.task('rjs', shell.task([
     ])
 );
 
-gulp.task('compass', function() {
-    gulp.src('./web/assets/sass/{,*/}*.scss')
-        .pipe(compass({
-            config_file: './config.rb',
-            sass: './web/assets/sass'
+gulp.task('less', function() {
+    gulp.src('./web/assets/less/{,*/}*.less')
+        .pipe(less({
+            paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
         .on('error', function(error) {
             console.log(error);
@@ -36,11 +36,11 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./web/assets/sass/{,*/}*.scss', ['compass']);
+    gulp.watch('./web/assets/less/{,*/}*.less', ['less']);
 });
 
 gulp.task('default', [
-    'compass',
+    'less',
     'lint',
     'rjs'
 ]);
