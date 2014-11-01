@@ -12,6 +12,6 @@
 !bin/symfony_requirements
 /composer.phar
 /web/assets/vendor/
-/web/assets-built/
+/web/assets-prod/
 .sass-cache/
 node_modules/
