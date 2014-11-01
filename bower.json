@@ -1,8 +1,8 @@
 {
+    "name": "starter",
     "dependencies": {
         "admin-lte": "latest",
         "requirejs": "latest",
-        "jquery": "2.0.2",
-        "sass-bootstrap": "latest"
+        "jquery": "2.0.2"
     }
 }
