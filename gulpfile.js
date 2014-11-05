@@ -6,6 +6,7 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var gulpif = require('gulp-if');
 var shell = require('gulp-shell');
+var livereload = require('gulp-livereload');
 var argv = require('yargs').argv;
 
 var prod = !!(argv.prod);
@@ -36,7 +37,10 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./web/assets/less/{,*/}*.less', ['less']);
+    livereload.listen();
+
+    gulp.watch('./web/assets/less/{,*/}*.less', ['less'])
+        .on('change', livereload.changed);
 });
 
 gulp.task('default', [
