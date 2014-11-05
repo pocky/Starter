@@ -3,16 +3,29 @@
 namespace Application\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\TwigBundle\TwigEngine;
 
+/**
+ * Class DefaultController
+ *
+ * @author Alexandre Balmes <${COPYRIGHT_NAME}>
+ * @license ${COPYRIGHT_LICENCE}
+ *
+ * @Route(service="application.controller.default")
+ */
 class DefaultController
 {
+    protected $templating;
+
+    public function __construct(TwigEngine $templating)
+    {
+        $this->templating = $templating;
+    }
     /**
      * @Route("/hello/{name}")
-     * @Template()
      */
     public function indexAction($name)
     {
-        return array('name' => $name);
+        return $this->templating->renderResponse('default/index.html.twig', array('name' => $name));
     }
 }
