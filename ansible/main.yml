@@ -4,6 +4,6 @@
   sudo: yes
   roles:
     - nodejs
-    - ruby
     - bower
-    - compass
+    - less
+    - git

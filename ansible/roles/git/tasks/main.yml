@@ -1,0 +1,6 @@
+---
+- name: Install post-merge hook
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: 'post-merge', dest: '/var/www/starter/.git/hooks/post-merge' }
+  tags: git

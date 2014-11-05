@@ -9,6 +9,7 @@ __Chrome extensions__
 - Gulp devtools: https://chrome.google.com/webstore/detail/gulp-devtools/ojpmgjhofceebfifeajnjojpokebkkji
 
 __Vagrant__
+
 Add theses line for port forwarding in your `vm/Vagrantfile`.
 
 ```
@@ -17,6 +18,7 @@ config.vm.network :forwarded_port, guest: 35729, host: 35729
 ```
 
 __How to use__
+
 SSH the VirtualMachine and `cd /var/www/starter`.
 Run `gulp-devtools`.
 
