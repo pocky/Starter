@@ -2,9 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
-parameters:
-    assets_directory: 'assets'
-
 framework:
     esi:             { enabled: true }
     translator:      { fallback: "%locale%" }

@@ -1,8 +1,8 @@
 ({
-    mainConfigFile: 'web/assets/js/common.js',
+    mainConfigFile: 'app/Resources/assets/js/common.js',
     baseUrl: './js',
-    appDir: 'web/assets',
-    dir: 'web/assets-prod',
+    appDir: 'app/Resources/assets',
+    dir: 'web/assets',
     modules: [
         {
             name: 'common',

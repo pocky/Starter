@@ -1,9 +1,6 @@
 imports:
     - { resource: config.yml }
 
-parameters:
-    assets_directory: 'assets-prod'
-
 #framework:
 #    validation:
 #        cache: apc
