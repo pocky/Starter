@@ -10,7 +10,8 @@
 namespace Domain\Model;
 
 use Black\Component\User\Domain\Model\User as BaseUser;
-use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use Black\Component\User\Domain\Model\UserId;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class User
@@ -20,10 +21,29 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
  */
 class User extends BaseUser
 {
-    /**
-     * @ODM\Id()
-     */
     protected $id;
+
+    /**
+     * The groups for the user
+     *
+     * @var ArrayCollection
+     */
+    protected $groups;
+
+    /**
+     * The roles for the user. It's an array of ROLE_* or FEATURE_*
+     *
+     * @var ArrayCollection
+     */
+    protected $roles;
+
+    public function __construct(UserId $userId, $name, $email)
+    {
+        parent::__construct($userId, $name, $email);
+
+        $this->groups = new ArrayCollection();
+        $this->roles = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -32,4 +52,20 @@ class User extends BaseUser
     {
         return $this->id;
     }
-} 
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+}
