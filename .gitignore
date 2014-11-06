@@ -13,5 +13,6 @@
 /composer.phar
 /app/Resources/assets/vendor/
 /web/assets/vendor/
+/web/assets/less/
 .sass-cache/
 node_modules/

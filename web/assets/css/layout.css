@@ -6311,3 +6311,6 @@ button.close {
     display: none !important;
   }
 }
+body {
+  font-size: 20px;
+}
