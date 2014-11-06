@@ -188,16 +188,20 @@ stfalcon_tinymce:
 fm_elfinder:
     instances:
         default:
-          editor: tinymce4
-          locale: %locale%
-          connector:
-              debug: false
-              roots:
-                  uploads:
-                      driver: LocalFileSystem
-                      path: uploads
-                      upload_allow: ['all']
-                      upload_max_size: 20M
+            editor: tinymce4
+            locale: %locale%
+            connector:
+                debug: false
+                roots:
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['all']
+                        upload_max_size: 20M
 
 application:
     db_driver: mongodb
+
+black_user:
+    db_driver: mongodb
+    user_class: Domain\Model\User

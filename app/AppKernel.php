@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
             new Black\Bundle\GeneratorBundle\BlackGeneratorBundle(),
+            new Black\Bundle\UserBundle\BlackUserBundle(),
             new Application\ApplicationBundle(),
         );
 
