@@ -1,14 +1,43 @@
 {% extends '::admin_base.html.twig' %}
-{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
+{% block htmlClass %}bg-black{% endblock %}
+{% block title %}{% trans %}application.admin.security.signin.title{% endtrans %}{% endblock %}
+{% block bodyClass %}bg-black{% endblock %}
 {% block body %}
 
+    <div class="form-box" id="login-box">
+
     {% if error %}
-        <div>{{ error.message }}</div>
+        <div class="callout callout-danger">
+            <h4>{% trans %}application.admin.security.signin.error.header{% endtrans %}</h4>
+            <p>{{ error.message|trans }}</p>
+        </div>
     {% endif %}
 
-    <form action="{{ path('admin_login_check') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-    </form>
+        <div class="header">{% trans %}application.admin.security.signin.header{% endtrans %}</div>
+
+        <form action="{{ url('admin_login_check', {}, true) }}" method="post" {{ form_enctype(form) }}>
+            <div class="body bg-gray">
+
+                <div class="form-group">
+                    {{ form_widget(form.username, {'attr': {'value': last_username }}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(form.password) }}
+                </div>
+
+                <div class="form-group">
+                    <input type="checkbox" id="login_remember_me" name="login[remember_me]" /> {% trans from 'form' %}black_user.form.login.rememberMe.label{% endtrans %}
+                </div>
+
+            </div>
+
+            <div class="footer">
+                {{ form_widget(form.submit) }}
+            </div>
+
+            {{ form_widget(form._token) }}
+        </form>
 
 {% endblock %}

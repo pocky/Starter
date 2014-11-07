@@ -1,0 +1,12 @@
+application:
+
+    admin:
+        security:
+            signin:
+                error:
+                    header: "Oups!"
+                title: "Log In"
+                header: "Sign In"
+
+
+

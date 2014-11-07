@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html lang="{{ app.request.getLocale() }}">
+<html lang="{{ app.request.getLocale() }}" class="{% block htmlClass %}{% endblock %}">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>Application | {% block title %}Welcome!{% endblock %}</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('assets/css/admin_layout.css') }}" />
         {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
     </head>
 
-    <body>
+    <body class="{% block bodyClass %}skin-blue{% endblock %}">
         {% block body %}
         {% endblock %}
 
         {% block javascript %}
             <script src="{{ asset('assets/js/common.js') }}"></script>
         {% endblock %}
-
     </body>
 </html>

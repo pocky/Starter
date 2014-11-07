@@ -1,1 +1,10 @@
 application:
+
+    admin:
+        security:
+            signin:
+                error:
+                    header: "Oups !"
+                    "Bad credentials.": "Informations erronées"
+                title: Connexion
+                header: "Connexion"
