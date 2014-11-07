@@ -1,0 +1,14 @@
+{% extends '::admin_base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block body %}
+
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path('admin_login_check') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+    </form>
+
+{% endblock %}

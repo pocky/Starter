@@ -6,10 +6,23 @@
 
     <parameters>
         <parameter key="application.controller.default.class">Application\Controller\DefaultController</parameter>
+
+        <parameter key="application.controller.admin.security.class">Application\Controller\Admin\SecurityController</parameter>
+        <parameter key="application.controller.admin.default.class">Application\Controller\Admin\DefaultController</parameter>
     </parameters>
 
     <services>
         <service id="application.controller.default" class="%application.controller.default.class%">
+            <argument type="service" id="templating" />
+        </service>
+
+        <service id="application.controller.admin.security" class="%application.controller.admin.security.class%">
+            <argument type="service" id="templating" />
+            <argument type="service" id="request_stack" />
+            <argument type="service" id="black_user.application.form.login" />
+        </service>
+
+        <service id="application.controller.admin.default" class="%application.controller.admin.default.class%">
             <argument type="service" id="templating" />
         </service>
     </services>

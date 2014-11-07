@@ -1,3 +1,13 @@
+admin_login:
+    pattern:   /admin/login
+    defaults:  { _controller: ApplicationBundle:Admin\Security:login }
+
+admin_login_check:
+    pattern:   /admin/login_check
+
+admin_logout:
+    pattern:   /admin/logout
+
 application:
     resource: "@ApplicationBundle/Controller/"
     type:     annotation

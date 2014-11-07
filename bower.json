@@ -1,9 +1,6 @@
 {
     "name": "starter",
     "dependencies": {
-        "admin-lte": "latest",
-        "requirejs": "latest",
-        "jquery": "latest",
-        "bootstrap": "latest"
+        "admin-lte": "latest"
     }
 }
