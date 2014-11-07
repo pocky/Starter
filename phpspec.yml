@@ -1,4 +1,11 @@
 suites:
+  application_suite:
+      namespace: Application
+  domain_suite:
+      namespace: Domain
+  infrastructure_suite:
+      namespace: Infrastructure
+
   black_commmon_suite:
       namespace: Black\Component\Common
       spec_path: ./vendor/black/common/
@@ -15,7 +22,6 @@ suites:
       namespace: Black\Component\Group
       spec_path: ./vendor/black/group/
       src_path: ./vendor/black/group/src/
-
 
   black_user_bundle_suite:
       namespace: Black\Bundle\UserBundle

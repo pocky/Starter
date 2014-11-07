@@ -5,13 +5,21 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        chain_provider:
+            chain:
+                providers:  [in_memory, main]
+
         in_memory:
             memory:
                 users:
                     admin: { password: kitten, roles: 'ROLE_SUPER_ADMIN' }
 
+        main:
+            id: application.provider
+
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
+        Domain\Model\User: bcrypt
 
     firewalls:
         dev:
@@ -35,11 +43,12 @@ security:
             logout:
                 path:   /admin/logout
                 target: /admin
-            switch_user: { role: ROLE_ADMIN, parameter: _want_to_be_this_user }
+            switch_user:
+                role: ROLE_ADMIN
+                parameter: _barbatruc
 
     access_control:
         - { path: ^/efconnect, role: ROLE_USER }
         - { path: ^/elfinder, role: ROLE_USER }
         - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, role: ROLE_ADMIN }
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

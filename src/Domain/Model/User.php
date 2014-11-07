@@ -12,6 +12,7 @@ namespace Domain\Model;
 use Black\Component\User\Domain\Model\User as BaseUser;
 use Black\Component\User\Domain\Model\UserId;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * Class User
@@ -19,8 +20,11 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @author Alexandre Balmes <${COPYRIGHT_NAME}>
  * @license ${COPYRIGHT_LICENCE}
  */
-class User extends BaseUser
+class User extends BaseUser implements AdvancedUserInterface
 {
+    /**
+     * @var
+     */
     protected $id;
 
     /**
@@ -37,6 +41,11 @@ class User extends BaseUser
      */
     protected $roles;
 
+    /**
+     * @param UserId $userId
+     * @param string $name
+     * @param string $email
+     */
     public function __construct(UserId $userId, $name, $email)
     {
         parent::__construct($userId, $name, $email);
@@ -54,6 +63,14 @@ class User extends BaseUser
     }
 
     /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->name;
+    }
+
+    /**
      * @return ArrayCollection
      */
     public function getGroups()
@@ -67,5 +84,45 @@ class User extends BaseUser
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    /**
+     *
+     */
+    public function eraseCredentials()
+    {
+        return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAccountNonLocked()
+    {
+        return (boolean) false === $this->isLocked();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return (boolean) true === $this->isActive();
     }
 }

@@ -40,7 +40,7 @@ class ApplicationExtension extends Extension
 
         $container->setParameter($this->getAlias() . '.backend_type_' . $config['db_driver'], true);
 
-        foreach (['services', 'controller'] as $basename) {
+        foreach (['services', 'controller', 'provider'] as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
         }
     }
