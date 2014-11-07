@@ -5,7 +5,7 @@ application:
             signin:
                 error:
                     header: "Oups!"
-                title: "Log In"
+                title: "Sign In"
                 header: "Sign In"
 
 

@@ -29,7 +29,7 @@ class DefaultController
     }
 
     /**
-     * @Route("/")
+     * @Route("/", name="admin_index")
      */
     public function indexAction()
     {
