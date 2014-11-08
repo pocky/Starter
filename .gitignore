@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /web/bundles/
 /app/config/parameters.yml
 /var/bootstrap.php.cache
@@ -16,3 +17,8 @@
 /web/assets/less/
 .sass-cache/
 node_modules/
+=======
+/vendor/
+/composer.phar
+/composer.lock
+>>>>>>> 0f1b287b8bc26e2dacce7d1850616a614bc2b479

@@ -1,6 +1,7 @@
 language: php
 
 php:
+<<<<<<< HEAD
   - 5.3.3
   - 5.3
   - 5.4
@@ -9,3 +10,20 @@ php:
 
 before_script: composer install -n
 
+=======
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhvm
+
+branches:
+  only:
+    - master
+
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction
+
+script:
+  - bin/phpspec run -v
+>>>>>>> 0f1b287b8bc26e2dacce7d1850616a614bc2b479

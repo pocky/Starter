@@ -50,8 +50,8 @@ class User extends BaseUser implements AdvancedUserInterface
     {
         parent::__construct($userId, $name, $email);
 
-        $this->groups = new ArrayCollection();
-        $this->roles = new ArrayCollection();
+        $this->roles = [];
+        $this->groups = [];
     }
 
     /**
@@ -84,6 +84,32 @@ class User extends BaseUser implements AdvancedUserInterface
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    /**
+     * @param $role
+     * @return $this
+     */
+    public function addRole($role)
+    {
+        if (!in_array($role, $this->roles)) {
+            $this->roles[] = $role;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param $role
+     * @return $this
+     */
+    public function removeRole($role)
+    {
+        if (!in_array($role, $this->roles)) {
+            unset($this->roles[$role]);
+        }
+
+        return $this;
     }
 
     /**

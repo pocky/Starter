@@ -9,6 +9,8 @@
 
     <document name="Domain\Model\User">
         <field fieldName="id" id="true" />
+
+        <field fieldName="roles" name="roles" type="collection" />
     </document>
 
 </doctrine-mongo-mapping>

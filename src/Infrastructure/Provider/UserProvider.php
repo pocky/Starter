@@ -50,7 +50,7 @@ class UserProvider implements UserProviderInterface
             throw new UsernameNotFoundException();
         }
 
-        return $username;
+        return $user;
     }
 
     /**

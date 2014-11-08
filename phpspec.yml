@@ -1,4 +1,5 @@
 suites:
+<<<<<<< HEAD
   application_suite:
       namespace: Application
   domain_suite:
@@ -27,3 +28,8 @@ suites:
       namespace: Black\Bundle\UserBundle
       spec_path: ./vendor/black/user-bundle/
       src_path: ./vendor/black/user-bundle/
+=======
+    black_common_suite:
+        namespace: Black\Component\Common
+        spec_path: ./src/Black/Component/Common
+>>>>>>> 0f1b287b8bc26e2dacce7d1850616a614bc2b479
