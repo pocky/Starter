@@ -8,5 +8,11 @@ application:
                 title: "Sign In"
                 header: "Sign In"
 
-
-
+        sidebar:
+            config:
+                a:
+                    span: Configuration
+                li:
+                    users:
+                        a:
+                            span: Users

@@ -59,7 +59,7 @@ class UserProvider implements UserProviderInterface
      */
     public function refreshUser(UserInterface $user)
     {
-        if (!$user instanceof UserInterface ) {
+        if (!$user instanceof UserInterface) {
             throw new UnsupportedUserException();
         }
 

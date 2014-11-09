@@ -82,8 +82,8 @@ class ApplicationBundle extends Bundle
 
             if ($r->isSubclassOf('Symfony\\Component\\Console\\Command\\Command') &&
                 !$r->isAbstract() && !$r->getConstructor()->getNumberOfRequiredParameters()) {
-                    $application->add($r->newInstance());
-                }
+                $application->add($r->newInstance());
+            }
         }
     }
 }

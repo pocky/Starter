@@ -8,3 +8,12 @@ application:
                     "Bad credentials.": "Informations erronées"
                 title: Connexion
                 header: "Connexion"
+
+        sidebar:
+            config:
+                a:
+                    span: Configuration
+                li:
+                    users:
+                        a:
+                            span: Utilisateurs
