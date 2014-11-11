@@ -16,3 +16,31 @@ application:
                     users:
                         a:
                             span: Users
+
+        content:
+            header:
+                title: Dashboard
+
+            breadcrumb:
+                home: Home
+                
+        user:
+            header:
+                title: User panel
+
+            breadcrumb:
+                list: Users
+
+            list:
+                title: Users list
+
+                thead:
+                    name: Name
+                    email: Email
+                    active: Active?
+                    lastConnection: Last connection
+                    actions: Actions
+
+                th:
+                    action:
+                        remove: Remove

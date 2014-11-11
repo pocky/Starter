@@ -11,12 +11,12 @@
 
             <section class="content-header">
                 <h1>
-                    Dashboard
-                    <small>Control panel</small>
+                    {% trans %}application.admin.content.header.title{% endtrans %}
+                    <small>{% trans %}application.admin.user.header.title{% endtrans %}</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Dashboard</li>
+                    <li><a href="#"><i class="fa fa-dashboard"></i> {% trans %}application.admin.content.breadcrumb.home{% endtrans %}</a></li>
+                    <li class="active">{% trans %}application.admin.user.breadcrumb.list{% endtrans %}</li>
                 </ol>
             </section>
 
@@ -24,43 +24,52 @@
 
                 <div class="row">
                     <div class="col-xs-12">
+
+                        {% for flashMessage in app.session.flashbag.get('success') %}
+
+                            <div class="alert alert-success alert-dismissable">
+                                <i class="fa fa-check"></i>
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{ flashMessage }}
+                            </div>
+
+                        {% endfor %}
+
+
                         <div class="box">
                             <div class="box-header">
-                                <h3 class="box-title">Data Table With Full Features</h3>
+                                <h3 class="box-title">{% trans %}application.admin.user.list.title{% endtrans %}</h3>
                             </div>
 
                             <div class="box-body table-responsive">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-                                            <th>Engine version</th>
-                                            <th>CSS grade</th>
+                                            <th>{% trans %}application.admin.user.list.thead.name{% endtrans %}</th>
+                                            <th>{% trans %}application.admin.user.list.thead.email{% endtrans %}</th>
+                                            <th>{% trans %}application.admin.user.list.thead.active{% endtrans %}</th>
+                                            <th>{% trans %}application.admin.user.list.thead.lastConnection{% endtrans %}</th>
+                                            <th>{% trans %}application.admin.user.list.thead.actions{% endtrans %}</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>Trident</td>
-                                            <td>Internet
-                                                Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td> 4</td>
-                                            <td>X</td>
-                                        </tr>
+                                        {% for user in users %}
+                                            <tr>
+                                                <th>{{ user.name }}</th>
+                                                <th>{{ user.email }}</th>
+                                                <th>{{ user.active }}</th>
+                                                <th>{{ user.lastConnection|format_date }}</th>
+                                                <th>
+                                                    <a href="{{ url('admin_user_remove', { 'id': user.userId }, true) }}"
+                                                       class="btn btn-danger"
+                                                       title="{% trans %}application.admin.user.list.th.action.remove{% endtrans %}">
+                                                        <i class="fa fa-fw fa-trash-o"></i>
+                                                    </a>
+                                                </th>
+                                            </tr>
+                                        {% endfor %}
                                     </tbody>
-
-                                    <tfoot>
-                                        <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-                                            <th>Engine version</th>
-                                            <th>CSS grade</th>
-                                        </tr>
-                                    </tfoot>
 
                                 </table>
 

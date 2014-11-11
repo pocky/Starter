@@ -17,3 +17,30 @@ application:
                     users:
                         a:
                             span: Utilisateurs
+
+        content:
+            header:
+                title: Tableau de bord
+
+            breadcrumb:
+                home: Accueil
+
+        user:
+            header:
+                title: User panel
+
+            breadcrumb:
+                list: Users
+
+            list:
+                title: Users list
+                thead:
+                    name: Nom
+                    email: Email
+                    active: Actif ?
+                    lastConnection: Dernière connexion
+                    actions: Actions
+
+                th:
+                    action:
+                        remove: Supprimer

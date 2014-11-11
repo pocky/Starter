@@ -11,6 +11,7 @@
         <parameter key="application.controller.admin.default.class">Application\Controller\Admin\DefaultController</parameter>
 
         <parameter key="application.controller.admin.user.list.class">Application\Controller\Admin\User\ListController</parameter>
+        <parameter key="application.controller.admin.user.remove.class">Application\Controller\Admin\User\RemoveController</parameter>
 
     </parameters>
 
@@ -33,5 +34,11 @@
             <argument type="service" id="black_user.application.controller.list" />
             <argument type="service" id="templating" />
         </service>
+
+        <service id="application.controller.admin.user.remove" class="%application.controller.admin.user.remove.class%">
+            <argument type="service" id="black_user.application.controller.remove" />
+            <argument type="service" id="router" />
+        </service>
+
     </services>
 </container>

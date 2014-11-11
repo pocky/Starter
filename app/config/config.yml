@@ -199,6 +199,9 @@ fm_elfinder:
 application:
     db_driver: mongodb
 
+parameters:
+    black_user.infrastructure.cqrs.handler.create.class: Infrastructure\CQRS\Handler\CreateUserHandler
+
 black_user:
     db_driver: mongodb
     user_class: Domain\Model\User
