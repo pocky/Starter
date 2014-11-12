@@ -1,7 +1,8 @@
+require('datatables');
+
 var $ = require('jquery');
 global.jQuery = require("jquery");
 var bootstrap = require('bootstrap');
-var dataTable = require('datatables');
 
 (function($) {
     "use strict";
