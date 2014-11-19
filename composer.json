@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "name": "black-project/black-standard-edition",
     "license": "MIT",
     "type": "project",
@@ -71,36 +70,5 @@
         "branch-alias": {
             "dev-master": "2.6-dev"
         }
-=======
-    "name": "black/common",
-    "type": "library",
-    "description": "Common Library for Black projects",
-    "keywords": ["library", "black-project", "common"],
-    "homepage": "http://www.lablackroom.com",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Alexandre 'pocky' Balmes",
-            "email": "alexandre@lablackroom.com",
-            "homepage": "http://www.lablackroom.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Black\\Component\\Common\\": "src/Black/Component/Common/"
-        }
-    },
-    "require": {
-        "php": ">=5.4.0",
-        "black/ddd-php": "~1.0",
-        "black/cqrs-php": "~1.0",
-        "doctrine/common": "~2.4"
-    },
-    "require-dev": {
-        "phpspec/phpspec": "~2.0"
-    },
-    "config": {
-        "bin-dir": "bin"
->>>>>>> 0f1b287b8bc26e2dacce7d1850616a614bc2b479
     }
 }
