@@ -1,5 +1,5 @@
 ({
-    mainConfigFile: 'app/Resources/assets/js/common.js',
+    mainConfigFile: './app/Resources/assets/js/common.js',
     baseUrl: './js',
     appDir: 'app/Resources/assets',
     dir: 'web/assets',

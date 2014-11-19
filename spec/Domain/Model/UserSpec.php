@@ -33,14 +33,12 @@ class UserSpec extends ObjectBehavior
 
     function it_should_not_have_a_group()
     {
-        $this->getGroups()->shouldBeAnInstanceOf('Doctrine\Common\Collections\ArrayCollection');
-        $this->getGroups()->shouldBeEmpty();
+        $this->getGroups()->shouldBeArray();
     }
 
     function if_should_not_have_a_role()
     {
-        $this->getRoles()->shouldBeAnInstanceOf('Doctrine\Common\Collections\ArrayCollection');
-        $this->getRoles()->shouldBeEmpty();
+        $this->getRoles()->shouldBeArray();
     }
 
     function it_should_erase_credentials()

@@ -1,5 +1,7 @@
 @import "../vendor/admin-lte/css/bootstrap.min.css";
 @import "../vendor/admin-lte/css/font-awesome.min.css";
+@import "../vendor/admin-lte/css/ionicons.min.css";
+@import "../vendor/admin-lte/css/datatables/dataTables.bootstrap.css";
 @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic);
 @import url(//fonts.googleapis.com/css?family=Kaushan+Script);
 /*! 

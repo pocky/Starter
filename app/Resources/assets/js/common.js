@@ -1,6 +1,7 @@
 var $ = require('jquery');
 global.jQuery = require("jquery");
 var bootstrap = require('bootstrap');
+var dataTable = require('datatables');
 
 (function($) {
     "use strict";
@@ -97,4 +98,14 @@ $('[data-widget="collapse"]').click(function() {
 
 /* Sidebar tree view */
 $(".sidebar .treeview").tree();
+
+/* dataTable */
+$('table').dataTable({
+    "bPaginate": true,
+    "bLengthChange": false,
+    "bFilter": false,
+    "bSort": true,
+    "bInfo": true,
+    "bAutoWidth": false
+});
 

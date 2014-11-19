@@ -28,6 +28,9 @@ class SecurityController
      */
     protected $requestStack;
 
+    /**
+     * @var Form
+     */
     protected $form;
 
     /**

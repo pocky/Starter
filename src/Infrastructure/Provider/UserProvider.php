@@ -2,6 +2,7 @@
 
 namespace Infrastructure\Provider;
 
+use Black\Component\User\Infrastructure\Doctrine\UserManager;
 use Black\Component\User\Infrastructure\Service\UserReadService;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
@@ -27,14 +28,22 @@ class UserProvider implements UserProviderInterface
     protected $service;
 
     /**
-     * @param UserReadService $service
+     * @var UserManager
+     */
+    protected $manager;
+
+    /**
+     * @param UserReadService $readService
+     * @param UserManager $userManager
      * @param $className
      */
     public function __construct(
-        UserReadService $service,
+        UserReadService $readService,
+        UserManager $userManager,
         $className
     ) {
-        $this->service   = $service;
+        $this->service   = $readService;
+        $this->manager   = $userManager;
         $this->className = $className;
     }
 
@@ -49,6 +58,9 @@ class UserProvider implements UserProviderInterface
         if (null === $user) {
             throw new UsernameNotFoundException();
         }
+
+        $user->connect();
+        $this->manager->flush();
 
         return $user;
     }

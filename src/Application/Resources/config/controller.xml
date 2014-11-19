@@ -9,6 +9,9 @@
 
         <parameter key="application.controller.admin.security.class">Application\Controller\Admin\SecurityController</parameter>
         <parameter key="application.controller.admin.default.class">Application\Controller\Admin\DefaultController</parameter>
+
+        <parameter key="application.controller.admin.user.list.class">Application\Controller\Admin\User\ListController</parameter>
+
     </parameters>
 
     <services>
@@ -23,6 +26,11 @@
         </service>
 
         <service id="application.controller.admin.default" class="%application.controller.admin.default.class%">
+            <argument type="service" id="templating" />
+        </service>
+
+        <service id="application.controller.admin.user.list" class="%application.controller.admin.user.list.class%">
+            <argument type="service" id="black_user.application.controller.list" />
             <argument type="service" id="templating" />
         </service>
     </services>
