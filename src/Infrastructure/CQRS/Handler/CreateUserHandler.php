@@ -9,10 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Infrastructure\CQRS\Handler;
+namespace Black\Component\User\Infrastructure\CQRS\Handler;
 
-use Black\Component\User\Infrastructure\CQRS\Handler\CreateUserHandler as BaseHandler;
 use Black\Component\User\Infrastructure\CQRS\Command\CreateUserCommand;
+use Black\Component\User\Infrastructure\Doctrine\UserManager;
+use Black\Component\User\Infrastructure\Service\RegisterService;
+use Black\DDD\CQRSinPHP\Infrastructure\CQRS\CommandHandler;
 
 /**
  * Class CreateUserHandler
@@ -20,19 +22,36 @@ use Black\Component\User\Infrastructure\CQRS\Command\CreateUserCommand;
  * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
  * @license http://opensource.org/licenses/mit-license.php MIT
  */
-class CreateUserHandler extends BaseHandler
+class CreateUserHandler implements CommandHandler
 {
+    /**
+     * @var UserManager
+     */
+    protected $manager;
+
+    /**
+     * @var RegisterService
+     */
+    protected $service;
+
+    /**
+     * @param UserManager $manager
+     * @param RegisterService $service
+     */
+    public function __construct(
+        UserManager $manager,
+        RegisterService $service
+    ) {
+        $this->manager = $manager;
+        $this->service = $service;
+    }
+
     /**
      * @param CreateUserCommand $command
      */
     public function handle(CreateUserCommand $command)
     {
-        $user = $this->service->create($command->getUserId(), $command->getName(), $command->getEmail());
-        $user->addRole('ROLE_USER');
-
-        if ($user) {
-            $this->service->register($user, $command->getPassword());
-        }
+        $this->service->create($command->getUserId(), $command->getName(), $command->getEmail());
 
         $this->manager->flush();
     }

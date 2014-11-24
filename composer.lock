@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f39abe58c707502fedd75df75d3af562",
+    "hash": "e7396c77e1e3ca261d9e9a6c36d324fa",
     "packages": [
         {
             "name": "black/common",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/black-project/common.git",
-                "reference": "0f1b287b8bc26e2dacce7d1850616a614bc2b479"
+                "reference": "376f1593ecfaa46b9518e4c10aac06d9b943c222"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/black-project/common/zipball/0f1b287b8bc26e2dacce7d1850616a614bc2b479",
-                "reference": "0f1b287b8bc26e2dacce7d1850616a614bc2b479",
+                "url": "https://api.github.com/repos/black-project/common/zipball/376f1593ecfaa46b9518e4c10aac06d9b943c222",
+                "reference": "376f1593ecfaa46b9518e4c10aac06d9b943c222",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "common",
                 "library"
             ],
-            "time": "2014-10-22 21:15:25"
+            "time": "2014-11-11 01:01:06"
         },
         {
             "name": "black/common-bundle",
@@ -61,18 +61,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/black-project/CommonBundle.git",
-                "reference": "0ab824e7972c62e72d1e9eae1afd905226d3d4e9"
+                "reference": "dc330e1e273239b370d4591a651518829fd635a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/black-project/CommonBundle/zipball/0ab824e7972c62e72d1e9eae1afd905226d3d4e9",
-                "reference": "0ab824e7972c62e72d1e9eae1afd905226d3d4e9",
+                "url": "https://api.github.com/repos/black-project/CommonBundle/zipball/dc330e1e273239b370d4591a651518829fd635a0",
+                "reference": "dc330e1e273239b370d4591a651518829fd635a0",
                 "shasum": ""
             },
             "require": {
                 "black/common": "~1",
                 "dantleech/symfony-form-array-to-delimited-string-transformer": "~0.1",
                 "php": ">=5.4.0",
+                "rhumsaa/uuid": "2.7.1",
                 "symfony/form": "~2.3",
                 "symfony/framework-bundle": "~2.3"
             },
@@ -99,24 +100,27 @@
                 "Symfony2",
                 "bundle"
             ],
-            "time": "2014-10-31 05:59:05"
+            "time": "2014-11-10 23:22:03"
         },
         {
             "name": "black/cqrs-php",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/black-project/cqrs-php.git",
-                "reference": "d60242d18c200ace29c00a29c9b9df3854e7926b"
+                "reference": "4056f21e8b53b3cde1f61b5d396256a57e4f1362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/black-project/cqrs-php/zipball/d60242d18c200ace29c00a29c9b9df3854e7926b",
-                "reference": "d60242d18c200ace29c00a29c9b9df3854e7926b",
+                "url": "https://api.github.com/repos/black-project/cqrs-php/zipball/4056f21e8b53b3cde1f61b5d396256a57e4f1362",
+                "reference": "4056f21e8b53b3cde1f61b5d396256a57e4f1362",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
+            },
+            "suggest": {
+                "black/ddd-php": "~1.0"
             },
             "type": "library",
             "autoload": {
@@ -133,7 +137,13 @@
                 }
             ],
             "description": "Implements CQRS (for DDD in PHP)",
-            "time": "2014-08-27 08:41:20"
+            "homepage": "http://www.lablackroom.com",
+            "keywords": [
+                "black-project",
+                "cqrs",
+                "ddd"
+            ],
+            "time": "2014-10-22 21:32:41"
         },
         {
             "name": "black/ddd-php",
@@ -501,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "b86688ba259ebc2f9ad6857a93c53cc4cf97cf82"
+                "reference": "e35ce0486a1d161e739bed38fde27b7cc921f5f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/b86688ba259ebc2f9ad6857a93c53cc4cf97cf82",
-                "reference": "b86688ba259ebc2f9ad6857a93c53cc4cf97cf82",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/e35ce0486a1d161e739bed38fde27b7cc921f5f0",
+                "reference": "e35ce0486a1d161e739bed38fde27b7cc921f5f0",
                 "shasum": ""
             },
             "require": {
@@ -564,7 +574,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-11-07 18:59:01"
+            "time": "2014-11-11 11:37:53"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1113,12 +1123,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "76e1a469ef3c4af4ef9d60c769822d4283809217"
+                "reference": "88ce68e733a02b84eb229c8447409b2ed5cf71ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/76e1a469ef3c4af4ef9d60c769822d4283809217",
-                "reference": "76e1a469ef3c4af4ef9d60c769822d4283809217",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/88ce68e733a02b84eb229c8447409b2ed5cf71ac",
+                "reference": "88ce68e733a02b84eb229c8447409b2ed5cf71ac",
                 "shasum": ""
             },
             "require": {
@@ -1180,7 +1190,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-11-05 12:19:29"
+            "time": "2014-11-21 20:54:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1268,12 +1278,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/helios-ag/FMElfinderBundle.git",
-                "reference": "eef1cc0a4cef011607c99384caa4238f809b4d5e"
+                "reference": "dc8b219c21f4202f193767f4a2abdf5a3cdc3a34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helios-ag/FMElfinderBundle/zipball/eef1cc0a4cef011607c99384caa4238f809b4d5e",
-                "reference": "eef1cc0a4cef011607c99384caa4238f809b4d5e",
+                "url": "https://api.github.com/repos/helios-ag/FMElfinderBundle/zipball/dc8b219c21f4202f193767f4a2abdf5a3cdc3a34",
+                "reference": "dc8b219c21f4202f193767f4a2abdf5a3cdc3a34",
                 "shasum": ""
             },
             "require": {
@@ -1319,20 +1329,20 @@
                 "elfinder",
                 "file manager"
             ],
-            "time": "2014-11-07 09:05:10"
+            "time": "2014-11-12 12:02:03"
         },
         {
             "name": "helios-ag/fm-elfinder-php-connector",
-            "version": "2.1",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helios-ag/ElFinderPHP.git",
-                "reference": "928d58b4a76d08c3c52b5a911500b0311b518802"
+                "reference": "357092feaaaa5f58b6c1077de6ba6a651d8f82b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helios-ag/ElFinderPHP/zipball/928d58b4a76d08c3c52b5a911500b0311b518802",
-                "reference": "928d58b4a76d08c3c52b5a911500b0311b518802",
+                "url": "https://api.github.com/repos/helios-ag/ElFinderPHP/zipball/357092feaaaa5f58b6c1077de6ba6a651d8f82b2",
+                "reference": "357092feaaaa5f58b6c1077de6ba6a651d8f82b2",
                 "shasum": ""
             },
             "require": {
@@ -1372,7 +1382,7 @@
                 "elfinder",
                 "filemanager"
             ],
-            "time": "2014-10-17 10:43:45"
+            "time": "2014-11-09 14:03:30"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1573,12 +1583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSDiExtraBundle.git",
-                "reference": "49fd39537cd0cbc6f76e4261f2549562d753cd82"
+                "reference": "4a0db1a5469940f83cc7d9c156224469ec8b6c01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSDiExtraBundle/zipball/49fd39537cd0cbc6f76e4261f2549562d753cd82",
-                "reference": "49fd39537cd0cbc6f76e4261f2549562d753cd82",
+                "url": "https://api.github.com/repos/schmittjoh/JMSDiExtraBundle/zipball/4a0db1a5469940f83cc7d9c156224469ec8b6c01",
+                "reference": "4a0db1a5469940f83cc7d9c156224469ec8b6c01",
                 "shasum": ""
             },
             "require": {
@@ -1605,7 +1615,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -1629,7 +1639,7 @@
                 "annotations",
                 "dependency injection"
             ],
-            "time": "2014-09-26 09:56:26"
+            "time": "2014-11-24 08:56:26"
         },
         {
             "name": "jms/metadata",
@@ -2023,18 +2033,84 @@
             "time": "2012-12-21 11:40:51"
         },
         {
+            "name": "rhumsaa/uuid",
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "8569983a11ed96087cdf94c7aa65866138681beb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/8569983a11ed96087cdf94c7aa65866138681beb",
+                "reference": "8569983a11ed96087cdf94c7aa65866138681beb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "doctrine/dbal": ">=2.3",
+                "moontoast/math": "~1.1",
+                "phpunit/phpunit": "~3.7",
+                "symfony/console": "~2.3"
+            },
+            "suggest": {
+                "doctrine/dbal": "Allow the use of a UUID as doctrine field type.",
+                "moontoast/math": "Support for converting UUID to 128-bit integer (in string form).",
+                "symfony/console": "Support for use of the bin/uuid command line tool."
+            },
+            "bin": [
+                "bin/uuid"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Rhumsaa\\Uuid": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Huizendveld",
+                    "email": "marijn.huizendveld@gmail.com"
+                },
+                {
+                    "name": "Ben Ramsey",
+                    "homepage": "http://benramsey.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP 5.3+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
+            "homepage": "https://github.com/ramsey/uuid",
+            "keywords": [
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "time": "2014-02-22 00:08:43"
+        },
+        {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.8",
+            "version": "v3.0.10",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "bc5e96bb4faf6bee7121085951d11b89488952f5"
+                "reference": "ca188a500a7bef815a46f19f8616f0a775e7dbf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/bc5e96bb4faf6bee7121085951d11b89488952f5",
-                "reference": "bc5e96bb4faf6bee7121085951d11b89488952f5",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/ca188a500a7bef815a46f19f8616f0a775e7dbf2",
+                "reference": "ca188a500a7bef815a46f19f8616f0a775e7dbf2",
                 "shasum": ""
             },
             "require": {
@@ -2073,21 +2149,21 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2014-11-03 21:16:34"
+            "time": "2014-11-23 18:30:35"
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "9b22aaee517e80aad3238ea0328458b6f964066f"
+                "reference": "b829a8097a41ccbd7d35683b1750043b23d682f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/9b22aaee517e80aad3238ea0328458b6f964066f",
-                "reference": "9b22aaee517e80aad3238ea0328458b6f964066f",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/b829a8097a41ccbd7d35683b1750043b23d682f5",
+                "reference": "b829a8097a41ccbd7d35683b1750043b23d682f5",
                 "shasum": ""
             },
             "require": {
@@ -2128,7 +2204,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2014-09-02 07:11:30"
+            "time": "2014-11-10 14:50:31"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -2589,16 +2665,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.6.0-BETA1",
+            "version": "v2.6.0-BETA2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "7bd1d4c0e68e9e2fd9e19c8e5671f71e82a4dc73"
+                "reference": "d56d198aa41e70058edbf660a7de0a0c02aa2faf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/7bd1d4c0e68e9e2fd9e19c8e5671f71e82a4dc73",
-                "reference": "7bd1d4c0e68e9e2fd9e19c8e5671f71e82a4dc73",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/d56d198aa41e70058edbf660a7de0a0c02aa2faf",
+                "reference": "d56d198aa41e70058edbf660a7de0a0c02aa2faf",
                 "shasum": ""
             },
             "require": {
@@ -2662,7 +2738,7 @@
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "~1.11",
                 "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
-                "propel/propel1": "1.6.*"
+                "propel/propel1": "~1.6"
             },
             "type": "library",
             "extra": {
@@ -2701,7 +2777,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-11-03 20:15:26"
+            "time": "2014-11-23 20:57:16"
         },
         {
             "name": "twig/extensions",
@@ -3496,16 +3572,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.2.1",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "ed9c0bcffe4639a5b0ff83e399eeb28e7fcc68f0"
+                "reference": "9ca52329bcdd1500de24427542577ebf3fc2f1c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/ed9c0bcffe4639a5b0ff83e399eeb28e7fcc68f0",
-                "reference": "ed9c0bcffe4639a5b0ff83e399eeb28e7fcc68f0",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9ca52329bcdd1500de24427542577ebf3fc2f1c9",
+                "reference": "9ca52329bcdd1500de24427542577ebf3fc2f1c9",
                 "shasum": ""
             },
             "require": {
@@ -3551,7 +3627,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2014-09-23 10:52:18"
+            "time": "2014-11-17 16:23:49"
         },
         {
             "name": "phpunit/php-code-coverage",
