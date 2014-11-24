@@ -38,8 +38,8 @@
                                 <h3 class="box-title">{% trans %}application.admin.user.list.title{% endtrans %}</h3>
                             </div>
 
-                            <a class="btn btn-app">
-                                <i class="fa fa-edit"></i> Create
+                            <a class="btn btn-app" href="{{ url('admin_user_create_form', {}, true) }}" data-toggle="modal" data-target="#createModal">
+                                <i class="fa fa-edit"></i> {% trans %}application.admin.user.list.button.create.a{% endtrans %}
                             </a>
 
                             <div class="box-body table-responsive">
@@ -82,4 +82,15 @@
             </section>
         </aside>
     </div>
+
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            </div>
+
+        </div>
+
+    </div>
+
 {% endblock body %}

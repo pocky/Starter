@@ -4,10 +4,10 @@ namespace Application\Controller\Admin\User;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\TwigBundle\TwigEngine;
-use Black\Component\User\Application\Controller\CreateController as Controller;
+use Symfony\Component\Form\Form;
 
 /**
- * Class CreateController
+ * Class CreateFormController
  *
  * @author Alexandre Balmes <${COPYRIGHT_NAME}>
  * @license ${COPYRIGHT_LICENCE}
@@ -17,23 +17,24 @@ use Black\Component\User\Application\Controller\CreateController as Controller;
 class CreateFormController
 {
     /**
-     * @var Controller
-     */
-    protected $controller;
-
-    /**
      * @var TwigEngine
      */
     protected $templating;
 
     /**
+     * @var Form
+     */
+    protected $form;
+
+    /**
      * @param TwigEngine $templating
+     * @param Form $form
      */
     public function __construct(
-        Controller $controller,
+        Form $form,
         TwigEngine $templating
     ) {
-        $this->controller = $controller;
+        $this->form       = $form;
         $this->templating = $templating;
     }
 
@@ -44,10 +45,8 @@ class CreateFormController
      */
     public function createFormAction()
     {
-        $form = $this->get('black_user.application.form.create_user');
-
         return $this->templating->renderResponse('admin/user/create_form.html.twig', [
-            'form' => $form->createView(),
+            'form' => $this->form->createView(),
         ]);
     }
 }

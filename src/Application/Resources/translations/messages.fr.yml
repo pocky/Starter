@@ -27,13 +27,18 @@ application:
 
         user:
             header:
-                title: User panel
+                title: Dashboard Utilisateurs
 
             breadcrumb:
-                list: Users
+                list: Utilisateurs
 
             list:
-                title: Users list
+                title: Liste des utilsiateurs
+
+                button:
+                    create:
+                        a: Créer un nouvel utilisateur
+
                 thead:
                     name: Nom
                     email: Email
@@ -44,3 +49,11 @@ application:
                 th:
                     action:
                         remove: Supprimer
+
+            create:
+                header:
+                    title: Créer un nouvel utilisateur
+
+                footer:
+                    close: Fermer
+                    submit: Sauvegarder

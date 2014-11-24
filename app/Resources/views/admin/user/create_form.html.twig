@@ -1,9 +1,22 @@
 {% block body %}
 
-    <form method="POST" action="{{ url('', {}, true) }}" {{ form_enctype(form) }}>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{% trans %}application.admin.user.create.header.title{% endtrans %}</h4>
+    </div>
 
-        {{ form_rest(form) }}
+    <div class="modal-body">
+        <div class="te">
+            <form id="admin_user_create" method="POST" action="{{ url('admin_user_create', {}, true) }}" {{ form_enctype(form) }}>
+                {{ form_rest(form) }}
+            </form>
+        </div>
+    </div>
 
-    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans %}application.admin.user.create.footer.close{% endtrans %}</button>
+        <button type="submit" form="admin_user_create" class="btn btn-primary">{% trans %}application.admin.user.create.footer.submit{% endtrans %}</button>
+    </div>
+
 
 {% endblock %}

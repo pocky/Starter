@@ -200,6 +200,7 @@ application:
     db_driver: mongodb
 
 parameters:
+    black_user.infrastructure.cqrs.handler.register.class: Infrastructure\CQRS\Handler\RegisterUserHandler
     black_user.infrastructure.cqrs.handler.create.class: Infrastructure\CQRS\Handler\CreateUserHandler
 
 black_user:

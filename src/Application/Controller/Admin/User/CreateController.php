@@ -2,9 +2,15 @@
 
 namespace Application\Controller\Admin\User;
 
+use Black\Component\User\Application\Controller\CreateController as Controller;
+use Black\Bundle\UserBundle\Application\Form\Handler\CreateUserHandler;
+use Black\Component\User\Domain\Model\UserId;
+use Rhumsaa\Uuid\Uuid;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\TwigBundle\TwigEngine;
-use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Routing\Router;
 
 /**
  * Class CreateController
@@ -12,41 +18,55 @@ use Symfony\Component\Form\Form;
  * @author Alexandre Balmes <${COPYRIGHT_NAME}>
  * @license ${COPYRIGHT_LICENCE}
  *
- * @Route("/admin/user", service="application.controller.admin.user.create_form")
+ * @Route("/admin/user", service="application.controller.admin.user.create")
  */
-class CreateFormController
+class CreateController
 {
     /**
-     * @var TwigEngine
+     * @var Controller
      */
-    protected $templating;
+    protected $controller;
 
     /**
-     * @var Form
+     * @var CreateUserHandler
      */
-    protected $form;
+    protected $handler;
 
     /**
-     * @param TwigEngine $templating
-     * @param Form $form
+     * @var Router
+     */
+    protected $router;
+
+    /**
+     * @param Controller $controller
+     * @param CreateUserHandler $handler
+     * @param Router $router
      */
     public function __construct(
-        Form $form,
-        TwigEngine $templating
+        Controller $controller,
+        CreateUserHandler $handler,
+        Router $router
     ) {
-        $this->form       = $form;
-        $this->templating = $templating;
+        $this->controller = $controller;
+        $this->handler    = $handler;
+        $this->router     = $router;
     }
 
     /**
-     * @Route("/form/create.html", name="admin_user_create_form")
+     * @Route("/create", name="admin_user_create")
+     * @Method({"POST"})
      *
      * @return array
      */
-    public function createFormAction()
+    public function createUserAction()
     {
-        return $this->templating->renderResponse('admin/user/create_form.html.twig', [
-            'form' => $this->form->createView(),
-        ]);
+        $dto = $this->handler->process();
+
+        if ($dto) {
+            $id = new UserId(Uuid::uuid4());
+            $this->controller->createUserAction($id, $dto->getName(), $dto->getEmail());
+        }
+
+        return new RedirectResponse($this->router->generate('admin_users_list'));
     }
 }

@@ -11,21 +11,21 @@
 
 namespace Infrastructure\CQRS\Handler;
 
-use Black\Component\User\Infrastructure\CQRS\Handler\CreateUserHandler as BaseHandler;
-use Black\Component\User\Infrastructure\CQRS\Command\CreateUserCommand;
+use Black\Component\User\Infrastructure\CQRS\Handler\RegisterUserHandler as BaseHandler;
+use Black\Component\User\Infrastructure\CQRS\Command\RegisterUserCommand;
 
 /**
- * Class CreateUserHandler
+ * Class RegisterUserHandler
  *
  * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
  * @license http://opensource.org/licenses/mit-license.php MIT
  */
-class CreateUserHandler extends BaseHandler
+class RegisterUserHandler extends BaseHandler
 {
     /**
-     * @param CreateUserCommand $command
+     * @param RegisterUserCommand $command
      */
-    public function handle(CreateUserCommand $command)
+    public function handle(RegisterUserCommand $command)
     {
         $user = $this->service->create($command->getUserId(), $command->getName(), $command->getEmail());
         $user->addRole('ROLE_USER');
