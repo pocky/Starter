@@ -59,7 +59,23 @@
                                             <tr>
                                                 <th>{{ user.name }}</th>
                                                 <th>{{ user.email }}</th>
-                                                <th>{{ user.active }}</th>
+                                                <th>
+                                                    {% if user.active %}
+                                                        yes
+                                                        <a href="{{ url('admin_user_active', { 'id': user.userId }, true) }}"
+                                                           class="btn btn-danger"
+                                                           title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
+                                                            <i class="fa fa-fw fa-circle"></i>
+                                                        </a>
+                                                    {% else %}
+                                                        no
+                                                        <a href="{{ url('admin_user_active', { 'id': user.userId }, true) }}"
+                                                              class="btn btn-success"
+                                                              title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
+                                                            <i class="fa fa-fw fa-check-circle"></i>
+                                                        </a>
+                                                    {% endif %}
+                                                </th>
                                                 <th>{{ user.lastConnection|format_date }}</th>
                                                 <th>
                                                     <a href="{{ url('admin_user_remove', { 'id': user.userId }, true) }}"

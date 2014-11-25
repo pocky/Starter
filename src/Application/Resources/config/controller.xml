@@ -10,6 +10,7 @@
         <parameter key="application.controller.admin.security.class">Application\Controller\Admin\SecurityController</parameter>
         <parameter key="application.controller.admin.default.class">Application\Controller\Admin\DefaultController</parameter>
 
+        <parameter key="application.controller.admin.user.active.class">Application\Controller\Admin\User\ActiveController</parameter>
         <parameter key="application.controller.admin.user.create.class">Application\Controller\Admin\User\CreateController</parameter>
         <parameter key="application.controller.admin.user.create_form.class">Application\Controller\Admin\User\CreateFormController</parameter>
         <parameter key="application.controller.admin.user.list.class">Application\Controller\Admin\User\ListController</parameter>
@@ -30,6 +31,11 @@
 
         <service id="application.controller.admin.default" class="%application.controller.admin.default.class%">
             <argument type="service" id="templating" />
+        </service>
+
+        <service id="application.controller.admin.user.active" class="%application.controller.admin.user.active.class%">
+            <argument type="service" id="black_user.application.controller.active" />
+            <argument type="service" id="router" />
         </service>
 
         <service id="application.controller.admin.user.create" class="%application.controller.admin.user.create.class%" scope="request">

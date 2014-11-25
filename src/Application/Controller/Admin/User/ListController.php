@@ -2,6 +2,7 @@
 
 namespace Application\Controller\Admin\User;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\TwigBundle\TwigEngine;
 use Black\Component\User\Application\Controller\ListController as Controller;
@@ -39,6 +40,7 @@ class ListController
 
     /**
      * @Route("/list.html", name="admin_users_list")
+     * @Method({"GET"})
      */
     public function indexAction()
     {
