@@ -25,7 +25,7 @@
 
         <service id="application.controller.admin.security" class="%application.controller.admin.security.class%">
             <argument type="service" id="templating" />
-            <argument type="service" id="request_stack" />
+            <argument type="service" id="security.authentication_utils" />
             <argument type="service" id="black_user.application.form.login" />
         </service>
 

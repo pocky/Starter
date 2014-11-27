@@ -7,6 +7,7 @@ use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
  * Class SecurityController
@@ -24,9 +25,9 @@ class SecurityController
     protected $templating;
 
     /**
-     * @var RequestStack
+     * @var AuthenticationUtils
      */
-    protected $requestStack;
+    protected $helper;
 
     /**
      * @var Form
@@ -35,14 +36,16 @@ class SecurityController
 
     /**
      * @param TwigEngine $templating
+     * @param AuthenticationUtils $helper
+     * @param Form $form
      */
     public function __construct(
         TwigEngine $templating,
-        RequestStack $requestStack,
+        AuthenticationUtils $helper,
         Form $form
     ) {
         $this->templating = $templating;
-        $this->requestStack = $requestStack;
+        $this->helper = $helper;
         $this->form = $form;
     }
 
@@ -51,30 +54,10 @@ class SecurityController
      */
     public function loginAction()
     {
-        $request = $this->requestStack->getCurrentRequest();
-        $session = $request->getSession();
-
-        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
-        } else {
-            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
-            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
-        }
-
         return $this->templating->renderResponse('admin/security/login.html.twig', [
             'form'          => $this->form->createView(),
-            'last_username' => $session->get(SecurityContext::LAST_USERNAME),
-            'error'         => $error,
-        ]);
-    }
-
-    /**
-     * @Route("/hello/{name}")
-     */
-    public function indexAction($name)
-    {
-        return $this->templating->renderResponse('admin/default/index.html.twig', [
-            'name' => $name
+            'last_username' => $this->helper->getLastUsername(),
+            'error'         => $this->helper->getLastAuthenticationError(),
         ]);
     }
 }
