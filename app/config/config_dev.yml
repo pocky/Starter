@@ -46,3 +46,6 @@ assetic:
 
 swiftmailer:
     delivery_address: %delivery_email%
+
+translator:
+    logging: true
