@@ -10,7 +10,6 @@ use Symfony\Component\Debug\Debug;
 // This check prevents access to debug front controllers that are deployed by accident to production servers.
 // Feel free to remove this, extend it, or make something more sophisticated.
 
-
 $loader = require_once __DIR__.'/../var/bootstrap.php.cache';
 Debug::enable();
 

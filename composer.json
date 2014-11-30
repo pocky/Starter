@@ -7,8 +7,8 @@
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
     "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": "v2.6.0-BETA2",
+        "php": ">=5.5",
+        "symfony/symfony": "~2.6",
         "doctrine/orm": "2.5.*@dev",
         "doctrine/dbal": "2.5.*@dev",
         "doctrine/doctrine-bundle": "1.3.*@dev",
@@ -64,6 +64,7 @@
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         },
