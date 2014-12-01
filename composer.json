@@ -6,6 +6,44 @@
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/user.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/UserBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/person.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/postal-address.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/contact-point.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/organization.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/product.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/place.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pocky/group.git"
+        }
+    ],
     "require": {
         "php": ">=5.5",
         "symfony/symfony": "~2.6",
@@ -27,7 +65,9 @@
         "sonata-project/intl-bundle": "2.1.*",
         "stfalcon/tinymce-bundle": "dev-master",
         "helios-ag/fm-elfinder-bundle": "dev-master",
-        "black/common-bundle": "dev-master"
+        "black/common-bundle": "dev-master",
+        "black/user": "dev-master",
+        "black/user-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
