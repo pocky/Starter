@@ -19,8 +19,12 @@ config.vm.network :forwarded_port, guest: 35729, host: 35729
 
 __How to use__
 
-SSH the VirtualMachine and `cd /var/www/starter`.
-Run `gulp-devtools`.
+- SSH the VirtualMachine and `cd /var/www/starter`.
+- Run `npm install`
+- Run `gulp`
+
+And if you want to make css or javascript :
+- Run `gulp-devtools`.
 
 In the Gulp Chrome panel, Run the `watch` task in background and start your job.
 When your done, run `gulp --production` for bulding your assets.

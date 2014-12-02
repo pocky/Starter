@@ -1,9 +1,11 @@
 ---
-- name: Provisioning for Starter
+- name: Provisioning for Gifam
   hosts: all
   sudo: yes
   roles:
+    - git
     - nodejs
     - bower
+    - gulp
     - less
-    - git
+    - nginx
