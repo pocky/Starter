@@ -15,5 +15,5 @@
 /web/assets/less/
 .sass-cache/
 node_modules/
-/vendor/
 /composer.phar
+/.vagrant

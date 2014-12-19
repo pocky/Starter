@@ -1,5 +1,5 @@
 ---
-- name: Provisioning for Gifam
+- name: Provisioning for Starter
   hosts: all
   sudo: yes
   roles:
@@ -9,3 +9,5 @@
     - gulp
     - less
     - nginx
+    - oh-my-zsh
+    - starter
