@@ -13,3 +13,13 @@
   shell: cd {{ project_directory }} && bower -q install
   sudo_user: vagrant
   tags: starter
+
+- name: Starter | cache
+  lineinfile: >
+    regexp=";env[TEMP] = /tmp"
+    line="env[VAGRANT] = true"
+    dest=/etc/php5/fpm/pool.d/www.conf
+    state=present
+  notify:
+      - restart fpm
+  tags: starter
