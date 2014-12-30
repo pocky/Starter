@@ -403,7 +403,7 @@ class SymfonyRequirements extends RequirementCollection
         );
 
         $this->addRequirement(
-            is_dir(__DIR__.'/../vendor/composer'),
+            is_dir($this->getComposerVendorDir()),
             'Vendor libraries must be installed',
             'Vendor libraries are missing. Install composer following instructions from <a href="http://getcomposer.org/">http://getcomposer.org/</a>. '.
                 'Then run "<strong>php composer.phar install</strong>" to install them.'
@@ -442,7 +442,8 @@ class SymfonyRequirements extends RequirementCollection
             $this->addRequirement(
                 isset($timezones[@date_default_timezone_get()]),
                 sprintf('Configured default timezone "%s" must be supported by your installation of PHP', @date_default_timezone_get()),
-                'Your default timezone is not supported by PHP. Check for typos in your <strong>php.ini</strong> file and have a look at the list of deprecated timezones at <a href="http://php.net/manual/en/timezones.others.php">http://php.net/manual/en/timezones.others.php</a>.'            );
+                'Your default timezone is not supported by PHP. Check for typos in your <strong>php.ini</strong> file and have a look at the list of deprecated timezones at <a href="http://php.net/manual/en/timezones.others.php">http://php.net/manual/en/timezones.others.php</a>.'
+            );
         }
 
         $this->addRequirement(
@@ -542,7 +543,7 @@ class SymfonyRequirements extends RequirementCollection
         /* optional recommendations follow */
 
         $this->addRecommendation(
-            file_get_contents(__FILE__) === file_get_contents(__DIR__.'/../vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/skeleton/app/SymfonyRequirements.php'),
+            file_get_contents(__FILE__) === file_get_contents($this->getComposerVendorDir().'/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/skeleton/app/SymfonyRequirements.php'),
             'Requirements file should be up-to-date',
             'Your requirements file is outdated. Run composer install and re-check your configuration.'
         );
@@ -734,5 +735,22 @@ class SymfonyRequirements extends RequirementCollection
             default:
                 return (int) $size;
         }
+    }
+
+    /**
+     * In some special setups, the vendor/ directory isn't located in the project's
+     * root directory. To make this command work for every case, read Composer's
+     * vendor/ directory location directly from composer.json file.
+     *
+     * @return string
+     */
+    private function getComposerVendorDir()
+    {
+        $composerJson = json_decode(file_get_contents(__DIR__.'/../composer.json'));
+        if (isset($composerJson->config)) {
+            return $composerJson->config->{'vendor-dir'};
+        }
+
+        return __DIR__.'/../vendor/composer';
     }
 }

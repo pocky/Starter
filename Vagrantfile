@@ -89,14 +89,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
-  # OhMyZsh
-  if File.exists?(File.join(Dir.home, '.zshrc')) then
-    config.vm.provision :file do |file|
-      file.source      = '~/.zshrc'
-      file.destination = '/home/vagrant/.zshrc'
-    end
-  end
-
   # Provisioniers
   config.vm.provision :ansible do |ansible|
     ansible.playbook   = options[:ansible] + '/playbook.yml'
