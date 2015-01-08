@@ -1,6 +1,12 @@
 imports:
     - { resource: config.yml }
 
+services:
+    monolog_processor:
+        class: Monolog\Processor\PsrLogMessageProcessor
+        tags:
+            - { name: monolog.processor }
+
 #framework:
 #    validation:
 #        cache: apc
