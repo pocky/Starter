@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "700ac398e2ca25bf6bc37da82b6de72a",
+    "hash": "55d63b34ef6da91d1785ca7567451e79",
     "packages": [
         {
             "name": "black/common",
@@ -238,12 +238,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pocky/user.git",
-                "reference": "26e3824246938ba3abc2bd03b3348a9628af719a"
+                "reference": "f2920c8432c434718dad180d09ead7ba66d16fd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pocky/user/zipball/26e3824246938ba3abc2bd03b3348a9628af719a",
-                "reference": "26e3824246938ba3abc2bd03b3348a9628af719a",
+                "url": "https://api.github.com/repos/pocky/user/zipball/f2920c8432c434718dad180d09ead7ba66d16fd7",
+                "reference": "f2920c8432c434718dad180d09ead7ba66d16fd7",
                 "shasum": ""
             },
             "require": {
@@ -280,7 +280,7 @@
                 "source": "https://github.com/pocky/user/tree/master",
                 "issues": "https://github.com/pocky/user/issues"
             },
-            "time": "2014-12-20 23:06:32"
+            "time": "2015-01-09 00:10:35"
         },
         {
             "name": "black/user-bundle",
@@ -288,12 +288,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pocky/UserBundle.git",
-                "reference": "6b6d4840d925fb2231411322aacd5751158323f6"
+                "reference": "d1f69945a3377655671372b6b856df781a9b432b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pocky/UserBundle/zipball/6b6d4840d925fb2231411322aacd5751158323f6",
-                "reference": "6b6d4840d925fb2231411322aacd5751158323f6",
+                "url": "https://api.github.com/repos/pocky/UserBundle/zipball/d1f69945a3377655671372b6b856df781a9b432b",
+                "reference": "d1f69945a3377655671372b6b856df781a9b432b",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
                 "source": "https://github.com/pocky/UserBundle/tree/master",
                 "issues": "https://github.com/pocky/UserBundle/issues"
             },
-            "time": "2014-12-11 10:37:44"
+            "time": "2015-01-09 00:12:04"
         },
         {
             "name": "dantleech/symfony-form-array-to-delimited-string-transformer",
@@ -3630,6 +3630,47 @@
                 "persistence"
             ],
             "time": "2013-09-05 11:23:37"
+        },
+        {
+            "name": "henrikbjorn/phpspec-code-coverage",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/henrikbjorn/PhpSpecCodeCoverageExtension.git",
+                "reference": "987be21438b4e2905563d74634ee36cf73290f40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/henrikbjorn/PhpSpecCodeCoverageExtension/zipball/987be21438b4e2905563d74634ee36cf73290f40",
+                "reference": "987be21438b4e2905563d74634ee36cf73290f40",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xdebug": ">=2.1.4",
+                "php": ">=5.3.3",
+                "phpspec/phpspec": "~2.0",
+                "phpunit/php-code-coverage": "~2.0"
+            },
+            "require-dev": {
+                "bossa/phpspec2-expect": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PhpSpec\\Extension\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Integrates CodeCoverage with PhpSpec",
+            "time": "2014-07-04 11:53:55"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
