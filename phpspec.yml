@@ -1,3 +1,6 @@
+extensions:
+    - PhpSpec\Extension\CodeCoverageExtension
+
 suites:
   application_suite:
       namespace: Application
