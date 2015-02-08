@@ -43,22 +43,4 @@ class AppKernel extends Kernel
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
-
-    public function getCacheDir()
-    {
-        if (isset($_SERVER['VAGRANT']) && $_SERVER['VAGRANT']) {
-            return '/dev/shm/cache/' .  $this->environment;
-        }
-
-        return parent::getCacheDir();
-    }
-
-    public function getLogDir()
-    {
-        if (isset($_SERVER['VAGRANT']) && $_SERVER['VAGRANT']) {
-            return '/dev/shm/logs';
-        }
-
-        return parent::getLogDir();
-    }
 }

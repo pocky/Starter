@@ -11,7 +11,7 @@ options = {
     :memory      => 1024,
     :cpu         => 1,
     :folders     => {
-        '.' => '/var/www/starter'
+      '.' => '/var/www/starter'
     },
     :ansible     => 'ansible',
     :debug       => false
@@ -58,6 +58,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.synced_folder host, guest,
       type: 'nfs',
       mount_options: ['nolock', 'actimeo=1', 'fsc']
+  end
+
+  if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.scope = :machine
+
+      config.cache.synced_folder_opts = {
+        type: :nfs,
+        mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+      }
+
+      config.cache.enable :generic, {
+        'cache'  => { cache_dir: options[:folders].first[1] + '/var/cache' },
+        'logs'   => { cache_dir: options[:folders].first[1] + '/var/logs' },
+        'vendor' => { cache_dir: options[:folders].first[1] + '/vendor' }
+      }
+
   end
 
   # Providers

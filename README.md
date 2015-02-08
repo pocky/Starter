@@ -10,11 +10,11 @@ __Chrome extensions__
 
 __Vagrant__
 
-Add theses line for port forwarding in your `vm/Vagrantfile`.
+You need theses vagrant plugins for optimal conditions:
 
 ```
-config.vm.network :forwarded_port, guest: 8001, host: 8001
-config.vm.network :forwarded_port, guest: 35729, host: 35729
+vagrant-cachier
+landrush (or vagrant hostmanager on windows)
 ```
 
 __How to work with assets?__
