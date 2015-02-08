@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55d63b34ef6da91d1785ca7567451e79",
+    "hash": "316158f58a06da93cb1c350716711059",
     "packages": [
         {
             "name": "black/common",
@@ -1425,16 +1425,16 @@
         },
         {
             "name": "helios-ag/fm-elfinder-bundle",
-            "version": "dev-master",
+            "version": "3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helios-ag/FMElfinderBundle.git",
-                "reference": "e4ca488946e276beb87d695d5395235306a6e33e"
+                "reference": "d62b4b17d3efea72239f0a56d5b4c9c557292c09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helios-ag/FMElfinderBundle/zipball/e4ca488946e276beb87d695d5395235306a6e33e",
-                "reference": "e4ca488946e276beb87d695d5395235306a6e33e",
+                "url": "https://api.github.com/repos/helios-ag/FMElfinderBundle/zipball/d62b4b17d3efea72239f0a56d5b4c9c557292c09",
+                "reference": "d62b4b17d3efea72239f0a56d5b4c9c557292c09",
                 "shasum": ""
             },
             "require": {
@@ -1480,7 +1480,7 @@
                 "elfinder",
                 "file manager"
             ],
-            "time": "2015-01-06 04:01:36"
+            "time": "2015-01-20 02:53:32"
         },
         {
             "name": "helios-ag/fm-elfinder-php-connector",
@@ -1729,7 +1729,7 @@
         },
         {
             "name": "jms/di-extra-bundle",
-            "version": "dev-master",
+            "version": "1.5.0",
             "target-dir": "JMS/DiExtraBundle",
             "source": {
                 "type": "git",
@@ -2531,17 +2531,17 @@
         },
         {
             "name": "stfalcon/tinymce-bundle",
-            "version": "dev-master",
+            "version": "v0.3.8",
             "target-dir": "Stfalcon/Bundle/TinymceBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stfalcon/TinymceBundle.git",
-                "reference": "758c19947b04d93d9d79e0ae8432beaccc0097f2"
+                "reference": "773cc577f4f0770c2f6dd25928e0f08576b7f2d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stfalcon/TinymceBundle/zipball/758c19947b04d93d9d79e0ae8432beaccc0097f2",
-                "reference": "758c19947b04d93d9d79e0ae8432beaccc0097f2",
+                "url": "https://api.github.com/repos/stfalcon/TinymceBundle/zipball/773cc577f4f0770c2f6dd25928e0f08576b7f2d5",
+                "reference": "773cc577f4f0770c2f6dd25928e0f08576b7f2d5",
                 "shasum": ""
             },
             "require": {
@@ -2585,7 +2585,7 @@
                 "tinymce",
                 "wysiwyg"
             ],
-            "time": "2014-09-15 12:37:07"
+            "time": "2014-09-08 12:54:20"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -2882,16 +2882,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "c34ef418015793a4653f2670afb69dd167ebf578"
+                "reference": "23b647f1e4eeb24a457d3c47f5f5046377d5a3bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/c34ef418015793a4653f2670afb69dd167ebf578",
-                "reference": "c34ef418015793a4653f2670afb69dd167ebf578",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/23b647f1e4eeb24a457d3c47f5f5046377d5a3bf",
+                "reference": "23b647f1e4eeb24a457d3c47f5f5046377d5a3bf",
                 "shasum": ""
             },
             "require": {
@@ -2994,7 +2994,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-01-07 14:47:29"
+            "time": "2015-02-02 18:02:30"
         },
         {
             "name": "twig/extensions",
@@ -4519,12 +4519,9 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "doctrine/orm": 20,
-        "jms/di-extra-bundle": 20,
         "doctrine/mongodb-odm": 20,
         "doctrine/mongodb-odm-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
-        "stfalcon/tinymce-bundle": 20,
-        "helios-ag/fm-elfinder-bundle": 20,
         "roave/security-advisories": 20,
         "black/common-bundle": 20,
         "black/user": 20,
