@@ -5,7 +5,7 @@ namespace Application\Controller\Admin\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\TwigBundle\TwigEngine;
-use Black\Component\User\Application\Controller\ListController as Controller;
+use Black\Component\User\Application\Controller\ListUsersController as Controller;
 
 /**
  * Class ListController

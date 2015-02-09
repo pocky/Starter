@@ -2,8 +2,8 @@
 
 namespace Application\Controller\Admin\User;
 
-use Black\Component\User\Application\Controller\ActiveUserController as Controller;
-use Black\Component\User\Application\DTO\ActiveUserDTO;
+use Black\Component\User\Application\Controller\DeactiveUserController;
+use Black\Component\User\Application\DTO\DeactiveUserDTO;
 use Black\Component\User\Domain\Model\UserId;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,17 +12,17 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Router;
 
 /**
- * Class ActiveController
+ * Class DeactiveController
  *
  * @author Alexandre Balmes <${COPYRIGHT_NAME}>
  * @license ${COPYRIGHT_LICENCE}
  *
- * @Route("/admin/user", service="application.controller.admin.user.active")
+ * @Route("/admin/user", service="application.controller.admin.user.deactive")
  */
-class ActiveController
+class DeactiveController
 {
     /**
-     * @var Controller
+     * @var DeactiveUserController
      */
     protected $controller;
 
@@ -37,11 +37,11 @@ class ActiveController
     protected $dispatcher;
 
     /**
-     * @param Controller $controller
+     * @param DeactiveUserController $controller
      * @param Router $router
      */
     public function __construct(
-        Controller $controller,
+        DeactiveUserController $controller,
         Router $router
     ) {
         $this->controller = $controller;
@@ -49,15 +49,15 @@ class ActiveController
     }
 
     /**
-     * @Route("/{id}/active", name="admin_user_active")
+     * @Route("/{id}/deactive", name="admin_user_deactive")
      * @Method({"GET"})
      *
      * @return array
      */
-    public function activeUserAction($id)
+    public function deactiveUserAction($id)
     {
-        $dto = new ActiveUserDTO(new UserId($id));
-        $this->controller->activeUserAction($dto->getId());
+        $dto = new DeactiveUserDTO(new UserId($id));
+        $this->controller->deactiveUserAction($dto->getId());
 
         return new RedirectResponse($this->router->generate('admin_users_list'));
     }

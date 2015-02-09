@@ -14,6 +14,7 @@
         <service id="application.infrastructure.provider.user" class="%application.infrastructure.provider.user.class%" public="false">
             <argument type="service" id="black_user.infrastructure.service.read" />
             <argument type="service" id="black_user.infrastructure.manager.user" />
+            <argument type="service" id="event_dispatcher" />
             <argument>Domain\Model\User</argument>
         </service>
     </services>

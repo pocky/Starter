@@ -2,8 +2,13 @@
 
 namespace Infrastructure\Provider;
 
+use Black\Component\User\Domain\Event\UserLoggedEvent;
 use Black\Component\User\Infrastructure\Doctrine\UserManager;
 use Black\Component\User\Infrastructure\Service\UserReadService;
+use Black\Component\User\UserDomainEvents;
+use Domain\Model\User;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -33,18 +38,26 @@ class UserProvider implements UserProviderInterface
     protected $manager;
 
     /**
+     * @var EventDispatcher
+     */
+    protected $dispatcher;
+
+    /**
      * @param UserReadService $readService
      * @param UserManager $userManager
+     * @param EventDispatcherInterface $dispatcher
      * @param $className
      */
     public function __construct(
         UserReadService $readService,
         UserManager $userManager,
+        EventDispatcherInterface $dispatcher,
         $className
     ) {
-        $this->service   = $readService;
-        $this->manager   = $userManager;
-        $this->className = $className;
+        $this->service    = $readService;
+        $this->manager    = $userManager;
+        $this->dispatcher = $dispatcher;
+        $this->className  = $className;
     }
 
     /**
@@ -61,6 +74,9 @@ class UserProvider implements UserProviderInterface
 
         $user->connect();
         $this->manager->flush();
+
+        $event = new UserLoggedEvent($user);
+        $this->dispatcher->dispatch(UserDomainEvents::USER_DOMAIN_LOGGED, $event);
 
         return $user;
     }

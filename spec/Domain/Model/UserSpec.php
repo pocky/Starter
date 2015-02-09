@@ -3,6 +3,7 @@
 namespace spec\Domain\Model;
 
 use Black\Component\User\Domain\Model\UserId;
+use Email\EmailAddress;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -18,7 +19,8 @@ class UserSpec extends ObjectBehavior
     function let()
     {
         $userId = new UserId('1234');
-        $this->beConstructedWith($userId, 'username', 'email@domain.tld');
+        $email = new EmailAddress("email@domain.tld");
+        $this->beConstructedWith($userId, 'username', $email);
     }
 
     function it_should_have_an_id()

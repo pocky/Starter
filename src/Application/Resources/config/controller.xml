@@ -11,8 +11,14 @@
         <parameter key="application.controller.admin.default.class">Application\Controller\Admin\DefaultController</parameter>
 
         <parameter key="application.controller.admin.user.active.class">Application\Controller\Admin\User\ActiveController</parameter>
+        <parameter key="application.controller.admin.user.deactive.class">Application\Controller\Admin\User\DeactiveController</parameter>
+
+        <parameter key="application.controller.admin.user.lock.class">Application\Controller\Admin\User\LockController</parameter>
+        <parameter key="application.controller.admin.user.unlock.class">Application\Controller\Admin\User\UnlockController</parameter>
+
         <parameter key="application.controller.admin.user.create.class">Application\Controller\Admin\User\CreateController</parameter>
         <parameter key="application.controller.admin.user.create_form.class">Application\Controller\Admin\User\CreateFormController</parameter>
+        <parameter key="application.controller.admin.user.edit_form.class">Application\Controller\Admin\User\EditFormController</parameter>
         <parameter key="application.controller.admin.user.list.class">Application\Controller\Admin\User\ListController</parameter>
         <parameter key="application.controller.admin.user.remove.class">Application\Controller\Admin\User\RemoveController</parameter>
 
@@ -38,14 +44,36 @@
             <argument type="service" id="router" />
         </service>
 
+        <service id="application.controller.admin.user.deactive" class="%application.controller.admin.user.deactive.class%">
+            <argument type="service" id="black_user.application.controller.deactive" />
+            <argument type="service" id="router" />
+        </service>
+
+        <service id="application.controller.admin.user.lock" class="%application.controller.admin.user.lock.class%">
+            <argument type="service" id="black_user.application.controller.lock" />
+            <argument type="service" id="router" />
+        </service>
+
+        <service id="application.controller.admin.user.unlock" class="%application.controller.admin.user.unlock.class%">
+            <argument type="service" id="black_user.application.controller.unlock" />
+            <argument type="service" id="router" />
+        </service>
+
         <service id="application.controller.admin.user.create" class="%application.controller.admin.user.create.class%" scope="request">
             <argument type="service" id="black_user.application.controller.create" />
-            <argument type="service" id="black_user.application.form.handler.create_user" />
+            <argument type="service" id="black_user.application.form.handler.account" />
             <argument type="service" id="router" />
         </service>
 
         <service id="application.controller.admin.user.create_form" class="%application.controller.admin.user.create_form.class%">
-            <argument type="service" id="black_user.application.form.create_user" />
+            <argument type="service" id="black_user.application.form.account" />
+            <argument type="service" id="templating" />
+        </service>
+
+        <service id="application.controller.admin.user.edit_form" class="%application.controller.admin.user.edit_form.class%">
+            <argument type="service" id="black_user.infrastructure.service.read" />
+            <argument type="service" id="black_user.application.assembler.account_user" />
+            <argument type="service" id="black_user.application.form.account" />
             <argument type="service" id="templating" />
         </service>
 

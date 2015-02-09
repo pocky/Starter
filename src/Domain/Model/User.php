@@ -12,6 +12,7 @@ namespace Domain\Model;
 use Black\Component\User\Domain\Model\User as BaseUser;
 use Black\Component\User\Domain\Model\UserId;
 use Doctrine\Common\Collections\ArrayCollection;
+use Email\EmailAddress;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
@@ -44,9 +45,9 @@ class User extends BaseUser implements AdvancedUserInterface
     /**
      * @param UserId $userId
      * @param string $name
-     * @param string $email
+     * @param EmailAddress $email
      */
-    public function __construct(UserId $userId, $name, $email)
+    public function __construct(UserId $userId, $name, EmailAddress $email)
     {
         parent::__construct($userId, $name, $email);
 

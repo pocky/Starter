@@ -2,13 +2,14 @@
 
 namespace Application\Controller\Admin\User;
 
-use Black\Component\User\Application\Controller\CreateController as Controller;
+use Black\Bundle\UserBundle\Application\Form\Handler\AccountHandler;
+use Black\Component\User\Application\Controller\CreateUserController as Controller;
 use Black\Bundle\UserBundle\Application\Form\Handler\CreateUserHandler;
 use Black\Component\User\Domain\Model\UserId;
+use Email\EmailAddress;
 use Rhumsaa\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Router;
 
@@ -39,12 +40,12 @@ class CreateController
 
     /**
      * @param Controller $controller
-     * @param CreateUserHandler $handler
+     * @param AccountHandler $handler
      * @param Router $router
      */
     public function __construct(
         Controller $controller,
-        CreateUserHandler $handler,
+        AccountHandler $handler,
         Router $router
     ) {
         $this->controller = $controller;
@@ -64,7 +65,9 @@ class CreateController
 
         if ($dto) {
             $id = new UserId(Uuid::uuid4());
-            $this->controller->createUserAction($id, $dto->getName(), $dto->getEmail());
+            $email = new EmailAddress($dto->getEmail());
+
+            $this->controller->createUserAction($id, $dto->getName(), $email);
         }
 
         return new RedirectResponse($this->router->generate('admin_users_list'));
