@@ -10,13 +10,22 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\Console\Application;
 
+/**
+ * Class ApplicationBundle
+ */
 class ApplicationBundle extends Bundle
 {
+    /**
+     * @return ApplicationExtension
+     */
     public function getContainerExtension()
     {
         return new ApplicationExtension();
     }
 
+    /**
+     * @param ContainerBuilder $container
+     */
     public function build(ContainerBuilder $container)
     {
         parent::build($container);

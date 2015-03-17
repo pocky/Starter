@@ -5,13 +5,10 @@ namespace Application\Controller\Admin\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\TwigBundle\TwigEngine;
-use Black\Component\User\Application\Controller\ListController as Controller;
+use Black\Component\User\Application\Controller\ListUsersController as Controller;
 
 /**
  * Class ListController
- *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
  *
  * @Route("/admin/users", service="application.controller.admin.user.list")
  */
@@ -28,6 +25,7 @@ class ListController
     protected $templating;
 
     /**
+     * @param Controller $controller
      * @param TwigEngine $templating
      */
     public function __construct(

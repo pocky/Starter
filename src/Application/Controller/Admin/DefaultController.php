@@ -8,9 +8,6 @@ use Symfony\Bundle\TwigBundle\TwigEngine;
 /**
  * Class DefaultController
  *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
- *
  * @Route("/admin", service="application.controller.admin.default")
  */
 class DefaultController
