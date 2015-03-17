@@ -10,9 +10,6 @@ use Black\Component\User\Application\Controller\ListUsersController as Controlle
 /**
  * Class ListController
  *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
- *
  * @Route("/admin/users", service="application.controller.admin.user.list")
  */
 class ListController
@@ -28,6 +25,7 @@ class ListController
     protected $templating;
 
     /**
+     * @param Controller $controller
      * @param TwigEngine $templating
      */
     public function __construct(

@@ -1,0 +1,16 @@
+---
+- name: Install sudo
+  apt: pkg=sudo state=present
+  tags: install
+  run_once: true
+
+- name: Add vagrant to sudoers
+  lineinfile: >
+    state=present
+    dest=/etc/sudoers.d/99_vagrant
+    create=yes
+    regexp="vagrant"
+    mode=0440
+    line='vagrant ALL=NOPASSWD:ALL'
+  tags: install
+  run_once: true

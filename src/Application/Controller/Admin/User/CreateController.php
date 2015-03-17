@@ -4,7 +4,6 @@ namespace Application\Controller\Admin\User;
 
 use Black\Bundle\UserBundle\Application\Form\Handler\AccountHandler;
 use Black\Component\User\Application\Controller\CreateUserController as Controller;
-use Black\Bundle\UserBundle\Application\Form\Handler\CreateUserHandler;
 use Black\Component\User\Domain\Model\UserId;
 use Email\EmailAddress;
 use Rhumsaa\Uuid\Uuid;
@@ -16,9 +15,6 @@ use Symfony\Component\Routing\Router;
 /**
  * Class CreateController
  *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
- *
  * @Route("/admin/user", service="application.controller.admin.user.create")
  */
 class CreateController
@@ -27,11 +23,6 @@ class CreateController
      * @var Controller
      */
     protected $controller;
-
-    /**
-     * @var CreateUserHandler
-     */
-    protected $handler;
 
     /**
      * @var Router

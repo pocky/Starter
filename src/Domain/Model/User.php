@@ -17,9 +17,6 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * Class User
- *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
  */
 class User extends BaseUser implements AdvancedUserInterface
 {

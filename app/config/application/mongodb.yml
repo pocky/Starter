@@ -1,0 +1,10 @@
+parameters:
+    infrastructure.manager.procedure.class: Infrastructure\Doctrine\ProcedureManager
+
+services:
+    infrastructure.manager.procedure:
+        class: %infrastructure.manager.procedure.class%
+        public: false
+        arguments: ["@procedure.document.manager", "Domain\Model\Procedure"]
+
+    procedure.document.manager: @doctrine.odm.mongodb.document_manager

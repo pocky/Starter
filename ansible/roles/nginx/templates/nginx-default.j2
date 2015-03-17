@@ -1,5 +1,5 @@
 server {
-  listen 80;
+  listen      80;
 
   server_name {{ project_name }}.dev;
   root {{ project_directory }}/web;
@@ -24,6 +24,7 @@ server {
     if ($request_filename !~ "\.(js|htc|ico|gif|jpg|png|css)$") {
       rewrite ^(.*) /app_dev.php last;
     }
+
   }
 
   location @rewriteapp {
@@ -37,9 +38,9 @@ server {
     if ($uri ~ "^(.+\.php)(/.*)") {
       set  $script     $1;
       set  $path_info  $2;
-    }
+  }
 
-    fastcgi_pass                unix:/var/run/php-fpm-www.sock;
+    fastcgi_pass            unix:/var/run/php-fpm-www.sock;
     fastcgi_index               app_dev.php;
     include                     /etc/nginx/fastcgi_params;
 

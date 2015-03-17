@@ -11,9 +11,6 @@ use Symfony\Component\Routing\Router;
 /**
  * Class RemoveController
  *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
- *
  * @Route("/admin/users", service="application.controller.admin.user.remove")
  */
 class RemoveController

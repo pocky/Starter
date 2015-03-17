@@ -33,24 +33,6 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root($this->alias);
 
-        $supportedDrivers = ['mongodb', 'orm'];
-
-        $rootNode
-            ->children()
-
-                ->scalarNode('db_driver')
-                    ->validate()
-                        ->ifNotInArray($supportedDrivers)
-                        ->thenInvalid('The database driver %s is not supported. Please choose one of ' . json_encode($supportedDrivers))
-                    ->end()
-                    ->isRequired()
-                    ->cannotBeOverwritten()
-                    ->cannotBeEmpty()
-                ->end()
-
-            ->end()
-        ->end();
-
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.

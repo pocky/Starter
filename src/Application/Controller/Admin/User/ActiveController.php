@@ -14,9 +14,6 @@ use Symfony\Component\Routing\Router;
 /**
  * Class ActiveController
  *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
- *
  * @Route("/admin/user", service="application.controller.admin.user.active")
  */
 class ActiveController

@@ -13,9 +13,12 @@ use Symfony\Component\Form\Form;
 /**
  * Class EditFormController
  *
+<<<<<<< HEAD
  * @author Alexandre Balmes <${COPYRIGHT_NAME}>
  * @license ${COPYRIGHT_LICENCE}
  *
+=======
+>>>>>>> master
  * @Route("/admin/user", service="application.controller.admin.user.edit_form")
  */
 class EditFormController
@@ -41,6 +44,11 @@ class EditFormController
     protected $accountForm;
 
     /**
+<<<<<<< HEAD
+=======
+     * @param UserReadService $readService
+     * @param AccountUserAssembler $assembler
+>>>>>>> master
      * @param Form $accountForm
      * @param TwigEngine $templating
      */

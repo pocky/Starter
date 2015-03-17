@@ -2,10 +2,13 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: application/controller.yml }
+    - { resource: application/mongodb.yml }
+    - { resource: application/provider.yml }
 
 framework:
     esi:             { enabled: true }
-    translator:      { fallback: "%locale%" }
+    translator:      { fallback: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -197,10 +200,8 @@ fm_elfinder:
                         upload_allow: ['all']
                         upload_max_size: 20M
 
-application:
-    db_driver: mongodb
-
 parameters:
+    application.backend_type_mongodb: true
     black_user.infrastructure.cqrs.handler.register.class: Infrastructure\CQRS\Handler\RegisterUserHandler
     black_user.infrastructure.cqrs.handler.create.class: Infrastructure\CQRS\Handler\CreateUserHandler
 

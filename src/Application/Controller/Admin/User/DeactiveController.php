@@ -14,9 +14,12 @@ use Symfony\Component\Routing\Router;
 /**
  * Class DeactiveController
  *
+<<<<<<< HEAD
  * @author Alexandre Balmes <${COPYRIGHT_NAME}>
  * @license ${COPYRIGHT_LICENCE}
  *
+=======
+>>>>>>> master
  * @Route("/admin/user", service="application.controller.admin.user.deactive")
  */
 class DeactiveController

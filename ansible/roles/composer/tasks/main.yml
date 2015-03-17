@@ -1,0 +1,22 @@
+---
+- name: Install composer
+  shell: curl -sS https://getcomposer.org/installer | php
+  tags: install
+  run_once: true
+
+- name: Move composer.phar to composer
+  shell: mv composer.phar /usr/local/bin/composer creates=/usr/local/bin/composer
+  tags: install
+  run_once: true
+
+- name: Make composer executable
+  shell: chmod a+x /usr/local/bin/composer
+  tags: install
+  run_once: true
+
+- name: Add composer to locale profile
+  lineinfile: "state=present dest=/home/vagrant/.profile
+  regexp='^PATH=$PATH:./bin$'
+  line='PATH=$PATH:./bin:./node_modules/.bin:/home/vagrant/.composer/vendor/bin'"
+  tags: install
+  run_once: true

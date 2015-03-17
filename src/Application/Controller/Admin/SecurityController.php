@@ -5,15 +5,10 @@ namespace Application\Controller\Admin;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
  * Class SecurityController
- *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
  *
  * @Route("/admin", service="application.controller.admin.security")
  */

@@ -16,9 +16,6 @@ use Black\Component\User\Infrastructure\CQRS\Command\CreateUserCommand;
 
 /**
  * Class CreateUserHandler
- *
- * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
- * @license http://opensource.org/licenses/mit-license.php MIT
  */
 class CreateUserHandler extends BaseHandler
 {
