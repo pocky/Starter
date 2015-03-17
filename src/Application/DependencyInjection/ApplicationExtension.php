@@ -23,26 +23,6 @@ class ApplicationExtension extends Extension
         $processor     = new Processor();
         $configuration = new Configuration($this->getAlias());
         $config        = $processor->processConfiguration($configuration, $configs);
-
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-
-        if (!isset($config['db_driver'])) {
-            throw new \InvalidArgumentException('You must provide the application.db_driver configuration');
-        }
-
-        try {
-            $loader->load(sprintf('%s.xml', $config['db_driver']));
-        } catch (\InvalidArgumentException $e) {
-            throw new \InvalidArgumentException(
-                sprintf('The db_driver "%s" is not supported by engine', $config['db_driver'])
-            );
-        }
-
-        $container->setParameter($this->getAlias() . '.backend_type_' . $config['db_driver'], true);
-
-        foreach (['services', 'controller', 'provider'] as $basename) {
-            $loader->load(sprintf('%s.xml', $basename));
-        }
     }
 
     /**

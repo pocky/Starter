@@ -22,14 +22,14 @@ class ApplicationBundle extends Bundle
         parent::build($container);
 
         $mappings = array(
-            realpath($this->getPath() . '/Resources/config/doctrine/model') => 'Domain\Model',
+            realpath($this->getPath() . '/../../app/config/doctrine/model') => 'Domain\Model',
         );
 
         $ormCompilerClass = 'Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass';
 
         if (class_exists($ormCompilerClass)) {
             $container->addCompilerPass(
-                DoctrineOrmMappingsPass::createXmlMappingDriver(
+                DoctrineOrmMappingsPass::createYamlMappingDriver(
                     $mappings,
                     [],
                     'application.backend_type_orm'
@@ -40,7 +40,7 @@ class ApplicationBundle extends Bundle
 
         if (class_exists($mongoCompilerClass)) {
             $container->addCompilerPass(
-                DoctrineMongoDBMappingsPass::createXmlMappingDriver(
+                DoctrineMongoDBMappingsPass::createYamlMappingDriver(
                     $mappings,
                     [],
                     'application.backend_type_mongodb'
