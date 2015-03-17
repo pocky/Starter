@@ -1,0 +1,56 @@
+---
+- name: Add MariaDB apt key
+  apt_key: url=http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xcbcb082a1bb943db state=present
+  tags: install
+  run_once: true
+
+- name: Add Dotdeb key
+  apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
+  tags: install
+  run_once: true
+
+- name: Create mariadb.list
+  file: path=/etc/apt/sources.list.d/mariadb.list state=touch
+  tags: install
+  run_once: true
+
+- name: Create dotdeb.list
+  file: path=/etc/apt/sources.list.d/dotdeb.list state=touch
+  tags: install
+  run_once: true
+
+- name: Add Dotdeb package repository 1
+  lineinfile: dest="/etc/apt/sources.list.d/dotdeb.list" line="deb http://packages.dotdeb.org wheezy all"
+  tags: install
+  run_once: true
+
+- name: Add Dotdeb package repository 2
+  lineinfile: dest="/etc/apt/sources.list.d/dotdeb.list" line="deb-src http://packages.dotdeb.org wheezy all"
+  tags: install
+  run_once: true
+
+- name: Add Dotdeb php55 package repository
+  lineinfile: dest="/etc/apt/sources.list.d/dotdeb.list" line="deb http://packages.dotdeb.org wheezy-php55 all"
+  tags: install
+  run_once: true
+
+- name: Add Dotdeb php55 package repository
+  lineinfile: dest="/etc/apt/sources.list.d/dotdeb.list" line="deb-src http://packages.dotdeb.org wheezy-php55 all"
+  tags: install
+  run_once: true
+
+- name: Add Mariadb package repository
+  lineinfile: dest="/etc/apt/sources.list.d/mariadb.list" line="deb http://nwps.ws/pub/mariadb/repo/10.0/debian/ wheezy main"
+  tags: install
+  run_once: true
+
+- name: Update Apt
+  apt: update_cache=yes
+  tags: install
+
+- name: Install tools
+  apt: name={{ item }} state=present
+  with_items:
+    - vim
+  tags: install
+  run_once: true

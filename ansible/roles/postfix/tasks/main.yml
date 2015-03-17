@@ -1,0 +1,7 @@
+---
+- name: Install postfix
+  apt: name={{ item }} state=present
+  with_items:
+    - postfix
+  tags: install
+  run_once: true

@@ -1,6 +1,37 @@
 ---
-- name: Install post-merge hook
+- name: Install deps
+  apt: name={{ item }} state=present
+  with_items:
+    - libcurl4-gnutls-dev
+    - gettext
+    - libssl-dev
+    - libexpat1-dev
+  tags: install
+  run_once: true
+
+- name: Get last stable version
+  get_url: url=https://github.com/git/git/archive/v2.2.2.tar.gz dest=/tmp/v2.2.2.tar.gz
+  tags: install
+  run_once: true
+
+- name: Extract last stable version
+  command: tar -xvzf /tmp/v2.2.2.tar.gz chdir=/tmp/ creates=/tmp/git-2.2.2/README warn=true
+  tags: install
+  run_once: true
+
+- name: Install last stable version
+  command: make prefix=/usr/local all chdir=/tmp/git-2.2.2
+  tags: install
+  run_once: true
+
+- name: Install last stable version (2)
+  command: make prefix=/usr/local install chdir=/tmp/git-2.2.2
+  tags: install
+  run_once: true
+
+- name: Install config and hook
   template: src={{ item.src }} dest={{ item.dest }}
   with_items:
     - { src: 'post-merge.j2', dest: '{{ project_directory }}/.git/hooks/post-merge' }
+    - { src: 'gitconfig.j2', dest: '/etc/gitconfig' }
   tags: git
