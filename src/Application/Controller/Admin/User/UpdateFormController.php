@@ -2,7 +2,7 @@
 
 namespace Application\Controller\Admin\User;
 
-use Black\Component\User\Application\DTOAssembler\AccountUserAssembler;
+use Black\Component\User\Application\DTOAssembler\UpdateAccountAssembler;
 use Black\Component\User\Domain\Exception\UserNotFoundException;
 use Black\Component\User\Domain\Model\UserId;
 use Black\Component\User\Infrastructure\Service\UserReadService;
@@ -11,17 +11,11 @@ use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\Form\Form;
 
 /**
- * Class EditFormController
+ * Class UpdateFormController
  *
-<<<<<<< HEAD
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
- *
-=======
->>>>>>> master
- * @Route("/admin/user", service="application.controller.admin.user.edit_form")
+ * @Route("/admin/user", service="application.controller.admin.user.update_form")
  */
-class EditFormController
+class UpdateFormController
 {
     /**
      * @var UserReadService
@@ -29,7 +23,7 @@ class EditFormController
     protected $readService;
 
     /**
-     * @var AccountUserAssembler
+     * @var UpdateAccountAssembler
      */
     protected $assembler;
 
@@ -44,17 +38,14 @@ class EditFormController
     protected $accountForm;
 
     /**
-<<<<<<< HEAD
-=======
      * @param UserReadService $readService
-     * @param AccountUserAssembler $assembler
->>>>>>> master
+     * @param UpdateAccountAssembler $assembler
      * @param Form $accountForm
      * @param TwigEngine $templating
      */
     public function __construct(
         UserReadService $readService,
-        AccountUserAssembler $assembler,
+        UpdateAccountAssembler $assembler,
         Form $accountForm,
         TwigEngine $templating
     ) {
@@ -65,11 +56,11 @@ class EditFormController
     }
 
     /**
-     * @Route("/form/{id}/edit.html", name="admin_user_edit_form")
+     * @Route("/form/{id}/update.html", name="admin_user_update_form")
      *
      * @return array
      */
-    public function editFormAction($id)
+    public function updateFormAction($id)
     {
         $user = $this->readService->find(new UserId($id));
 
@@ -80,7 +71,7 @@ class EditFormController
         $accountDto = $this->assembler->transform($user);
         $this->accountForm->setData($accountDto);
 
-        return $this->templating->renderResponse('admin/user/edit_form.html.twig', [
+        return $this->templating->renderResponse('admin/user/update_form.html.twig', [
             'accountForm' => $this->accountForm->createView(),
         ]);
     }

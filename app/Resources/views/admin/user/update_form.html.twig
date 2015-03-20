@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="box-body">
 
-                                        <form id="admin_user_create" method="POST" action="{{ url('admin_user_create', {}, true) }}" {{ form_enctype(accountForm) }}>
+                                        <form id="admin_user_edit" method="POST" action="{{ url('admin_user_update_account', {}, true) }}" {{ form_enctype(accountForm) }}>
                                             {{ form_rest(accountForm) }}
 
                                             <button type="submit" class="btn btn-primary">{% trans %}application.admin.user.create.footer.submit{% endtrans %}</button>

@@ -12,11 +12,11 @@ parameters:
 
     application.controller.admin.user.create.class: Application\Controller\Admin\User\CreateController
     application.controller.admin.user.create_form.class: Application\Controller\Admin\User\CreateFormController
-    application.controller.admin.user.edit_form.class: Application\Controller\Admin\User\EditFormController
+    application.controller.admin.user.update_form.class: Application\Controller\Admin\User\UpdateFormController
+    application.controller.admin.user.update_account.class: Application\Controller\Admin\User\UpdateAccountController
+
     application.controller.admin.user.list.class: Application\Controller\Admin\User\ListController
     application.controller.admin.user.remove.class: Application\Controller\Admin\User\RemoveController
-
-    application.controller.admin.procedure.create_form.class: Application\Controller\Admin\Procedure\CreateFormController
 
 services:
     application.controller.default:
@@ -50,15 +50,20 @@ services:
     application.controller.admin.user.create:
         class: %application.controller.admin.user.create.class%
         scope: request
-        arguments: ["@black_user.application.controller.create", "@black_user.application.form.handler.account", "@router"]
+        arguments: ["@black_user.application.controller.create", "@black_user.application.form.handler.create_account", "@router"]
 
     application.controller.admin.user.create_form:
         class: %application.controller.admin.user.create_form.class%
-        arguments: ["@black_user.application.form.account", "@templating"]
+        arguments: ["@black_user.application.form.create_account", "@templating"]
 
-    application.controller.admin.user.edit_form:
-        class: %application.controller.admin.user.edit_form.class%
-        arguments: ["@black_user.infrastructure.service.read", "@black_user.application.assembler.account_user", "@black_user.application.form.account", "@templating"]
+    application.controller.admin.user.update_form:
+        class: %application.controller.admin.user.update_form.class%
+        arguments: ["@black_user.infrastructure.service.read", "@black_user.application.assembler.update_account", "@black_user.application.form.update_account", "@templating"]
+
+    application.controller.admin.user.update_account:
+        class: %application.controller.admin.user.update_account.class%
+        scope: request
+        arguments: ["@black_user.application.controller.update_account", "@black_user.application.form.handler.update_account", "@black_user.infrastructure.service.read", "@router"]
 
     application.controller.admin.user.list:
         class: %application.controller.admin.user.list.class%

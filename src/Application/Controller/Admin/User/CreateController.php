@@ -2,7 +2,7 @@
 
 namespace Application\Controller\Admin\User;
 
-use Black\Bundle\UserBundle\Application\Form\Handler\AccountHandler;
+use Black\Bundle\UserBundle\Application\Form\Handler\CreateAccountHandler;
 use Black\Component\User\Application\Controller\CreateUserController as Controller;
 use Black\Component\User\Domain\Model\UserId;
 use Email\EmailAddress;
@@ -31,12 +31,12 @@ class CreateController
 
     /**
      * @param Controller $controller
-     * @param AccountHandler $handler
+     * @param CreateAccountHandler $handler
      * @param Router $router
      */
     public function __construct(
         Controller $controller,
-        AccountHandler $handler,
+        CreateAccountHandler $handler,
         Router $router
     ) {
         $this->controller = $controller;
