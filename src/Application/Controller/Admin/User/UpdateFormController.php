@@ -3,6 +3,7 @@
 namespace Application\Controller\Admin\User;
 
 use Black\Component\User\Application\DTOAssembler\UpdateAccountAssembler;
+use Black\Component\User\Application\DTOAssembler\UpdatePasswordAssembler;
 use Black\Component\User\Domain\Exception\UserNotFoundException;
 use Black\Component\User\Domain\Model\UserId;
 use Black\Component\User\Infrastructure\Service\UserReadService;
@@ -25,7 +26,12 @@ class UpdateFormController
     /**
      * @var UpdateAccountAssembler
      */
-    protected $assembler;
+    protected $accountAssembler;
+
+    /**
+     * @var UpdatePasswordAssembler
+     */
+    protected $passwordAssembler;
 
     /**
      * @var TwigEngine
@@ -38,21 +44,32 @@ class UpdateFormController
     protected $accountForm;
 
     /**
+     * @var Form
+     */
+    protected $passwordForm;
+
+    /**
      * @param UserReadService $readService
-     * @param UpdateAccountAssembler $assembler
+     * @param UpdateAccountAssembler $accountAssembler
+     * @param UpdatePasswordAssembler $passwordAssembler
      * @param Form $accountForm
+     * @param Form $passwordForm
      * @param TwigEngine $templating
      */
     public function __construct(
         UserReadService $readService,
-        UpdateAccountAssembler $assembler,
+        UpdateAccountAssembler $accountAssembler,
+        UpdatePasswordAssembler $passwordAssembler,
         Form $accountForm,
+        Form $passwordForm,
         TwigEngine $templating
     ) {
-        $this->readService = $readService;
-        $this->assembler   = $assembler;
-        $this->accountForm = $accountForm;
-        $this->templating  = $templating;
+        $this->readService       = $readService;
+        $this->accountAssembler  = $accountAssembler;
+        $this->passwordAssembler = $passwordAssembler;
+        $this->accountForm       = $accountForm;
+        $this->passwordForm      = $passwordForm;
+        $this->templating        = $templating;
     }
 
     /**
@@ -68,11 +85,15 @@ class UpdateFormController
             throw new UserNotFoundException();
         }
 
-        $accountDto = $this->assembler->transform($user);
+        $accountDto = $this->accountAssembler->transform($user);
         $this->accountForm->setData($accountDto);
+
+        $passwordDto = $this->passwordAssembler->transform($user);
+        $this->passwordForm->setData($passwordDto);
 
         return $this->templating->renderResponse('admin/user/update_form.html.twig', [
             'accountForm' => $this->accountForm->createView(),
+            'passwordForm' => $this->passwordForm->createView(),
         ]);
     }
 }

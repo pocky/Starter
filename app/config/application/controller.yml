@@ -14,6 +14,7 @@ parameters:
     application.controller.admin.user.create_form.class: Application\Controller\Admin\User\CreateFormController
     application.controller.admin.user.update_form.class: Application\Controller\Admin\User\UpdateFormController
     application.controller.admin.user.update_account.class: Application\Controller\Admin\User\UpdateAccountController
+    application.controller.admin.user.update_password.class: Application\Controller\Admin\User\UpdatePasswordController
 
     application.controller.admin.user.list.class: Application\Controller\Admin\User\ListController
     application.controller.admin.user.remove.class: Application\Controller\Admin\User\RemoveController
@@ -58,12 +59,17 @@ services:
 
     application.controller.admin.user.update_form:
         class: %application.controller.admin.user.update_form.class%
-        arguments: ["@black_user.infrastructure.service.read", "@black_user.application.assembler.update_account", "@black_user.application.form.update_account", "@templating"]
+        arguments: ["@black_user.infrastructure.service.read", "@black_user.application.assembler.update_account", "@black_user.application.assembler.update_password", "@black_user.application.form.update_account", "@black_user.application.form.update_password", "@templating"]
 
     application.controller.admin.user.update_account:
         class: %application.controller.admin.user.update_account.class%
         scope: request
         arguments: ["@black_user.application.controller.update_account", "@black_user.application.form.handler.update_account", "@black_user.infrastructure.service.read", "@router"]
+
+    application.controller.admin.user.update_password:
+        class: %application.controller.admin.user.update_password.class%
+        scope: request
+        arguments: ["@black_user.application.controller.update_password", "@black_user.application.form.handler.update_password", "@black_user.infrastructure.service.read", "@router"]
 
     application.controller.admin.user.list:
         class: %application.controller.admin.user.list.class%

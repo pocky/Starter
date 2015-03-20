@@ -2,11 +2,10 @@
 
 namespace Application\Controller\Admin\User;
 
-use Black\Bundle\UserBundle\Application\Form\Handler\UpdateAccountHandler;
-use Black\Component\User\Application\Controller\UpdateAccountController as Controller;
+use Black\Bundle\UserBundle\Application\Form\Handler\UpdatePasswordHandler;
+use Black\Component\User\Application\Controller\UpdatePasswordController as Controller;
 use Black\Component\User\Domain\Model\UserId;
 use Black\Component\User\Infrastructure\Service\UserReadService;
-use Email\EmailAddress;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -15,9 +14,9 @@ use Symfony\Component\Routing\Router;
 /**
  * Class UpdateController
  *
- * @Route("/admin/user", service="application.controller.admin.user.update_account")
+ * @Route("/admin/user", service="application.controller.admin.user.update_password")
  */
-class UpdateAccountController
+class UpdatePasswordController
 {
     /**
      * @var Controller
@@ -41,13 +40,13 @@ class UpdateAccountController
 
     /**
      * @param Controller $controller
-     * @param UpdateAccountHandler $handler
+     * @param UpdatePasswordHandler $handler
      * @param UserReadService $service
      * @param Router $router
      */
     public function __construct(
         Controller $controller,
-        UpdateAccountHandler $handler,
+        UpdatePasswordHandler $handler,
         UserReadService $service,
         Router $router
     ) {
@@ -58,7 +57,7 @@ class UpdateAccountController
     }
 
     /**
-     * @Route("/update_account", name="admin_user_update_account")
+     * @Route("/update_password", name="admin_user_update_password")
      * @Method({"POST"})
      *
      * @return array
@@ -72,8 +71,7 @@ class UpdateAccountController
             $user = $this->service->find($userId);
 
             if ($user) {
-                $address = new EmailAddress($dto->getEmail());
-                $this->controller->updateAccountAction($user, $dto->getName(), $address);
+                $this->controller->updateAccountAction($user, $dto->getName(), $dto->getPassword());
 
                 return new RedirectResponse($this->router->generate('admin_user_update_form', [
                     'id' => $user->getUserId()
