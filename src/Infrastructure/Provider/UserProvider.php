@@ -3,6 +3,8 @@
 namespace Infrastructure\Provider;
 
 use Black\Component\User\Domain\Event\UserLoggedEvent;
+use Black\Component\User\Infrastructure\CQRS\Command\ConnectUserCommand;
+use Black\Component\User\Infrastructure\CQRS\Handler\ConnectUserHandler;
 use Black\Component\User\Infrastructure\Doctrine\UserManager;
 use Black\Component\User\Infrastructure\Service\UserReadService;
 use Black\Component\User\UserDomainEvents;
@@ -16,9 +18,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
  * Class UserProvider
- *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
  */
 class UserProvider implements UserProviderInterface
 {
@@ -28,14 +27,9 @@ class UserProvider implements UserProviderInterface
     protected $className;
 
     /**
-     * @var UserReadService
+     * @var ConnectUserHandler
      */
-    protected $service;
-
-    /**
-     * @var UserManager
-     */
-    protected $manager;
+    protected $handler;
 
     /**
      * @var EventDispatcher
@@ -44,20 +38,17 @@ class UserProvider implements UserProviderInterface
 
     /**
      * @param UserReadService $readService
-     * @param UserManager $userManager
-     * @param EventDispatcherInterface $dispatcher
+     * @param ConnectUserHandler $handler
      * @param $className
      */
     public function __construct(
         UserReadService $readService,
-        UserManager $userManager,
-        EventDispatcherInterface $dispatcher,
+        ConnectUserHandler $handler,
         $className
     ) {
-        $this->service    = $readService;
-        $this->manager    = $userManager;
-        $this->dispatcher = $dispatcher;
-        $this->className  = $className;
+        $this->service   = $readService;
+        $this->handler   = $handler;
+        $this->className = $className;
     }
 
     /**
@@ -72,11 +63,8 @@ class UserProvider implements UserProviderInterface
             throw new UsernameNotFoundException();
         }
 
-        $user->connect();
-        $this->manager->flush();
-
-        $event = new UserLoggedEvent($user);
-        $this->dispatcher->dispatch(UserDomainEvents::USER_DOMAIN_LOGGED, $event);
+        $command = new ConnectUserCommand($user);
+        $this->handler->handle($command);
 
         return $user;
     }

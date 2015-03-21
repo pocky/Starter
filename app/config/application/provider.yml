@@ -7,4 +7,4 @@ services:
     application.infrastructure.provider.user:
         class: %application.infrastructure.provider.user.class%
         public: false
-        arguments: ["@black_user.infrastructure.service.read", "@black_user.infrastructure.manager.user", "@event_dispatcher", "Domain\Model\User"]
+        arguments: ["@black_user.infrastructure.service.read", "@black_user.infrastructure.cqrs.handler.connect", "Domain\Model\User"]

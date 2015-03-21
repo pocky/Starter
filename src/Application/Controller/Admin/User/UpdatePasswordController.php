@@ -71,7 +71,7 @@ class UpdatePasswordController
             $user = $this->service->find($userId);
 
             if ($user) {
-                $this->controller->updateAccountAction($user, $dto->getName(), $dto->getPassword());
+                $this->controller->updatePasswordAction($user, $dto->getPassword());
 
                 return new RedirectResponse($this->router->generate('admin_user_update_form', [
                     'id' => $user->getUserId()
