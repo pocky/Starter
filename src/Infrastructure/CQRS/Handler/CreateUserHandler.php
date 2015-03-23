@@ -11,8 +11,10 @@
 
 namespace Infrastructure\CQRS\Handler;
 
+use Black\Component\User\Domain\Event\UserCreatedEvent;
 use Black\Component\User\Infrastructure\CQRS\Handler\CreateUserHandler as BaseHandler;
 use Black\Component\User\Infrastructure\CQRS\Command\CreateUserCommand;
+use Black\Component\User\UserDomainEvents;
 
 /**
  * Class CreateUserHandler
@@ -27,6 +29,11 @@ class CreateUserHandler extends BaseHandler
         $user = $this->service->create($command->getUserId(), $command->getName(), $command->getEmail());
         $user->addRole('ROLE_USER');
 
-        $this->manager->flush();
+        if ($user) {
+            $this->manager->flush();
+
+            $event = new UserCreatedEvent($user);
+            $this->dispatcher->dispatch(UserDomainEvents::USER_DOMAIN_CREATED, $event);
+        }
     }
 }

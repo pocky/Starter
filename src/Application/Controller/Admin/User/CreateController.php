@@ -59,6 +59,10 @@ class CreateController
             $email = new EmailAddress($dto->getEmail());
 
             $this->controller->createUserAction($id, $dto->getName(), $email);
+
+            return new RedirectResponse($this->router->generate('admin_user_update_form', [
+                'id' => $id,
+            ]));
         }
 
         return new RedirectResponse($this->router->generate('admin_users_list'));
