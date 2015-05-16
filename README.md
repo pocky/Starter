@@ -32,7 +32,7 @@ When your done, run `gulp --production` for building your assets.
 Black Standard Edition
 ======================
 
-This package is a custom Symfony2 edition for black projects.
+This package is a custom Symfony Edition for black projects.
 
 __CAUTION__ The Black Standard Edition don't follow Semantic Versioning of Symfony Standard Edition since v2.5.1
 

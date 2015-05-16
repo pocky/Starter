@@ -1,5 +1,6 @@
 extensions:
-    - PhpSpec\Extension\CodeCoverageExtension
+  - Memio\SpecGen\MemioSpecGenExtension
+  - PhpSpec\Extension\CodeCoverageExtension
 
 suites:
   application_suite:
