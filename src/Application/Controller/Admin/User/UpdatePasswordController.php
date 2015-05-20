@@ -67,7 +67,7 @@ class UpdatePasswordController
         $dto = $this->handler->process();
 
         if ($dto) {
-            $userId = new UserId($dto->getId());
+            $userId = new UserId($dto->getUserId());
             $user = $this->service->find($userId);
 
             if ($user) {
