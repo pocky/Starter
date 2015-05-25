@@ -1,0 +1,22 @@
+parameters:
+    application.assembler.create_account.class: Application\DTOAssembler\CreateAccountAssembler
+    application.assembler.update_account.class: Application\DTOAssembler\UpdateAccountAssembler
+    application.assembler.update_password.class: Application\DTOAssembler\UpdatePasswordAssembler
+    application.assembler.show_user.class: Application\DTOAssembler\ShowUserAssembler
+
+services:
+    application.assembler.create_account:
+        class: %application.assembler.create_account.class%
+        arguments: ["%black_user.user.model.class%", "%black_user.application.dto.create_account.class%"]
+
+    application.assembler.update_account:
+        class: %application.assembler.update_account.class%
+        arguments: ["%black_user.user.model.class%", "%black_user.application.dto.update_account.class%"]
+
+    application.assembler.update_password:
+        class: %application.assembler.update_password.class%
+        arguments: ["%black_user.user.model.class%", "%black_user.application.dto.update_password.class%"]
+
+    application.assembler.show_user:
+        class: %application.assembler.show_user.class%
+        arguments: ["%black_user.user.model.class%", "%black_user.application.dto.show_user.class%"]

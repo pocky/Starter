@@ -5,6 +5,7 @@ imports:
     - { resource: application/controller.yml }
     - { resource: application/mongodb.yml }
     - { resource: application/provider.yml }
+    - { resource: application/dto.yml }
 
 framework:
     esi:             { enabled: true }

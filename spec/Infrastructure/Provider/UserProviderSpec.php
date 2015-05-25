@@ -2,6 +2,7 @@
 
 namespace spec\Infrastructure\Provider;
 
+use Black\Component\User\Infrastructure\CQRS\Handler\ConnectUserHandler;
 use Black\Component\User\Infrastructure\Doctrine\UserManager;
 use Black\Component\User\Infrastructure\Service\UserReadService;
 use PhpSpec\ObjectBehavior;
@@ -18,11 +19,11 @@ class UserProviderSpec extends ObjectBehavior
         $this->beAnInstanceOf('Symfony\Component\Security\Core\User\UserProviderInterface');
     }
 
-    function let(UserReadService $service, UserManager $manager)
+    function let(UserReadService $service, ConnectUserHandler $handler)
     {
         $this->className = 'Domain\Model\User';
 
-        $this->beConstructedWith($service, $manager, $this->className);
+        $this->beConstructedWith($service, $handler, $this->className);
     }
 
     function it_should_load_a_username($username)

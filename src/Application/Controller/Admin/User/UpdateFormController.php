@@ -2,8 +2,8 @@
 
 namespace Application\Controller\Admin\User;
 
-use Black\Component\User\Application\DTOAssembler\UpdateAccountAssembler;
-use Black\Component\User\Application\DTOAssembler\UpdatePasswordAssembler;
+use Application\DTOAssembler\UpdateAccountAssembler;
+use Application\DTOAssembler\UpdatePasswordAssembler;
 use Black\Component\User\Domain\Exception\UserNotFoundException;
 use Black\Component\User\Domain\Model\UserId;
 use Black\Component\User\Infrastructure\Service\UserReadService;

@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new FM\ElfinderBundle\FMElfinderBundle(),
             new Black\Bundle\CommonBundle\BlackCommonBundle(),
             new Black\Bundle\UserBundle\BlackUserBundle(),
+            new Black\Bundle\EmailBundle\BlackEmailBundle(),
             new Application\ApplicationBundle(),
         );
 
