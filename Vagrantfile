@@ -70,8 +70,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       config.cache.enable :generic, {
         'cache'  => { cache_dir: options[:folders].first[1] + '/var/cache' },
-        'logs'   => { cache_dir: options[:folders].first[1] + '/var/logs' },
-        'vendor' => { cache_dir: options[:folders].first[1] + '/vendor' }
+        'logs'   => { cache_dir: options[:folders].first[1] + '/var/logs' }
       }
 
   end

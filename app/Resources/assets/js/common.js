@@ -4,6 +4,8 @@ var $ = require('jquery');
 global.jQuery = require("jquery");
 var bootstrap = require('bootstrap');
 
+var window_height = $(window).height();
+
 (function($) {
     "use strict";
 
@@ -50,6 +52,8 @@ var bootstrap = require('bootstrap');
 
 
 }(jQuery));
+
+$(".content-wrapper, .right-side").css('min-height', window_height - $('.main-footer').outerHeight());
 
 // Enable sidebar toggle
 $('[data-toggle="offcanvas"]').click(function(e) {
@@ -101,7 +105,7 @@ $('[data-widget="collapse"]').click(function() {
 $(".sidebar .treeview").tree();
 
 /* dataTable */
-$('table').dataTable({
+$("table").dataTable({
     "bPaginate": true,
     "bLengthChange": false,
     "bFilter": false,

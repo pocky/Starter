@@ -21,6 +21,6 @@
         "yargs": "1.3.2",
         "path": "0.4.9",
         "vinyl-source-stream": "1.0.0",
-        "bootstrap": "3.3.0"
+        "bootstrap": "3.3.4"
     }
 }

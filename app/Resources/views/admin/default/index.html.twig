@@ -2,31 +2,26 @@
 
 {% block body %}
     {% include ':admin/_layout:header.html.twig' %}
+    {% include ':admin/_layout:sidebar.html.twig' %}
 
-    <div class="wrapper row-offcanvas row-offcanvas-left">
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Dashboard
+                <small>Control panel</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol>
+        </section>
 
-        {% include ':admin/_layout:sidebar.html.twig' %}
+        <section class="content">
 
-        <aside class="right-side">
+            <div class="row">
+                <p>Hello!</p>
+            </div>
 
-            <section class="content-header">
-                <h1>
-                    Dashboard
-                    <small>Control panel</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Dashboard</li>
-                </ol>
-            </section>
-
-            <section class="content">
-
-                <div class="row">
-                    <p>Hello!</p>
-                </div>
-
-            </section>
-        </aside>
+        </section>
     </div>
 {% endblock body %}

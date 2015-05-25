@@ -2,140 +2,137 @@
 
 {% block body %}
     {% include ':admin/_layout:header.html.twig' %}
+    {% include ':admin/_layout:sidebar.html.twig' %}
 
-    <div class="wrapper row-offcanvas row-offcanvas-left">
+    <div class="content-wrapper">
 
-        {% include ':admin/_layout:sidebar.html.twig' %}
+        <section class="content-header">
+            <h1>
+                {% trans %}application.admin.content.header.title{% endtrans %}
+                <small>{% trans %}application.admin.user.header.title{% endtrans %}</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> {% trans %}application.admin.content.breadcrumb.home{% endtrans %}</a></li>
+                <li class="active">{% trans %}application.admin.user.breadcrumb.list{% endtrans %}</li>
+            </ol>
+        </section>
 
-        <aside class="right-side">
+        <section class="content">
 
-            <section class="content-header">
-                <h1>
-                    {% trans %}application.admin.content.header.title{% endtrans %}
-                    <small>{% trans %}application.admin.user.header.title{% endtrans %}</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> {% trans %}application.admin.content.breadcrumb.home{% endtrans %}</a></li>
-                    <li class="active">{% trans %}application.admin.user.breadcrumb.list{% endtrans %}</li>
-                </ol>
-            </section>
+            <div class="row">
+                <div class="col-xs-12">
 
-            <section class="content">
+                    {% for flashMessage in app.session.flashbag.get('success') %}
+                        <div class="alert alert-success alert-dismissable">
+                            <i class="fa fa-check"></i>
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
 
-                <div class="row">
-                    <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">{% trans %}application.admin.user.list.title{% endtrans %}</h3>
+                        </div>
 
-                        {% for flashMessage in app.session.flashbag.get('success') %}
-                            <div class="alert alert-success alert-dismissable">
-                                <i class="fa fa-check"></i>
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{ flashMessage }}
-                            </div>
-                        {% endfor %}
+                        <a class="btn btn-app" href="{{ url('admin_user_create_form', {}, true) }}" data-toggle="modal" data-target="#createModal">
+                            <i class="fa fa-edit"></i> {% trans %}application.admin.user.list.button.create.a{% endtrans %}
+                        </a>
 
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">{% trans %}application.admin.user.list.title{% endtrans %}</h3>
-                            </div>
+                        <div class="box-body table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>{% trans %}application.admin.user.list.thead.name{% endtrans %}</th>
+                                        <th>{% trans %}application.admin.user.list.thead.email{% endtrans %}</th>
+                                        <th>{% trans %}application.admin.user.list.thead.lastConnection{% endtrans %}</th>
+                                        <th>{% trans %}application.admin.user.list.thead.active{% endtrans %}</th>
+                                        <th>{% trans %}application.admin.user.list.thead.actions{% endtrans %}</th>
+                                    </tr>
+                                </thead>
 
-                            <a class="btn btn-app" href="{{ url('admin_user_create_form', {}, true) }}" data-toggle="modal" data-target="#createModal">
-                                <i class="fa fa-edit"></i> {% trans %}application.admin.user.list.button.create.a{% endtrans %}
-                            </a>
-
-                            <div class="box-body table-responsive">
-                                <table class="table table-bordered table-striped">
-                                    <thead>
+                                <tbody>
+                                    {% for user in users %}
                                         <tr>
-                                            <th>{% trans %}application.admin.user.list.thead.name{% endtrans %}</th>
-                                            <th>{% trans %}application.admin.user.list.thead.email{% endtrans %}</th>
-                                            <th>{% trans %}application.admin.user.list.thead.lastConnection{% endtrans %}</th>
-                                            <th>{% trans %}application.admin.user.list.thead.active{% endtrans %}</th>
-                                            <th>{% trans %}application.admin.user.list.thead.actions{% endtrans %}</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        {% for user in users %}
-                                            <tr>
-                                                <th>{{ user.name }}</th>
-                                                <th>{{ user.email }}</th>
-                                                <th>{{ 0 < user.numberOfConnection  ? user.lastConnection|format_date : "Never connected" }}</th>
-                                                <th>
-                                                    {% if user.active %}
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default btn-flat">Utilisateur actif</button>
-                                                        <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
-                                                            <span class="caret"></span>
-                                                            <span class="sr-only">Toggle Dropdown</span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
+                                            <th>{{ user.name }}</th>
+                                            <th>{{ user.email }}</th>
+                                            <th>{{ 0 < user.numberOfConnection  ? user.lastConnection|format_date : "Never connected" }}</th>
+                                            <th>
+                                                {% if user.active %}
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default btn-flat">Utilisateur actif</button>
+                                                    <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>
+                                                            <a href="{{ url('admin_user_deactive', { 'id': user.userId }, true) }}"
+                                                               title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
+                                                                Désactiver
+                                                            </a>
+                                                        </li>
+                                                        {% if user.locked %}
                                                             <li>
-                                                                <a href="{{ url('admin_user_deactive', { 'id': user.userId }, true) }}"
+                                                                <a href="{{ url('admin_user_unlock', { 'id': user.userId }, true) }}"
                                                                    title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
-                                                                    Désactiver
+                                                                    Déverouiller
                                                                 </a>
                                                             </li>
-                                                            {% if user.locked %}
-                                                                <li>
-                                                                    <a href="{{ url('admin_user_unlock', { 'id': user.userId }, true) }}"
-                                                                       title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
-                                                                        Déverouiller
-                                                                    </a>
-                                                                </li>
-                                                            {% else %}
-                                                                <li>
-                                                                    <a href="{{ url('admin_user_lock', { 'id': user.userId }, true) }}"
-                                                                       title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
-                                                                        Vérouiller
-                                                                    </a>
-                                                                </li>
-                                                            {% endif %}
-                                                        </ul>
-                                                    </div>
-                                                    {% else %}
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default btn-flat">Utilisateur inactif</button>
-                                                        <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
-                                                            <span class="caret"></span>
-                                                            <span class="sr-only">Toggle Dropdown</span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
+                                                        {% else %}
                                                             <li>
-                                                                <a href="{{ url('admin_user_active', { 'id': user.userId }, true) }}"
-                                                                    title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
-                                                                    Activer
+                                                                <a href="{{ url('admin_user_lock', { 'id': user.userId }, true) }}"
+                                                                   title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
+                                                                    Vérouiller
                                                                 </a>
                                                             </li>
-                                                        </ul>
-                                                    </div>
+                                                        {% endif %}
+                                                    </ul>
+                                                </div>
+                                                {% else %}
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default btn-flat">Utilisateur inactif</button>
+                                                    <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>
+                                                            <a href="{{ url('admin_user_active', { 'id': user.userId }, true) }}"
+                                                                title="{% trans %}application.admin.user.list.th.action.active{% endtrans %}">
+                                                                Activer
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
 
-                                                    {% endif %}
-                                                </th>
-                                                <th>
-                                                    <a href="{{ url('admin_user_update_form', { 'id': user.userId }, true) }}"
-                                                       class="btn btn-success"
-                                                       title="{% trans %}application.admin.user.list.th.action.edit{% endtrans %}">
-                                                        <i class="fa fa-fw fa-pencil"></i>
-                                                    </a>
-                                                    <a href="{{ url('admin_user_remove', { 'id': user.userId }, true) }}"
-                                                       class="btn btn-danger"
-                                                       title="{% trans %}application.admin.user.list.th.action.remove{% endtrans %}">
-                                                        <i class="fa fa-fw fa-trash-o"></i>
-                                                    </a>
-                                                </th>
-                                            </tr>
-                                        {% endfor %}
-                                    </tbody>
+                                                {% endif %}
+                                            </th>
+                                            <th>
+                                                <a href="{{ url('admin_user_update_form', { 'id': user.userId }, true) }}"
+                                                   class="btn btn-success"
+                                                   title="{% trans %}application.admin.user.list.th.action.edit{% endtrans %}">
+                                                    <i class="fa fa-fw fa-pencil"></i>
+                                                </a>
+                                                <a href="{{ url('admin_user_remove', { 'id': user.userId }, true) }}"
+                                                   class="btn btn-danger"
+                                                   title="{% trans %}application.admin.user.list.th.action.remove{% endtrans %}">
+                                                    <i class="fa fa-fw fa-trash-o"></i>
+                                                </a>
+                                            </th>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
 
-                                </table>
+                            </table>
 
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-            </section>
-        </aside>
+        </section>
+
     </div>
 
     <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

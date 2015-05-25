@@ -17,9 +17,11 @@
         <![endif]-->
     </head>
 
-    <body class="{% block bodyClass %}skin-blue{% endblock %}">
-        {% block body %}
-        {% endblock %}
+    <body class="{% block bodyClass %}skin-black{% endblock %}">
+        <div class="wrapper">
+            {% block body %}
+            {% endblock %}
+        </div>
 
         {% block javascript %}
             <script src="{{ asset('assets/js/common.js') }}"></script>

@@ -60,8 +60,8 @@ gulp.task('watch', function() {
 
 gulp.task('default', [
     'less',
-    'lint',
     'copy',
+    'lint',
     'browserify',
     'del'
 ]);
