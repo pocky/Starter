@@ -4,7 +4,7 @@
     "type": "project",
     "description": "The \"Black Edition\" distribution build on top of \"Symfony Standard Edition\"",
     "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
+        "psr-0": { "": "src/" }
     },
     "repositories": [
         {
@@ -59,22 +59,15 @@
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/security-extra-bundle": "~1.5",
-        "jms/di-extra-bundle": "~1.5",
         "doctrine/mongodb-odm": "1.0.*@dev",
         "doctrine/mongodb-odm-bundle": "3.0.*@dev",
-        "stof/doctrine-extensions-bundle": "~1.1@dev",
         "sonata-project/intl-bundle": "2.1.*",
-        "stfalcon/tinymce-bundle": "0.3.*",
-        "helios-ag/fm-elfinder-bundle": "3.*",
         "roave/security-advisories": "dev-master",
         "black/common-bundle": "dev-master",
         "black/user": "dev-master",
         "black/user-bundle": "dev-master"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3",
-        "doctrine/data-fixtures": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "~2.2",
         "behat/symfony2-extension": "*",
         "behat/mink-extension": "*",
         "behat/mink-browserkit-driver": "*",
