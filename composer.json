@@ -52,7 +52,6 @@
         "doctrine/dbal": "2.5.*",
         "doctrine/doctrine-bundle": "~1.3",
         "twig/extensions": "~1.0",
-        "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0,>=3.0.12",
@@ -64,8 +63,7 @@
         "sonata-project/intl-bundle": "2.1.*",
         "roave/security-advisories": "dev-master",
         "black/common-bundle": "dev-master",
-        "black/user": "dev-master",
-        "black/user-bundle": "dev-master"
+        "black/user": "dev-master"
     },
     "require-dev": {
         "behat/symfony2-extension": "*",
