@@ -47,6 +47,9 @@ security:
                 role: ROLE_ADMIN
                 parameter: _barbatruc
 
+        main:
+            anonymous: ~
+
     access_control:
         - { path: ^/efconnect, role: ROLE_USER }
         - { path: ^/elfinder, role: ROLE_USER }

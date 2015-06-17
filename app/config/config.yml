@@ -17,6 +17,7 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -39,7 +40,7 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   "pdo_mysql"
+        driver:   pdo_mysql
         host:     "%database_host%"
         port:     "%database_port%"
         dbname:   "%database_name%"
@@ -55,9 +56,8 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        entity_managers:
-            default:
-                auto_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
 
 doctrine_mongodb:
     auto_generate_hydrator_classes: true
