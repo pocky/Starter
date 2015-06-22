@@ -2,13 +2,9 @@
 
 namespace Infrastructure\Provider;
 
-use Black\Component\User\Domain\Event\UserLoggedEvent;
 use Black\Component\User\Infrastructure\CQRS\Command\ConnectUserCommand;
 use Black\Component\User\Infrastructure\CQRS\Handler\ConnectUserHandler;
-use Black\Component\User\Infrastructure\Doctrine\UserManager;
 use Black\Component\User\Infrastructure\Service\UserReadService;
-use Black\Component\User\UserDomainEvents;
-use Domain\Model\User;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;

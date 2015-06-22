@@ -36,7 +36,7 @@ security:
                 username_parameter: "login[username]"
                 password_parameter: "login[password]"
                 csrf_parameter: "login[_token]"
-                csrf_provider: form.csrf_provider
+                csrf_provider: security.csrf.token_manager
                 intention: admin_authentication
                 login_path: /admin/login
                 check_path: /admin/login_check

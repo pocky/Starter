@@ -1,12 +1,12 @@
 admin_login:
-    pattern:   /admin/login
+    path:   /admin/login
     defaults:  { _controller: ApplicationBundle:Admin\Security:login }
 
 admin_login_check:
-    pattern:   /admin/login_check
+    path:   /admin/login_check
 
 admin_logout:
-    pattern:   /admin/logout
+    path:   /admin/logout
 
 application:
     resource: "@ApplicationBundle/Controller/"
