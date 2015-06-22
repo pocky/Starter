@@ -40,7 +40,7 @@ server {
       set  $path_info  $2;
   }
 
-    fastcgi_pass            unix:/var/run/php-fpm-www.sock;
+    fastcgi_pass                unix:/var/run/php-fpm-www.sock;
     fastcgi_index               app_dev.php;
     include                     /etc/nginx/fastcgi_params;
 
