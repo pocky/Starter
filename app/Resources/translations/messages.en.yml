@@ -46,12 +46,30 @@ application:
                     actions: Actions
 
                 th:
+                    neverConnected: Never connected
+                    user:
+                        active: Active user
+                        deactive: Deactive user
+                    dropdown: Toggle dropdown
+                    active: Active
+                    deactive: Deactivate
+                    unlock: Unlock
+                    lock: Lock
                     action:
                         remove: Remove
+
+            update:
+                header:
+                    title: Update the user
+                boxAccount:
+                    title: User account
+                boxPassword:
+                    title: Update password account
 
             create:
                 header:
                     title: Create a new user
+
 
                 footer:
                     close: Close

@@ -47,8 +47,25 @@ application:
                     actions: Actions
 
                 th:
+                    neverConnected: Jamais connecté
+                    user:
+                        active: Utilisateur actif
+                        deactive: Utilisateur inactif
+                    dropdown: Afficher/Masquer le menu
+                    active: Activer
+                    deactive: Désactiver
+                    unlock: Débloquer
+                    lock: Bloquer
                     action:
                         remove: Supprimer
+
+            update:
+                header:
+                    title: Modifier l'utilisateur
+                boxAccount:
+                    title: Compte utilisateur
+                boxPassword:
+                    title: Mise à jour du mot de passe
 
             create:
                 header:

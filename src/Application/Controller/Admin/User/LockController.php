@@ -14,12 +14,6 @@ use Symfony\Component\Routing\Router;
 /**
  * Class ActiveController
  *
-<<<<<<< HEAD
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
- *
-=======
->>>>>>> master
  * @Route("/admin/user", service="application.controller.admin.user.lock")
  */
 class LockController
