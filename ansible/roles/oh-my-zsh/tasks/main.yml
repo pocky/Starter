@@ -1,6 +1,0 @@
----
-- name: OhMyZsh | change start directory
-  lineinfile: "state=present dest=/home/vagrant/.zshrc
-    line='cd {{ project_directory }}'"
-  tags: ohmyzsh
-
