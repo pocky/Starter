@@ -35,7 +35,8 @@
         "memio/spec-gen": "~0.1",
         "phpunit/phpunit": "~5.0",
         "rmiller/behat-spec": "^0.2.0",
-        "braincrafted/testing-bundle": "^0.4.1"
+        "braincrafted/testing-bundle": "^0.4.1",
+        "mikey179/vfsStream": "^1.6"
     },
     "suggest": {
         "twig/extensions": "If you want useful extensions for Twig",

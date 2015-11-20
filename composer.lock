@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6a0b82b5de73c256892b568c04302024",
-    "content-hash": "9d5ca5a38943de954f9911d320517b4c",
+    "hash": "f75384cf790bfd75bbd458f65cce6e89",
+    "content-hash": "da2603a4f3a0342b86472f4f29fef8bc",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -3526,6 +3526,52 @@
             "time": "2015-04-21 06:39:21"
         },
         {
+            "name": "mikey179/vfsStream",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mikey179/vfsStream.git",
+                "reference": "73bcb605b741a7d5044b47592338c633788b0eb7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/73bcb605b741a7d5044b47592338c633788b0eb7",
+                "reference": "73bcb605b741a7d5044b47592338c633788b0eb7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "org\\bovigo\\vfs\\": "src/main/php"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Kleine",
+                    "homepage": "http://frankkleine.de/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Virtual file system to mock the real file system in unit tests.",
+            "homepage": "http://vfs.bovigo.org/",
+            "time": "2015-10-06 16:59:57"
+        },
+        {
             "name": "myclabs/deep-copy",
             "version": "1.5.0",
             "source": {
@@ -3713,12 +3759,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "e82d151ae84b014cedb62cbf37ba3e7599ef21c7"
+                "reference": "dc26e3238abcdd5e31ae66b036a6bc52c639a347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/e82d151ae84b014cedb62cbf37ba3e7599ef21c7",
-                "reference": "e82d151ae84b014cedb62cbf37ba3e7599ef21c7",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/dc26e3238abcdd5e31ae66b036a6bc52c639a347",
+                "reference": "dc26e3238abcdd5e31ae66b036a6bc52c639a347",
                 "shasum": ""
             },
             "require": {
@@ -3783,7 +3829,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2015-11-13 20:41:42"
+            "time": "2015-11-20 21:41:56"
         },
         {
             "name": "phpspec/prophecy",
