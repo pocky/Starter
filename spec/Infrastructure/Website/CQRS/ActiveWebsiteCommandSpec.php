@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\Application\Website\DTO;
+namespace spec\Infrastructure\Website\CQRS;
 
 use Domain\Website\Entity\Website;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class DisableWebsiteDTOSpec extends ObjectBehavior
+class ActiveWebsiteCommandSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Application\Website\DTO\DisableWebsiteDTO');
+        $this->shouldHaveType('Infrastructure\Website\CQRS\ActiveWebsiteCommand');
     }
 
     function let(Website $website)

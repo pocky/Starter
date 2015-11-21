@@ -2,17 +2,19 @@
 
 namespace Application\Website\DTO;
 
+use Domain\Website\Entity\Website;
+
 class ActiveWebsiteDTO
 {
-    private $id;
+    private $website;
 
-    public function __construct($id)
+    public function __construct(Website $website)
     {
-        $this->id = $id;
+        $this->website = $website;
     }
 
-    public function getId()
+    public function getWebsite()
     {
-        return $this->id;
+        return $this->website;
     }
 }

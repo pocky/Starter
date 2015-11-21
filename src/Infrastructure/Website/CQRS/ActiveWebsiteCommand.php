@@ -1,10 +1,10 @@
 <?php
 
-namespace Application\Website\DTO;
+namespace Infrastructure\Website\CQRS;
 
 use Domain\Website\Entity\Website;
 
-class DisableWebsiteDTO
+class ActiveWebsiteCommand
 {
     private $website;
 
