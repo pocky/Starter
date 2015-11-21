@@ -38,4 +38,11 @@ class InMemoryRepository implements WebsiteRepository
     {
         unset($this->website[$website->getWebsiteId()->getValue()]);
     }
+
+    public function update(Website $website)
+    {
+        if (isset($this->website[$website->getWebsiteId()->getValue()])) {
+            $this->website[$website->getWebsiteId()->getValue()] = $website;
+        }
+    }
 }

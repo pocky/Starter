@@ -17,4 +17,6 @@ interface WebsiteRepository
     public function add(Website $website);
 
     public function remove(Website $website);
+
+    public function update(Website $website);
 }

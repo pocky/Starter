@@ -39,4 +39,18 @@ class InMemoryRepositorySpec extends ObjectBehavior
         $this->remove($website);
         $this->findAll()->shouldReturn([]);
     }
+
+    function it_should_update_a_website(Website $website)
+    {
+        $id = new WebsiteId(1234);
+        $website->getWebsiteId()->willReturn($id);
+        $website->getName()->willReturn("test");
+        $this->add($website);
+
+        $website->getName()->willReturn("test2");
+        $this->update($website);
+
+        $website = $this->find($id);
+        $website->getName()->shouldReturn("test2");
+    }
 }

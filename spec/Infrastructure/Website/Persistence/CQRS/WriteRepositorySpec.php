@@ -23,4 +23,9 @@ class WriteRepositorySpec extends ObjectBehavior
     {
         $this->add($website);
     }
+
+    public function it_should_update_a_website(Website $website)
+    {
+        $this->update($website);
+    }
 }

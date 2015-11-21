@@ -3,6 +3,7 @@
 namespace spec\Infrastructure\Website\Persistence;
 
 use Domain\Website\Entity\Website;
+use Domain\Website\Entity\WebsiteStatus;
 use Domain\Website\ValueObject\WebsiteId;
 use Domain\Website\ValueObject\Author;
 use org\bovigo\vfs\vfsStream;
@@ -39,6 +40,8 @@ class YamlRepositorySpec extends ObjectBehavior
         $website->getName()->willReturn("name");
         $website->getDescription()->willReturn("description");
         $website->getAuthor()->willReturn($author);
+        $website->getCreatedAt()->willReturn(new \DateTime());
+        $website->getStatus()->willReturn(WebsiteStatus::INACTIVE);
 
         $this->add($website);
 
@@ -52,5 +55,25 @@ class YamlRepositorySpec extends ObjectBehavior
 
         $this->remove($website);
         $this->findAll()->shouldReturn([]);
+    }
+
+    function it_should_update_a_website(Website $website)
+    {
+        $id = new WebsiteId(1234);
+        $author = new Author("john");
+        $website->getWebsiteId()->willReturn($id);
+        $website->getName()->willReturn("name");
+        $website->getDescription()->willReturn("description");
+        $website->getAuthor()->willReturn($author);
+        $website->getCreatedAt()->willReturn(new \DateTime());
+        $website->getStatus()->willReturn(WebsiteStatus::INACTIVE);
+        $this->add($website);
+
+        $website->getName()->willReturn("test2");
+        $website->getUpdatedtAt()->willReturn(new \DateTime());
+        $this->update($website);
+
+        $website = $this->find($id);
+        $website->getName()->shouldReturn("test2");
     }
 }

@@ -18,4 +18,9 @@ class WriteRepository
     {
         $this->repository->add($website);
     }
+
+    public function update(Website $website)
+    {
+        $this->repository->update($website);
+    }
 }

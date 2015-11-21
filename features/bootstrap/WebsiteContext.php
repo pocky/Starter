@@ -10,6 +10,8 @@ class WebsiteContext extends DomainContext
      */
     protected $repository;
 
+    protected $cache;
+
     /**
      * Initializes context.
      *
@@ -35,7 +37,8 @@ class WebsiteContext extends DomainContext
         $website = new Domain\Website\Entity\Website($websiteId, $name, $description, $author);
 
         $websiteRepository = new Infrastructure\Website\Persistence\CQRS\WriteRepository($this->repository);
-        $websiteRepository->add($website);
+        $service = new Infrastructure\Website\Service\WriteService($websiteRepository);
+        $service->createWebsite($website);
 
         $event = new Domain\Website\Event\WebsiteIsCreated($website);
     }
@@ -48,7 +51,8 @@ class WebsiteContext extends DomainContext
         $websiteId = new Domain\Website\ValueObject\WebsiteId($identifier);
 
         $websiteRepository = new Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
-        $website = $websiteRepository->find($websiteId);
+        $service = new Infrastructure\Website\Service\ReadService($websiteRepository);
+        $website = $service->find($websiteId);
     }
 
     /**
@@ -58,7 +62,11 @@ class WebsiteContext extends DomainContext
     {
         $websiteId = new Domain\Website\ValueObject\WebsiteId(1234);
         $author = new Domain\Website\ValueObject\Author("John Doe");
-        $this->website = new Domain\Website\Entity\Website($websiteId, "name", "description", $author);
+        $this->website = new Domain\Website\Entity\Website($websiteId, "name2", "description", $author);
+
+        $websiteRepository = new Infrastructure\Website\Persistence\CQRS\WriteRepository($this->repository);
+        $this->service = new Infrastructure\Website\Service\WriteService($websiteRepository);
+        $this->service->createWebsite($this->website);
     }
 
     /**
@@ -66,7 +74,8 @@ class WebsiteContext extends DomainContext
      */
     public function iWantToActiveMyWebsite()
     {
-        $this->website->activate();
+        $this->service->activate($this->website);
+
         $event = new Domain\Website\Event\WebsiteIsActivated($this->website);
     }
 
@@ -87,7 +96,7 @@ class WebsiteContext extends DomainContext
      */
     public function iWantToDisableMyWebsite()
     {
-        $this->website->disable();
+        $this->service->disable($this->website);
         $event = new Domain\Website\Event\WebsiteIsDisabled($this->website);
     }
 

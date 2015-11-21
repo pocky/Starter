@@ -47,12 +47,14 @@ class YamlRepository implements WebsiteRepository
             $rows[] = $row;
         }
 
-        $rows[] = array(
+        $rows[] = [
             'id' => $website->getWebsiteId()->getValue(),
             'name' => $website->getName(),
             'description' => $website->getDescription(),
-            'author' => $website->getAuthor()->getValue()
-        );
+            'author' => $website->getAuthor()->getValue(),
+            'createdAt' => $website->getCreatedAt()->format('r'),
+            'status' => $website->getStatus()
+        ];
 
         file_put_contents($this->filename, Yaml::dump($rows));
     }
@@ -81,6 +83,27 @@ class YamlRepository implements WebsiteRepository
         }
 
         return null;
+    }
+
+    public function update(Website $website)
+    {
+        $rows = [];
+
+        foreach ($this->getRows() as $row) {
+            if ($website->getWebsiteId()->isEqualTo(new WebsiteId($row['id']))) {
+                $row['id'] = $website->getWebsiteId()->getValue();
+                $row['name'] = $website->getName();
+                $row['description'] = $website->getDescription();
+                $row['author'] = $website->getAuthor()->getValue();
+                $row['createdAt'] = $website->getCreatedAt()->format('r');
+                $row['status'] = $website->getStatus();
+                $row['updatedAt'] = $website->getUpdatedtAt()->format('r');
+            }
+
+            $rows[] = $row;
+        }
+
+        file_put_contents($this->filename, Yaml::dump($rows));
     }
 
     private function getRows()
