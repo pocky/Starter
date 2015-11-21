@@ -7,7 +7,7 @@ Feature: Manage a website
 
   Scenario: Active a website
     Given I have a website
-    Then I want to active my website
+    Then I want to activate my website
     And my website can be read by a visitor
 
   Scenario: Disable a website

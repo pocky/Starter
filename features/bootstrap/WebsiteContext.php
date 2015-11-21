@@ -10,8 +10,6 @@ class WebsiteContext extends DomainContext
      */
     protected $repository;
 
-    protected $cache;
-
     /**
      * Initializes context.
      *
@@ -32,9 +30,12 @@ class WebsiteContext extends DomainContext
      */
     public function iWantToCreateAWebsiteWithANameADescriptionAndAnAuthor($name, $description, $author)
     {
-        $websiteId = new Domain\Website\ValueObject\WebsiteId(1234);
-        $author = new Domain\Website\ValueObject\Author($author);
-        $website = new Domain\Website\Entity\Website($websiteId, $name, $description, $author);
+        $dto = new Application\Website\DTO\CreateWebsiteDTO($name, $description, $author);
+
+        $author = new Domain\Website\ValueObject\Author($dto->getAuthor());
+        $websiteId = new Domain\Website\ValueObject\WebsiteId(\Rhumsaa\Uuid\Uuid::uuid4());
+
+        $website = new Domain\Website\Entity\Website($websiteId, $dto->getName(), $dto->getDescription(), $author);
 
         $websiteRepository = new Infrastructure\Website\Persistence\CQRS\WriteRepository($this->repository);
         $service = new Infrastructure\Website\Service\WriteService($websiteRepository);
@@ -70,13 +71,20 @@ class WebsiteContext extends DomainContext
     }
 
     /**
-     * @Then I want to active my website
+     * @Then I want to activate my website
      */
-    public function iWantToActiveMyWebsite()
+    public function iWantToActivateMyWebsite()
     {
-        $this->service->activate($this->website);
+        $dto = new Application\Website\DTO\ActiveWebsiteDTO(1234);
+        $id = new \Domain\Website\ValueObject\WebsiteId($dto->getId());
 
-        $event = new Domain\Website\Event\WebsiteIsActivated($this->website);
+        $repository = new \Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $this->website = $repository->find($id);
+
+        if ($this->website) {
+            $this->service->activate($this->website);
+            $event = new Domain\Website\Event\WebsiteIsActivated($this->website);
+        }
     }
 
     /**
@@ -96,8 +104,16 @@ class WebsiteContext extends DomainContext
      */
     public function iWantToDisableMyWebsite()
     {
-        $this->service->disable($this->website);
-        $event = new Domain\Website\Event\WebsiteIsDisabled($this->website);
+        $dto = new Application\Website\DTO\DisableWebsiteDTO(1234);
+        $id = new \Domain\Website\ValueObject\WebsiteId($dto->getId());
+
+        $repository = new \Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $this->website = $repository->find($id);
+
+        if ($this->website) {
+            $this->service->disable($this->website);
+            $event = new Domain\Website\Event\WebsiteIsDisabled($this->website);
+        }
     }
 
     /**
