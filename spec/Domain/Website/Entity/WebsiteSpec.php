@@ -40,4 +40,28 @@ class WebsiteSpec extends ObjectBehavior
     {
         $this->getAuthor()->getValue()->shouldReturn("john doe");
     }
+
+    public function it_should_have_a_creation_date()
+    {
+        $this->getCreatedAt()->shouldBeAnInstanceOf('\DateTime');
+    }
+
+    public function it_shound_not_be_activated()
+    {
+        $this->getStatus()->shouldReturn("inactive");
+    }
+
+    public function it_should_activate()
+    {
+        $this->activate();
+        $this->getStatus()->shouldReturn("active");
+        $this->getUpdatedtAt()->shouldBeAnInstanceOf('\DateTime');
+    }
+
+    public function it_should_disable()
+    {
+        $this->disable();
+        $this->getStatus()->shouldReturn("inactive");
+        $this->getUpdatedtAt()->shouldBeAnInstanceOf('\DateTime');
+    }
 }

@@ -50,4 +50,54 @@ class WebsiteContext extends DomainContext
         $websiteRepository = new Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $website = $websiteRepository->find($websiteId);
     }
+
+    /**
+     * @Given I have a website
+     */
+    public function iHaveAWebsite()
+    {
+        $websiteId = new Domain\Website\ValueObject\WebsiteId(1234);
+        $author = new Domain\Website\ValueObject\Author("John Doe");
+        $this->website = new Domain\Website\Entity\Website($websiteId, "name", "description", $author);
+    }
+
+    /**
+     * @Then I want to active my website
+     */
+    public function iWantToActiveMyWebsite()
+    {
+        $this->website->activate();
+        $event = new Domain\Website\Event\WebsiteIsActivated($this->website);
+    }
+
+    /**
+     * @Given my website can be read by a visitor
+     */
+    public function myWebsiteCanBeReadByAVisitor()
+    {
+        $specification = new Application\Website\Specification\WebsiteIsReadable();
+
+        if ($specification->isSatisfiedBy($this->website)) {
+            $this->website;
+        }
+    }
+
+    /**
+     * @Then I want to disable my website
+     */
+    public function iWantToDisableMyWebsite()
+    {
+        $this->website->disable();
+        $event = new Domain\Website\Event\WebsiteIsDisabled($this->website);
+    }
+
+    /**
+     * @Given my website can't be read by a visitor
+     */
+    public function myWebsiteCantBeReadByAVisitor()
+    {
+        $specification = new Application\Website\Specification\WebsiteIsReadable();
+
+        $specification->isSatisfiedBy($this->website);
+    }
 }
