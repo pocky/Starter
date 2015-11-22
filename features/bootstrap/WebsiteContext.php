@@ -26,7 +26,17 @@ class WebsiteContext extends DomainContext
     }
 
     /**
-     * @Given I want to create a website with a :name, a :description and an :author
+     * @Given I don't have any website
+     */
+    public function iDontHaveAnyWebsite()
+    {
+        $websiteRepository = new Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $service = new Infrastructure\Website\Service\ReadService($websiteRepository);
+        $service->listWebsites();
+    }
+
+    /**
+     * @When I create my website with a :name, a :description and an :author
      */
     public function iWantToCreateAWebsiteWithANameADescriptionAndAnAuthor($name, $description, $author)
     {
@@ -68,17 +78,16 @@ class WebsiteContext extends DomainContext
     }
 
     /**
-     * @Then I want to activate my website
+     * @When I enable my website
      */
-    public function iWantToActivateMyWebsite()
+    public function iEnableMyWebsite()
     {
-        $id = new \Domain\Website\ValueObject\WebsiteId(1234);
-
+        $dto = new Application\Website\DTO\ActiveWebsiteDTO(1234);
+        $id = new \Domain\Website\ValueObject\WebsiteId($dto->getId());
         $repository = new \Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $dto = new Application\Website\DTO\ActiveWebsiteDTO($this->website);
-        $command = new Infrastructure\Website\CQRS\ActiveWebsiteCommand($dto->getWebsite());
+        $command = new Infrastructure\Website\CQRS\ActiveWebsiteCommand($this->website);
         $handler = new Infrastructure\Website\CQRS\ActiveWebsiteHandler($this->service);
         $handler->handle($command);
     }
@@ -96,17 +105,16 @@ class WebsiteContext extends DomainContext
     }
 
     /**
-     * @Then I want to disable my website
+     * @When I disable my website
      */
-    public function iWantToDisableMyWebsite()
+    public function iDisableMyWebsite()
     {
-        $id = new \Domain\Website\ValueObject\WebsiteId(1234);
-
+        $dto = new Application\Website\DTO\ActiveWebsiteDTO(1234);
+        $id = new \Domain\Website\ValueObject\WebsiteId($dto->getId());
         $repository = new \Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $dto = new Application\Website\DTO\DisableWebsiteDTO($this->website);
-        $command = new Infrastructure\Website\CQRS\DisableWebsiteCommand($dto->getWebsite());
+        $command = new Infrastructure\Website\CQRS\DisableWebsiteCommand($this->website);
         $handler = new Infrastructure\Website\CQRS\DisableWebsiteHandler($this->service);
         $handler->handle($command);
     }
@@ -119,5 +127,22 @@ class WebsiteContext extends DomainContext
         $specification = new Application\Website\Specification\WebsiteIsReadable();
 
         $specification->isSatisfiedBy($this->website);
+    }
+
+    /**
+     * @When I update his name with :name
+     */
+    public function iUpdateHisNameWith($name)
+    {
+        $author = new Domain\Website\ValueObject\Author("John Doe");
+        $dto = new Application\Website\DTO\WebsiteDTO(1234, $name, "description", $author);
+
+        $id = new \Domain\Website\ValueObject\WebsiteId($dto->getId());
+        $repository = new \Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $this->website = $repository->find($id);
+
+        $command = new Infrastructure\Website\CQRS\UpdateWebsiteCommand($dto->getName(), $dto->getDescription(), $dto->getAuthor(), $this->website);
+        $handler = new Infrastructure\Website\CQRS\UpdateWebsiteHandler($this->service);
+        $handler->handle($command);
     }
 }

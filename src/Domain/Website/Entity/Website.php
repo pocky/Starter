@@ -77,4 +77,12 @@ class Website
         $this->updatedAt = new \DateTime();
         $this->status = WebsiteStatus::INACTIVE;
     }
+
+    public function update($name, $description, Author $author)
+    {
+        $this->updatedAt = new \DateTime();
+        $this->name = $name;
+        $this->description = $description;
+        $this->author = $author;
+    }
 }

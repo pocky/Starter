@@ -64,4 +64,10 @@ class WebsiteSpec extends ObjectBehavior
         $this->getStatus()->shouldReturn("inactive");
         $this->getUpdatedtAt()->shouldBeAnInstanceOf('\DateTime');
     }
+
+    public function it_should_update()
+    {
+        $author = new Author("John doe");
+        $this->update("name", "description", $author);
+    }
 }

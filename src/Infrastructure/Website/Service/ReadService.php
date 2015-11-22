@@ -18,4 +18,9 @@ class ReadService
     {
         return $this->readRepository->find($id);
     }
+
+    public function listWebsites()
+    {
+        return $this->readRepository->findAll() ? $this->readRepository->findAll() : [];
+    }
 }

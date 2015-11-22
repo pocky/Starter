@@ -2,19 +2,17 @@
 
 namespace Application\Website\DTO;
 
-use Domain\Website\Entity\Website;
-
 class DisableWebsiteDTO
 {
-    private $website;
+    private $id;
 
-    public function __construct(Website $website)
+    public function __construct($id)
     {
-        $this->website = $website;
+        $this->id = $id;
     }
 
-    public function getWebsite()
+    public function getId()
     {
-        return $this->website;
+        return $this->id;
     }
 }
