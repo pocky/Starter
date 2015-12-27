@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "92a0e3455106da8982ac9159484db47e",
-    "content-hash": "9d5d21008fab11bc3b4be03f293a2b3d",
+    "hash": "0ab693463f1506c8ebaf92d03b8d36b4",
+    "content-hash": "5ebe42c49d8c28b06b4c5492cb5fe1cd",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1172,7 +1172,7 @@
                     "Psr\\Log\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5403,24 +5403,24 @@
         },
         {
             "name": "rmiller/behat-spec",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/richardmiller/BehatSpec.git",
-                "reference": "9f36516185707d0bea384ff4285f5c36a6650442"
+                "reference": "08d7ff6ec5d660c6f62bc8c248707378b2fba4ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/richardmiller/BehatSpec/zipball/9f36516185707d0bea384ff4285f5c36a6650442",
-                "reference": "9f36516185707d0bea384ff4285f5c36a6650442",
+                "url": "https://api.github.com/repos/richardmiller/BehatSpec/zipball/08d7ff6ec5d660c6f62bc8c248707378b2fba4ee",
+                "reference": "08d7ff6ec5d660c6f62bc8c248707378b2fba4ee",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
                 "rmiller/error-extension": "~0.1",
                 "rmiller/exemplify-extension": "~0.2",
-                "rmiller/phpspec-extension": "~0.1",
-                "rmiller/phpspec-run-extension": "~0.1"
+                "rmiller/phpspec-extension": "~0.2",
+                "rmiller/phpspec-run-extension": "~0.2"
             },
             "type": "library",
             "autoload": {
@@ -5446,7 +5446,7 @@
                 "SpecBDD",
                 "StoryBDD"
             ],
-            "time": "2014-11-12 14:09:59"
+            "time": "2015-12-11 21:34:01"
         },
         {
             "name": "rmiller/caser",
