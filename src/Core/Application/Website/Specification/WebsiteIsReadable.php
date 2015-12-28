@@ -7,7 +7,7 @@ use Black\Core\Domain\Website\Entity\WebsiteStatus;
 
 class WebsiteIsReadable
 {
-    public function isSatisfiedBy(Website $website)
+    public function isSatisfiedBy(Website $website) : bool
     {
         return $website->getStatus() == WebsiteStatus::ACTIVE;
     }

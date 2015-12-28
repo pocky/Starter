@@ -19,7 +19,7 @@ class YamlRepository implements WebsiteRepository
         (new Filesystem())->touch($filename);
     }
 
-    public function findAll()
+    public function findAll() : array
     {
         $websites = [];
 
@@ -81,8 +81,6 @@ class YamlRepository implements WebsiteRepository
                 return $website;
             }
         }
-
-        return null;
     }
 
     public function update(Website $website)

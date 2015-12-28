@@ -15,7 +15,7 @@ class InMemoryRepository implements WebsiteRepository
         $this->website = [];
     }
 
-    public function findAll()
+    public function findAll() : array
     {
         return $this->website;
     }
@@ -27,7 +27,7 @@ class InMemoryRepository implements WebsiteRepository
         }
     }
 
-    public function find(WebsiteId $id)
+    public function find(WebsiteId $id) : Website
     {
         if (isset($this->website[$id->getValue()])) {
             return $this->website[$id->getvalue()];

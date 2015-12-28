@@ -1,10 +1,10 @@
 <?php
 
-namespace Black\Core\Application\Website\DTO;
+namespace Black\Core\Infrastructure\Website\CQRS\Command;
 
 use Black\Core\Domain\Website\ValueObject\Author;
 
-class CreateWebsiteDTO
+class CreateWebsiteCommand
 {
     private $name;
 
@@ -12,7 +12,7 @@ class CreateWebsiteDTO
 
     private $author;
 
-    public function __construct(string $name, string $description, string $author)
+    public function __construct(string $name, string $description, Author $author)
     {
         $this->name = $name;
         $this->description = $description;
@@ -29,7 +29,7 @@ class CreateWebsiteDTO
         return $this->description;
     }
 
-    public function getAuthor() : string
+    public function getAuthor() : Author
     {
         return $this->author;
     }

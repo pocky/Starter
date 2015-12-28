@@ -46,8 +46,8 @@ class WebsiteContext extends DomainContext
         $dto = new Black\Core\Application\Website\DTO\CreateWebsiteDTO($name, $description, $author);
         $author = new Black\Core\Domain\Website\ValueObject\Author($dto->getAuthor());
 
-        $command = new Black\Core\Infrastructure\Website\CQRS\CreateWebsiteCommand($dto->getName(), $dto->getDescription(), $author);
-        $handler = new Black\Core\Infrastructure\Website\CQRS\CreateWebsiteHandler($service);
+        $command = new Black\Core\Infrastructure\Website\CQRS\Command\CreateWebsiteCommand($dto->getName(), $dto->getDescription(), $author);
+        $handler = new Black\Core\Infrastructure\Website\CQRS\Handler\CreateWebsiteHandler($service);
         $handler->handle($command);
     }
 
@@ -87,8 +87,8 @@ class WebsiteContext extends DomainContext
         $repository = new \Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $command = new Black\Core\Infrastructure\Website\CQRS\ActiveWebsiteCommand($this->website);
-        $handler = new Black\Core\Infrastructure\Website\CQRS\ActiveWebsiteHandler($this->service);
+        $command = new Black\Core\Infrastructure\Website\CQRS\Command\ActiveWebsiteCommand($this->website);
+        $handler = new Black\Core\Infrastructure\Website\CQRS\Handler\ActiveWebsiteHandler($this->service);
         $handler->handle($command);
     }
 
@@ -114,8 +114,8 @@ class WebsiteContext extends DomainContext
         $repository = new \Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $command = new Black\Core\Infrastructure\Website\CQRS\DisableWebsiteCommand($this->website);
-        $handler = new Black\Core\Infrastructure\Website\CQRS\DisableWebsiteHandler($this->service);
+        $command = new Black\Core\Infrastructure\Website\CQRS\Command\DisableWebsiteCommand($this->website);
+        $handler = new Black\Core\Infrastructure\Website\CQRS\Handler\DisableWebsiteHandler($this->service);
         $handler->handle($command);
     }
 
@@ -134,15 +134,16 @@ class WebsiteContext extends DomainContext
      */
     public function iUpdateHisNameWith($name)
     {
-        $author = new Black\Core\Domain\Website\ValueObject\Author("John Doe");
-        $dto = new Black\Core\Application\Website\DTO\WebsiteDTO(1234, $name, "description", $author);
+        $dto = new Black\Core\Application\Website\DTO\WebsiteDTO(1234, $name, "description", "John Doe");
 
         $id = new \Black\Core\Domain\Website\ValueObject\WebsiteId($dto->getId());
+        $author = new \Black\Core\Domain\Website\ValueObject\Author($dto->getAuthor());
+
         $repository = new \Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $command = new Black\Core\Infrastructure\Website\CQRS\UpdateWebsiteCommand($dto->getName(), $dto->getDescription(), $dto->getAuthor(), $this->website);
-        $handler = new Black\Core\Infrastructure\Website\CQRS\UpdateWebsiteHandler($this->service);
+        $command = new Black\Core\Infrastructure\Website\CQRS\Command\UpdateWebsiteCommand($dto->getName(), $dto->getDescription(), $author, $this->website);
+        $handler = new Black\Core\Infrastructure\Website\CQRS\Handler\UpdateWebsiteHandler($this->service);
         $handler->handle($command);
     }
 }

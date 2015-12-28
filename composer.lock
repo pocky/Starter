@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ab693463f1506c8ebaf92d03b8d36b4",
-    "content-hash": "5ebe42c49d8c28b06b4c5492cb5fe1cd",
+    "hash": "7140eeaca9ee2de4827ba8ac5b0e851c",
+    "content-hash": "51ca3a5aafd7b0360eabcdb75d6bfc7d",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2412,26 +2412,27 @@
         },
         {
             "name": "symfony/security-acl",
-            "version": "v2.7.8",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-acl.git",
-                "reference": "ef02d4606460c79836ba76f6495cf043e0eb9953"
+                "reference": "4a3f7327ad215242c78f6564ad4ea6d2db1b8347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/ef02d4606460c79836ba76f6495cf043e0eb9953",
-                "reference": "ef02d4606460c79836ba76f6495cf043e0eb9953",
+                "url": "https://api.github.com/repos/symfony/security-acl/zipball/4a3f7327ad215242c78f6564ad4ea6d2db1b8347",
+                "reference": "4a3f7327ad215242c78f6564ad4ea6d2db1b8347",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
-                "symfony/security-core": "~2.4"
+                "symfony/security-core": "~2.4|~3.0.0"
             },
             "require-dev": {
                 "doctrine/common": "~2.2",
                 "doctrine/dbal": "~2.2",
-                "psr/log": "~1.0"
+                "psr/log": "~1.0",
+                "symfony/phpunit-bridge": "~2.7|~3.0.0"
             },
             "suggest": {
                 "doctrine/dbal": "For using the built-in ACL implementation",
@@ -2441,7 +2442,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -2468,7 +2469,7 @@
             ],
             "description": "Symfony Security Component - ACL (Access Control List)",
             "homepage": "https://symfony.com",
-            "time": "2015-12-05 17:37:09"
+            "time": "2015-12-28 09:39:09"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -4851,22 +4852,24 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.5.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7"
+                "reference": "e55e3e32a870bd4f05425fa4f717b52bd40e5659"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4745ded9307786b730d7a60df5cb5a6c43cf95f7",
-                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/e55e3e32a870bd4f05425fa4f717b52bd40e5659",
+                "reference": "e55e3e32a870bd4f05425fa4f717b52bd40e5659",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
+                "php": "^5.3|^7.0",
                 "phpdocumentor/reflection-docblock": "~2.0",
-                "sebastian/comparator": "~1.1"
+                "sebastian/comparator": "~1.1",
+                "sebastian/recursion-context": "~1.0"
             },
             "require-dev": {
                 "phpspec/phpspec": "~2.0"
@@ -4874,7 +4877,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -4907,7 +4910,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-08-13 10:07:40"
+            "time": "2015-12-28 13:26:33"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -6238,22 +6241,22 @@
         },
         {
             "name": "webmozart/json",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/json.git",
-                "reference": "d44cd8d566f1e2bd2d9b30dc9e4d87d984410058"
+                "reference": "c945ff5f3ece2ee7fb22b14c470206a3f277f113"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/json/zipball/d44cd8d566f1e2bd2d9b30dc9e4d87d984410058",
-                "reference": "d44cd8d566f1e2bd2d9b30dc9e4d87d984410058",
+                "url": "https://api.github.com/repos/webmozart/json/zipball/c945ff5f3ece2ee7fb22b14c470206a3f277f113",
+                "reference": "c945ff5f3ece2ee7fb22b14c470206a3f277f113",
                 "shasum": ""
             },
             "require": {
-                "justinrainbow/json-schema": ">=1.3.7",
-                "php": ">=5.3.3",
-                "seld/jsonlint": "~1.0"
+                "justinrainbow/json-schema": "^1.4.2",
+                "php": "^5.3.3|^7.0",
+                "seld/jsonlint": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -6282,14 +6285,15 @@
                 }
             ],
             "description": "A robust JSON decoder/encoder with support for schema validation.",
-            "time": "2015-12-11 17:37:16"
+            "time": "2015-12-28 09:01:11"
         }
     ],
     "aliases": [],
     "minimum-stability": "beta",
     "stability-flags": {
         "roave/security-advisories": 20,
-        "hautelook/alice-bundle": 20
+        "hautelook/alice-bundle": 20,
+        "phpspec/prophecy": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

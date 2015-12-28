@@ -2,6 +2,8 @@
 
 namespace Black\Core\Application\Website\DTO;
 
+use Black\Core\Domain\Website\ValueObject\Author;
+
 class WebsiteDTO
 {
     private $id;
@@ -12,7 +14,7 @@ class WebsiteDTO
 
     private $author;
 
-    public function __construct($id, $name, $description, $author)
+    public function __construct(int $id, string $name, string $description, string $author)
     {
         $this->id = $id;
         $this->name = $name;
@@ -20,22 +22,22 @@ class WebsiteDTO
         $this->author = $author;
     }
 
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function getDescription()
+    public function getDescription() : string
     {
         return $this->description;
     }
 
-    public function getAuthor()
+    public function getAuthor() : string
     {
         return $this->author;
     }

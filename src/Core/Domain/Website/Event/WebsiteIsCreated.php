@@ -13,7 +13,7 @@ class WebsiteIsCreated
         $this->website = $website;
     }
 
-    public function getWebsite()
+    public function getWebsite() : Website
     {
         return $this->website;
     }

@@ -2,6 +2,7 @@
 
 namespace Black\Core\Infrastructure\Website\Service;
 
+use Black\Core\Domain\Website\Entity\Website;
 use Black\Core\Domain\Website\ValueObject\WebsiteId;
 use Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository;
 
@@ -19,7 +20,7 @@ class ReadService
         return $this->readRepository->find($id);
     }
 
-    public function listWebsites()
+    public function listWebsites() : array
     {
         return $this->readRepository->findAll() ? $this->readRepository->findAll() : [];
     }

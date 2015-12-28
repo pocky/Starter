@@ -11,12 +11,12 @@ final class Author
         $this->value = $value;
     }
 
-    public function getValue()
+    public function getValue() : string
     {
-        return $this->value;
+        return (string) $this->value;
     }
 
-    public function isEqualTo(Author $author)
+    public function isEqualTo(Author $author) : bool
     {
         return $this->getValue() === $author->getValue();
     }

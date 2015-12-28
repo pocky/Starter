@@ -7,8 +7,6 @@ use Black\Core\Domain\Website\ValueObject\WebsiteId;
 
 class Website
 {
-    protected $id;
-
     protected $websiteId;
 
     protected $name;
@@ -23,7 +21,7 @@ class Website
 
     protected $updatedAt;
 
-    public function __construct(WebsiteId $websiteId, $name, $description, Author $author)
+    public function __construct(WebsiteId $websiteId, string $name, string $description, Author $author)
     {
         $this->websiteId = $websiteId;
         $this->name = $name;
@@ -33,27 +31,22 @@ class Website
         $this->status = WebsiteStatus::INACTIVE;
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getWebsiteId()
+    public function getWebsiteId() : WebsiteId
     {
         return $this->websiteId;
     }
 
-    public function getName()
+    public function getName() : string
     {
-        return (string) $this->name;
+        return $this->name;
     }
 
-    public function getDescription()
+    public function getDescription() : string
     {
-        return (string) $this->description;
+        return $this->description;
     }
 
-    public function getAuthor()
+    public function getAuthor() : Author
     {
         return $this->author;
     }
@@ -64,17 +57,17 @@ class Website
         $this->status = WebsiteStatus::ACTIVE;
     }
 
-    public function getCreatedAt()
+    public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;
     }
 
-    public function getStatus()
+    public function getStatus() : string
     {
         return (string) $this->status;
     }
 
-    public function getUpdatedtAt()
+    public function getUpdatedtAt() : \DateTime
     {
         return $this->updatedAt;
     }
@@ -85,7 +78,7 @@ class Website
         $this->status = WebsiteStatus::INACTIVE;
     }
 
-    public function update($name, $description, Author $author)
+    public function update(string $name, string $description, Author $author)
     {
         $this->updatedAt = new \DateTime();
         $this->name = $name;

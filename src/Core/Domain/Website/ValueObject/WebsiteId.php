@@ -11,12 +11,12 @@ final class WebsiteId
         $this->value = $value;
     }
 
-    public function getValue()
+    public function getValue() : string
     {
-        return $this->value;
+        return (string) $this->value;
     }
 
-    public function isEqualTo(WebsiteId $id)
+    public function isEqualTo(WebsiteId $id) : bool
     {
         return $this->getValue() === $id->getValue();
     }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Black\Core\Domain\Website\Event;
+namespace Black\Core\Infrastructure\Website\CQRS\Command;
 
 use Black\Core\Domain\Website\Entity\Website;
 
-class WebsiteUpdated
+class ActiveWebsiteCommand
 {
     private $website;
 
