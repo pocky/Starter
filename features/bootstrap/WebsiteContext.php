@@ -6,7 +6,7 @@
 class WebsiteContext extends DomainContext
 {
     /**
-     * @var \Infrastructure\Website\Persistence\InMemoryRepository
+     * @var \Black\Core\Infrastructure\Website\Persistence\InMemoryRepository
      */
     protected $repository;
 
@@ -21,8 +21,8 @@ class WebsiteContext extends DomainContext
     {
         \org\bovigo\vfs\vfsStream::setup('cache');
 
-        //$this->repository = new \Infrastructure\Website\Persistence\InMemoryRepository();
-        $this->repository = new \Infrastructure\Website\Persistence\YamlRepository(\org\bovigo\vfs\vfsStream::url('cache/website.yml'));
+        //$this->repository = new \Black\Core\Infrastructure\Website\Persistence\InMemoryRepository();
+        $this->repository = new \Black\Core\Infrastructure\Website\Persistence\YamlRepository(\org\bovigo\vfs\vfsStream::url('cache/website.yml'));
     }
 
     /**
@@ -30,8 +30,8 @@ class WebsiteContext extends DomainContext
      */
     public function iDontHaveAnyWebsite()
     {
-        $websiteRepository = new Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
-        $service = new Infrastructure\Website\Service\ReadService($websiteRepository);
+        $websiteRepository = new Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $service = new Black\Core\Infrastructure\Website\Service\ReadService($websiteRepository);
         $service->listWebsites();
     }
 
@@ -40,14 +40,14 @@ class WebsiteContext extends DomainContext
      */
     public function iWantToCreateAWebsiteWithANameADescriptionAndAnAuthor($name, $description, $author)
     {
-        $websiteRepository = new Infrastructure\Website\Persistence\CQRS\WriteRepository($this->repository);
-        $service = new Infrastructure\Website\Service\WriteService($websiteRepository);
+        $websiteRepository = new Black\Core\Infrastructure\Website\Persistence\CQRS\WriteRepository($this->repository);
+        $service = new Black\Core\Infrastructure\Website\Service\WriteService($websiteRepository);
 
-        $dto = new Application\Website\DTO\CreateWebsiteDTO($name, $description, $author);
-        $author = new Domain\Website\ValueObject\Author($dto->getAuthor());
+        $dto = new Black\Core\Application\Website\DTO\CreateWebsiteDTO($name, $description, $author);
+        $author = new Black\Core\Domain\Website\ValueObject\Author($dto->getAuthor());
 
-        $command = new Infrastructure\Website\CQRS\CreateWebsiteCommand($dto->getName(), $dto->getDescription(), $author);
-        $handler = new Infrastructure\Website\CQRS\CreateWebsiteHandler($service);
+        $command = new Black\Core\Infrastructure\Website\CQRS\CreateWebsiteCommand($dto->getName(), $dto->getDescription(), $author);
+        $handler = new Black\Core\Infrastructure\Website\CQRS\CreateWebsiteHandler($service);
         $handler->handle($command);
     }
 
@@ -56,10 +56,10 @@ class WebsiteContext extends DomainContext
      */
     public function iMustHaveAWebsiteWithId($identifier)
     {
-        $websiteId = new Domain\Website\ValueObject\WebsiteId($identifier);
+        $websiteId = new Black\Core\Domain\Website\ValueObject\WebsiteId($identifier);
 
-        $websiteRepository = new Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
-        $service = new Infrastructure\Website\Service\ReadService($websiteRepository);
+        $websiteRepository = new Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $service = new Black\Core\Infrastructure\Website\Service\ReadService($websiteRepository);
         $website = $service->find($websiteId);
     }
 
@@ -68,12 +68,12 @@ class WebsiteContext extends DomainContext
      */
     public function iHaveAWebsite()
     {
-        $websiteId = new Domain\Website\ValueObject\WebsiteId(1234);
-        $author = new Domain\Website\ValueObject\Author("John Doe");
-        $this->website = new Domain\Website\Entity\Website($websiteId, "name2", "description", $author);
+        $websiteId = new Black\Core\Domain\Website\ValueObject\WebsiteId(1234);
+        $author = new Black\Core\Domain\Website\ValueObject\Author("John Doe");
+        $this->website = new Black\Core\Domain\Website\Entity\Website($websiteId, "name2", "description", $author);
 
-        $websiteRepository = new Infrastructure\Website\Persistence\CQRS\WriteRepository($this->repository);
-        $this->service = new Infrastructure\Website\Service\WriteService($websiteRepository);
+        $websiteRepository = new Black\Core\Infrastructure\Website\Persistence\CQRS\WriteRepository($this->repository);
+        $this->service = new Black\Core\Infrastructure\Website\Service\WriteService($websiteRepository);
         $this->service->createWebsite($this->website);
     }
 
@@ -82,13 +82,13 @@ class WebsiteContext extends DomainContext
      */
     public function iEnableMyWebsite()
     {
-        $dto = new Application\Website\DTO\ActiveWebsiteDTO(1234);
-        $id = new \Domain\Website\ValueObject\WebsiteId($dto->getId());
-        $repository = new \Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $dto = new Black\Core\Application\Website\DTO\ActiveWebsiteDTO(1234);
+        $id = new \Black\Core\Domain\Website\ValueObject\WebsiteId($dto->getId());
+        $repository = new \Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $command = new Infrastructure\Website\CQRS\ActiveWebsiteCommand($this->website);
-        $handler = new Infrastructure\Website\CQRS\ActiveWebsiteHandler($this->service);
+        $command = new Black\Core\Infrastructure\Website\CQRS\ActiveWebsiteCommand($this->website);
+        $handler = new Black\Core\Infrastructure\Website\CQRS\ActiveWebsiteHandler($this->service);
         $handler->handle($command);
     }
 
@@ -97,7 +97,7 @@ class WebsiteContext extends DomainContext
      */
     public function myWebsiteCanBeReadByAVisitor()
     {
-        $specification = new Application\Website\Specification\WebsiteIsReadable();
+        $specification = new Black\Core\Application\Website\Specification\WebsiteIsReadable();
 
         if ($specification->isSatisfiedBy($this->website)) {
             $this->website;
@@ -109,13 +109,13 @@ class WebsiteContext extends DomainContext
      */
     public function iDisableMyWebsite()
     {
-        $dto = new Application\Website\DTO\ActiveWebsiteDTO(1234);
-        $id = new \Domain\Website\ValueObject\WebsiteId($dto->getId());
-        $repository = new \Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $dto = new Black\Core\Application\Website\DTO\ActiveWebsiteDTO(1234);
+        $id = new \Black\Core\Domain\Website\ValueObject\WebsiteId($dto->getId());
+        $repository = new \Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $command = new Infrastructure\Website\CQRS\DisableWebsiteCommand($this->website);
-        $handler = new Infrastructure\Website\CQRS\DisableWebsiteHandler($this->service);
+        $command = new Black\Core\Infrastructure\Website\CQRS\DisableWebsiteCommand($this->website);
+        $handler = new Black\Core\Infrastructure\Website\CQRS\DisableWebsiteHandler($this->service);
         $handler->handle($command);
     }
 
@@ -124,7 +124,7 @@ class WebsiteContext extends DomainContext
      */
     public function myWebsiteCantBeReadByAVisitor()
     {
-        $specification = new Application\Website\Specification\WebsiteIsReadable();
+        $specification = new Black\Core\Application\Website\Specification\WebsiteIsReadable();
 
         $specification->isSatisfiedBy($this->website);
     }
@@ -134,15 +134,15 @@ class WebsiteContext extends DomainContext
      */
     public function iUpdateHisNameWith($name)
     {
-        $author = new Domain\Website\ValueObject\Author("John Doe");
-        $dto = new Application\Website\DTO\WebsiteDTO(1234, $name, "description", $author);
+        $author = new Black\Core\Domain\Website\ValueObject\Author("John Doe");
+        $dto = new Black\Core\Application\Website\DTO\WebsiteDTO(1234, $name, "description", $author);
 
-        $id = new \Domain\Website\ValueObject\WebsiteId($dto->getId());
-        $repository = new \Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
+        $id = new \Black\Core\Domain\Website\ValueObject\WebsiteId($dto->getId());
+        $repository = new \Black\Core\Infrastructure\Website\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $command = new Infrastructure\Website\CQRS\UpdateWebsiteCommand($dto->getName(), $dto->getDescription(), $dto->getAuthor(), $this->website);
-        $handler = new Infrastructure\Website\CQRS\UpdateWebsiteHandler($this->service);
+        $command = new Black\Core\Infrastructure\Website\CQRS\UpdateWebsiteCommand($dto->getName(), $dto->getDescription(), $dto->getAuthor(), $this->website);
+        $handler = new Black\Core\Infrastructure\Website\CQRS\UpdateWebsiteHandler($this->service);
         $handler->handle($command);
     }
 }

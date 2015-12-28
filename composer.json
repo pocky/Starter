@@ -4,7 +4,10 @@
     "type": "project",
     "description": "The \"Black Edition\" distribution build on top of \"Symfony Standard Edition\"",
     "autoload": {
-        "psr-4": { "": "src/" },
+        "psr-4": {
+            "": "src/",
+            "Black\\Core\\": "src/Core/"
+        },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
