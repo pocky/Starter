@@ -63,3 +63,7 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+black_core:
+    db_driver: orm
+    website_class: Application/Entity/Website
