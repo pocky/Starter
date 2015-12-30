@@ -1,4 +1,0 @@
-Black\Core\Domain\Website\ValueObject\Author:
-    type: embeddable
-    fields:
-        value: { type: string }

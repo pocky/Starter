@@ -64,6 +64,9 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
-black_core:
+parameters:
+    starter.backend_type_orm: true
+
+black_website:
     db_driver: orm
-    website_class: Application/Entity/Website
+    website_class: Starter/Domain/Entity/Website

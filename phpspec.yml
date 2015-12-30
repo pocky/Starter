@@ -3,12 +3,19 @@ extensions:
   - RMiller\BehatSpec\PhpSpecExtension
 
 suites:
-    core_suite:
-        namespace: Black\Core
+    website_suite:
+        namespace: Black\Website
         psr4_prefix: Black
-        src_path: %paths.config%/src/Core
 
-    core_bundle_suite:
-        namespace: Black\Bundle\CoreBundle
+    website_bundle_suite:
+        namespace: Black\Bundle\WebsiteBundle
         psr4_prefix: Black\Bundle
-        src_path: %paths.config%/src/Core/Infrastructure/Bridge/Symfony/
+        src_path: %paths.config%/src/Website/Infrastructure/Bridge/Symfony/
+
+    starter_suite:
+        namespace: Starter
+
+    starter_bundle_suite:
+        namespace: Black\Bundle\StarterBundle
+        psr4_prefix: Black\Bundle
+        src_path: %paths.config%/src/Starter/Infrastructure/Bridge/Symfony/

@@ -1,0 +1,13 @@
+Black\Website\Domain\Entity\Website:
+    type: mappedSuperclass
+    fields:
+        name: { type: string }
+        description: { type: string }
+        createdAt: { type: datetime }
+        status: { type: string }
+        updatedAt: { type: datetime }
+    embedded:
+        websiteId:
+            class: Black\Website\Domain\ValueObject\WebsiteId
+        author:
+            class: Black\Website\Domain\ValueObject\Author

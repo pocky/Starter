@@ -5,9 +5,11 @@
     "description": "The \"Black Edition\" distribution build on top of \"Symfony Standard Edition\"",
     "autoload": {
         "psr-4": {
-            "": "src/",
-            "Black\\Core\\": "src/Core/",
-            "Black\\Bundle\\CoreBundle\\": "src/Core/Infrastructure/Bridge/Symfony/CoreBundle/"
+            "Black\\Website\\": "src/Website/",
+            "Black\\Bundle\\WebsiteBundle\\": "src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/",
+            "Starter\\": "src/Starter/",
+            "Black\\Bundle\\StarterBundle\\": "src/Starter/Infrastructure/Bridge/Symfony/StarterBundle/"
+
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
@@ -93,6 +95,6 @@
         }
     },
     "support": {
-        "issues": "https://github.com/black-project/black-standard/issues"
+        "issues": "https://github.com/pocky/starter/issues"
     }
 }

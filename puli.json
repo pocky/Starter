@@ -4,7 +4,8 @@
     "path-mappings": {
         "/app": "app/Resources/",
         "/app/config": "app/config",
-        "/black/core-bundle": "src/Core/Infrastructure/Bridge/Symfony/CoreBundle/Resources"
+        "/black/website-bundle": "src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/Resources",
+        "/black/starter-bundle": "src/Starter/Infrastructure/Bridge/Symfony/StarterBundle/Resources"
     },
     "config": {
         "bootstrap-file": "vendor/autoload.php"
