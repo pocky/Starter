@@ -8,10 +8,13 @@ use Black\Website\Domain\Repository\WebsiteRepository;
 
 class InMemoryRepository implements WebsiteRepository
 {
+    protected $className;
+
     protected $website;
 
-    public function __construct()
+    public function __construct($className)
     {
+        $this->classname = $className;
         $this->website = [];
     }
 
@@ -44,5 +47,10 @@ class InMemoryRepository implements WebsiteRepository
         if (isset($this->website[$website->getWebsiteId()->getValue()])) {
             $this->website[$website->getWebsiteId()->getValue()] = $website;
         }
+    }
+
+    public function getClassName()
+    {
+        return $this->className;
     }
 }

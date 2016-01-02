@@ -1,0 +1,7 @@
+parameters:
+    black_website.infrastructure.service.write.class: Black\Website\Infrastructure\Service\WriteService
+
+services:
+    black_website.infrastructure.service.write:
+        class: "%black_website.infrastructure.service.write.class%"
+        arguments: ["@black_website.infrastructure.persistence.cqrs.write"]

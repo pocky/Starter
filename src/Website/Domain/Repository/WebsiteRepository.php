@@ -19,4 +19,6 @@ interface WebsiteRepository
     public function remove(Website $website);
 
     public function update(Website $website);
+
+    public function getClassName() : string;
 }

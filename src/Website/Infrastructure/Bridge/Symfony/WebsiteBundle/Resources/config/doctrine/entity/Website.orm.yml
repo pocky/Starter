@@ -5,7 +5,7 @@ Black\Website\Domain\Entity\Website:
         description: { type: string }
         createdAt: { type: datetime }
         status: { type: string }
-        updatedAt: { type: datetime }
+        updatedAt: { type: datetime, nullable: true }
     embedded:
         websiteId:
             class: Black\Website\Domain\ValueObject\WebsiteId

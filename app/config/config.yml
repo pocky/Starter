@@ -69,4 +69,4 @@ parameters:
 
 black_website:
     db_driver: orm
-    website_class: Starter/Domain/Entity/Website
+    website_class: Starter\Domain\Entity\Website

@@ -25,6 +25,10 @@ class StarterExtension extends Extension
         $config = $processor->processConfiguration($configuration, $configs);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+
+        foreach ([] as $basename) {
+            $loader->load(sprintf('%s.yml', $basename));
+        }
     }
 
     /**

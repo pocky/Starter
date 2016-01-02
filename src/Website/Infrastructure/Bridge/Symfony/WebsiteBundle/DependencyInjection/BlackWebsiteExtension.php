@@ -43,6 +43,10 @@ class BlackWebsiteExtension extends Extension
                 'website_class' => 'black_website.website.model.class',
             ]
         ]);
+
+        foreach (["action", "cqrs", "responder", "service"] as $basename) {
+            $loader->load(sprintf('%s.yml', $basename));
+        }
     }
 
     /**

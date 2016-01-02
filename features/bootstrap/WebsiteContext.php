@@ -20,9 +20,10 @@ class WebsiteContext extends DomainContext
     public function __construct()
     {
         \org\bovigo\vfs\vfsStream::setup('cache');
+        $class = 'Black\Website\Domain\Entity\Website';
 
         //$this->repository = new \Black\Website\Infrastructure\Persistence\InMemoryRepository();
-        $this->repository = new \Black\Website\Infrastructure\Persistence\YamlRepository(\org\bovigo\vfs\vfsStream::url('cache/website.yml'));
+        $this->repository = new \Black\Website\Infrastructure\Persistence\YamlRepository(\org\bovigo\vfs\vfsStream::url('cache/website.yml'), $class);
     }
 
     /**

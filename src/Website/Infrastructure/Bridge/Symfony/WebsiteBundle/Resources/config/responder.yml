@@ -1,0 +1,6 @@
+parameters:
+    black_website.application.responder.create.class: Black\Website\Application\Responder\CreateWebsite
+
+services:
+    black_website.application.responder.create:
+        class: "%black_website.application.responder.create.class%"

@@ -33,7 +33,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root($this->alias);
 
-        $supportedDrivers = ['orm'];
+        $supportedDrivers = ['orm', 'yaml'];
         $rootNode
             ->children()
 

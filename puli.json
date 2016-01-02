@@ -5,7 +5,7 @@
         "/app": "app/Resources/",
         "/app/config": "app/config",
         "/black/website-bundle": "src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/Resources",
-        "/black/starter-bundle": "src/Starter/Infrastructure/Bridge/Symfony/StarterBundle/Resources"
+        "/starter/starter-bundle": "src/Starter/Infrastructure/Bridge/Symfony/StarterBundle/Resources"
     },
     "config": {
         "bootstrap-file": "vendor/autoload.php"
@@ -59,6 +59,10 @@
             "installer": "composer",
             "env": "dev"
         },
+        "black/common": {
+            "install-path": "vendor/black/common",
+            "installer": "composer"
+        },
         "braincrafted/testing-bundle": {
             "install-path": "vendor/braincrafted/testing-bundle/Braincrafted/Bundle/TestingBundle",
             "installer": "composer",
@@ -66,6 +70,10 @@
         },
         "cocur/slugify": {
             "install-path": "vendor/cocur/slugify",
+            "installer": "composer"
+        },
+        "dantleech/symfony-form-array-to-delimited-string-transformer": {
+            "install-path": "vendor/dantleech/symfony-form-array-to-delimited-string-transformer",
             "installer": "composer"
         },
         "doctrine/annotations": {

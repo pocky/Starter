@@ -11,10 +11,15 @@ use Symfony\Component\Yaml\Yaml;
 
 class YamlRepository implements WebsiteRepository
 {
+    protected $className;
+
     private $filename;
 
-    public function __construct($filename)
+    public function __construct($filename, $className)
     {
+        \org\bovigo\vfs\vfsStream::setup('cache');
+
+        $this->className = $className;
         $this->filename = $filename;
         (new Filesystem())->touch($filename);
     }
@@ -102,6 +107,11 @@ class YamlRepository implements WebsiteRepository
         }
 
         file_put_contents($this->filename, Yaml::dump($rows));
+    }
+
+    public function getClassName()
+    {
+        return $this->className;
     }
 
     private function getRows()

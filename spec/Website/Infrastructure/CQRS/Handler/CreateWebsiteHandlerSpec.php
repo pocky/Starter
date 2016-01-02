@@ -17,7 +17,8 @@ class CreateWebsiteHandlerSpec extends ObjectBehavior
 
     function let(WriteService $service)
     {
-        $this->beConstructedWith($service);
+        $class = 'Black\Website\Domain\Entity\Website';
+        $this->beConstructedWith($service, $class);
     }
 
     function it_should_handle_a_command(CreateWebsiteCommand $command)

@@ -1,0 +1,2 @@
+website:
+    resource: "/starter/starter-bundle/config/routing.yml"
