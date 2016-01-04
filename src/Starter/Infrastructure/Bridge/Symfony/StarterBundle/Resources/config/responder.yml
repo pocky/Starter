@@ -1,0 +1,6 @@
+parameters:
+    starter.application.responder.create.class: Starter\Application\Responder\CreateWebsite
+
+services:
+    starter.application.responder.create:
+        class: "%starter.application.responder.create.class%"

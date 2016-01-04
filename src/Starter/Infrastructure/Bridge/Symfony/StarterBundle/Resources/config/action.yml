@@ -1,0 +1,9 @@
+parameters:
+    starter.application.action.create_website.class: Starter\Application\Action\CreateWebsite
+
+services:
+    starter.application.action.create_website:
+        class: "%starter.application.action.create_website.class%"
+        arguments:
+            - "@black_website.application.action.create"
+            - "@starter.application.responder.create"

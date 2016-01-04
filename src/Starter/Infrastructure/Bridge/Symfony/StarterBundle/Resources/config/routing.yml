@@ -1,4 +1,4 @@
 website_create:
     path: "/website"
-    defaults: { _controller: black_website.application.action.create }
+    defaults: { _controller: starter.application.action.create_website }
     methods: [POST]

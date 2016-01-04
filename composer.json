@@ -33,7 +33,8 @@
         "puli/symfony-bundle": "^1.0",
         "symfony/psr-http-message-bridge": "^0.2.0",
         "zendframework/zend-diactoros": "^1.3",
-        "black/common": "dev-master"
+        "black/common": "dev-master",
+        "black/cqrs-php": "dev-master"
     },
     "require-dev": {
         "hautelook/alice-bundle": "dev-master",

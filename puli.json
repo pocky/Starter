@@ -63,6 +63,10 @@
             "install-path": "vendor/black/common",
             "installer": "composer"
         },
+        "black/cqrs-php": {
+            "install-path": "vendor/black/cqrs-php",
+            "installer": "composer"
+        },
         "braincrafted/testing-bundle": {
             "install-path": "vendor/braincrafted/testing-bundle/Braincrafted/Bundle/TestingBundle",
             "installer": "composer",

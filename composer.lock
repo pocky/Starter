@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b16e8c03255b8c5a20294cf852e1b9df",
-    "content-hash": "d102fd9af2ff77519db92a3cbaff5eb7",
+    "hash": "63d98348d59a5a9411fa61887cb62434",
+    "content-hash": "9a140b542a668e761489f1271193ee8f",
     "packages": [
         {
             "name": "black/common",
@@ -13,19 +13,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/black-project/common.git",
-                "reference": "a974e2d87f2aad28fe13811b7b827f78daca1732"
+                "reference": "4ab40cf38ff7abe1c964b10726bbf4db1d13b8ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/black-project/common/zipball/a974e2d87f2aad28fe13811b7b827f78daca1732",
-                "reference": "a974e2d87f2aad28fe13811b7b827f78daca1732",
+                "url": "https://api.github.com/repos/black-project/common/zipball/4ab40cf38ff7abe1c964b10726bbf4db1d13b8ef",
+                "reference": "4ab40cf38ff7abe1c964b10726bbf4db1d13b8ef",
                 "shasum": ""
             },
             "require": {
                 "dantleech/symfony-form-array-to-delimited-string-transformer": "~0.1",
-                "php": ">=5.4.0",
+                "php": ">=7.0",
                 "ramsey/uuid": "~2.8.1",
-                "symfony/form": "~2.8"
+                "symfony/form": "~2.8|~3.0"
             },
             "require-dev": {
                 "phpspec/phpspec": "~2.0"
@@ -60,7 +60,51 @@
                 "common",
                 "library"
             ],
-            "time": "2016-01-02 22:04:08"
+            "time": "2016-01-02 23:36:53"
+        },
+        {
+            "name": "black/cqrs-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/black-project/cqrs-php.git",
+                "reference": "502d52536d0090b35cc0de0ffb18b543450dfb4f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/black-project/cqrs-php/zipball/502d52536d0090b35cc0de0ffb18b543450dfb4f",
+                "reference": "502d52536d0090b35cc0de0ffb18b543450dfb4f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Black\\DDD\\CQRSinPHP\\": "src/Black/DDD/CQRSinPHP/",
+                    "Black\\Bundle\\CQRSBundle\\": "src/Black/DDD/CQRSinPHP/Infrastructure/Bridge/Symfony/CQRSBundle/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandre 'pocky' Balmes",
+                    "email": "alexandre@lablackroom.com",
+                    "homepage": "http://www.lablackroom.com"
+                }
+            ],
+            "description": "Implements CQRS (for DDD in PHP)",
+            "homepage": "http://www.lablackroom.com",
+            "keywords": [
+                "black-project",
+                "cqrs",
+                "ddd"
+            ],
+            "time": "2016-01-02 23:43:10"
         },
         {
             "name": "cocur/slugify",
@@ -6385,13 +6429,14 @@
     "stability-flags": {
         "roave/security-advisories": 20,
         "black/common": 20,
+        "black/cqrs-php": 20,
         "hautelook/alice-bundle": 20,
         "phpspec/prophecy": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=7.0"
     },
     "platform-dev": []
 }

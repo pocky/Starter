@@ -2,9 +2,10 @@
 
 namespace Black\Website\Infrastructure\CQRS\Command;
 
+use Black\DDD\CQRSinPHP\Infrastructure\CQRS\Command;
 use Black\Website\Domain\ValueObject\Author;
 
-class CreateWebsiteCommand
+class CreateWebsiteCommand implements Command
 {
     private $name;
 

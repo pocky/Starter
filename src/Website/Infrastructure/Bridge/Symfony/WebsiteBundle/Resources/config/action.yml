@@ -5,5 +5,4 @@ services:
     black_website.application.action.create:
         class: "%black_website.application.action.create.class%"
         arguments:
-            - "@black_website.application.responder.create"
-            - "@black_website.infrastructure.cqrs.handler.create_website"
+            - "@black_cqrs.infrastructure.command.bus"

@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Puli\SymfonyBundle\PuliBundle(),
             new Black\Bundle\CommonBundle\BlackCommonBundle(),
+            new Black\Bundle\CQRSBundle\BlackCQRSBundle(),
             new Black\Bundle\WebsiteBundle\WebsiteBundle(),
             new Starter\Bundle\StarterBundle\StarterBundle(),
         ];

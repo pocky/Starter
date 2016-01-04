@@ -13,3 +13,5 @@ services:
         arguments:
             - "@black_website.infrastructure.service.write"
             - "@black_website.infrastructure.persistence"
+        tags:
+            - { name: black_cqrs.handler, command: "Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand" }

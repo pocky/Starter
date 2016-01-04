@@ -1,6 +1,6 @@
 <?php
 
-namespace Black\Website\Application\Responder;
+namespace Starter\Application\Responder;
 
 use Zend\Diactoros\Response\JsonResponse;
 

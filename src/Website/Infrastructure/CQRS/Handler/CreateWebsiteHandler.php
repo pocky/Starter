@@ -2,15 +2,19 @@
 
 namespace Black\Website\Infrastructure\CQRS\Handler;
 
+use Black\DDD\CQRSinPHP\Infrastructure\CQRS\Command;
+use Black\DDD\CQRSinPHP\Infrastructure\CQRS\CommandHandler;
 use Black\Website\Domain\Entity\Website;
 use Black\Website\Domain\Event\WebsiteIsCreated;
 use Black\Website\Domain\Repository\WebsiteRepository;
 use Black\Website\Domain\ValueObject\WebsiteId;
-use Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand;
 use Black\Website\Infrastructure\Service\WriteService;
 use Rhumsaa\Uuid\Uuid;
 
-class CreateWebsiteHandler
+/**
+ * Class CreateWebsiteHandler
+ */
+class CreateWebsiteHandler implements CommandHandler
 {
     private $service;
 
@@ -22,7 +26,7 @@ class CreateWebsiteHandler
         $this->website = $repository->getClassName();
     }
 
-    public function handle(CreateWebsiteCommand $command)
+    public function handle(Command $command)
     {
         $websiteId = new WebsiteId(Uuid::uuid4());
 
