@@ -1,0 +1,9 @@
+parameters:
+    black_website.infrastructure.listener.logger.class: Black\Website\Infrastructure\Listener\LoggerListener
+
+services:
+    black_website.infrastructure.listener.logger:
+        class: %black_website.infrastructure.listener.logger.class%
+        arguments: ["@logger"]
+        tags:
+            - { name: kernel.event_subscriber }

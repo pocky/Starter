@@ -8,8 +8,10 @@ use Black\Website\Domain\Entity\Website;
 use Black\Website\Domain\Event\WebsiteIsCreated;
 use Black\Website\Domain\Repository\WebsiteRepository;
 use Black\Website\Domain\ValueObject\WebsiteId;
+use Black\Website\Domain\WebsiteEvents;
 use Black\Website\Infrastructure\Service\WriteService;
 use Rhumsaa\Uuid\Uuid;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Class CreateWebsiteHandler
@@ -20,19 +22,31 @@ class CreateWebsiteHandler implements CommandHandler
 
     private $website;
 
-    public function __construct(WriteService $service, WebsiteRepository $repository)
-    {
+    private $dispatcher;
+
+    public function __construct(
+        WriteService $service,
+        WebsiteRepository $repository,
+        EventDispatcherInterface $dispatcher
+    ) {
         $this->service = $service;
         $this->website = $repository->getClassName();
+        $this->dispatcher = $dispatcher;
     }
 
     public function handle(Command $command)
     {
         $websiteId = new WebsiteId(Uuid::uuid4());
+        $website = new $this->website(
+            $websiteId,
+            $command->getName(),
+            $command->getDescription(),
+            $command->getAuthor()
+        );
 
-        $website = new $this->website($websiteId, $command->getName(), $command->getDescription(), $command->getAuthor());
         $this->service->createWebsite($website);
 
         $event = new WebsiteIsCreated($website);
+        $this->dispatcher->dispatch(WebsiteEvents::WEBSITE_CREATED, $event);
     }
 }

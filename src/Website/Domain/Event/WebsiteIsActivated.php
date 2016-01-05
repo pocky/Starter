@@ -3,8 +3,9 @@
 namespace Black\Website\Domain\Event;
 
 use Black\Website\Domain\Entity\Website;
+use Symfony\Component\EventDispatcher\Event;
 
-class WebsiteIsActivated
+class WebsiteIsActivated extends Event
 {
     private $website;
 
@@ -16,5 +17,10 @@ class WebsiteIsActivated
     public function getWebsite() : Website
     {
         return $this->website;
+    }
+
+    public function getMessage() : string
+    {
+        return "website.activated";
     }
 }

@@ -3,12 +3,8 @@
 namespace Black\Website\Application\Action;
 
 use Black\DDD\CQRSinPHP\Infrastructure\CQRS\Bus;
-use Black\Website\Application\DTO\CreateWebsiteDTO;
 use Black\Website\Domain\ValueObject\Author;
 use Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand;
-use Black\Website\Infrastructure\CQRS\Handler\CreateWebsiteHandler;
-use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Response\JsonResponse;
 
 class CreateWebsite
 {

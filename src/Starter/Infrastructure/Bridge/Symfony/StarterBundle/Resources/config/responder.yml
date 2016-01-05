@@ -1,6 +1,14 @@
 parameters:
-    starter.application.responder.create.class: Starter\Application\Responder\CreateWebsite
+    starter.application.responder.create_website.class: Starter\Application\Responder\CreateWebsite
+    starter.application.responder.active_website.class: Starter\Application\Responder\ActiveWebsite
+    starter.application.responder.disable_website.class: Starter\Application\Responder\DisableWebsite
 
 services:
-    starter.application.responder.create:
-        class: "%starter.application.responder.create.class%"
+    starter.application.responder.create_website:
+        class: "%starter.application.responder.create_website.class%"
+
+    starter.application.responder.active_website:
+        class: "%starter.application.responder.active_website.class%"
+
+    starter.application.responder.disable_website:
+        class: "%starter.application.responder.disable_website.class%"

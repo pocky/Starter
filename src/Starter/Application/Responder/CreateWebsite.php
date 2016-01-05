@@ -8,8 +8,6 @@ class CreateWebsite
 {
     public function __invoke() : JsonResponse
     {
-        return new JsonResponse([
-            "success" => true
-        ]);
+        return new JsonResponse([ "success" => true]);
     }
 }

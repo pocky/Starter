@@ -2,11 +2,9 @@
 
 namespace Starter\Application\Action;
 
-use Black\DDD\CQRSinPHP\Infrastructure\CQRS\Bus;
 use Black\Website\Application\Action\CreateWebsite as Action;
 use Black\Website\Application\DTO\CreateWebsiteDTO;
 use Black\Website\Domain\ValueObject\Author;
-use Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand;
 use Psr\Http\Message\ServerRequestInterface;
 use Starter\Application\Responder\CreateWebsite as Responder;
 
@@ -20,6 +18,7 @@ class CreateWebsite
         Action $action,
         Responder $responder
     ) {
+        $this->action = $action;
         $this->responder = $responder;
     }
 

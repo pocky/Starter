@@ -1,8 +1,20 @@
 parameters:
     black_website.application.action.create.class: Black\Website\Application\Action\CreateWebsite
+    black_website.application.action.active.class: Black\Website\Application\Action\ActiveWebsite
+    black_website.application.action.disable.class: Black\Website\Application\Action\DisableWebsite
 
 services:
     black_website.application.action.create:
         class: "%black_website.application.action.create.class%"
+        arguments:
+            - "@black_cqrs.infrastructure.command.bus"
+
+    black_website.application.action.active:
+        class: "%black_website.application.action.active.class%"
+        arguments:
+            - "@black_cqrs.infrastructure.command.bus"
+
+    black_website.application.action.disable:
+        class: "%black_website.application.action.disable.class%"
         arguments:
             - "@black_cqrs.infrastructure.command.bus"

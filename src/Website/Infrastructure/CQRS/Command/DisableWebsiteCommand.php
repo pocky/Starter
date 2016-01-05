@@ -2,9 +2,10 @@
 
 namespace Black\Website\Infrastructure\CQRS\Command;
 
+use Black\DDD\CQRSinPHP\Infrastructure\CQRS\Command;
 use Black\Website\Domain\Entity\Website;
 
-class DisableWebsiteCommand
+class DisableWebsiteCommand implements Command
 {
     private $website;
 
