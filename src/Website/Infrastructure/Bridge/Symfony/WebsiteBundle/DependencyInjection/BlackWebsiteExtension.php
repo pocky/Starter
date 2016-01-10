@@ -44,7 +44,7 @@ class BlackWebsiteExtension extends Extension
             ]
         ]);
 
-        foreach (["action", "cqrs", "event", "service"] as $basename) {
+        foreach (["action", "cqrs", "event", "service", "specification"] as $basename) {
             $loader->load(sprintf('%s.yml', $basename));
         }
     }

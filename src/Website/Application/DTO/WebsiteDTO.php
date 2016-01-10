@@ -14,7 +14,7 @@ class WebsiteDTO
 
     private $author;
 
-    public function __construct(int $id, string $name, string $description, string $author)
+    public function __construct(string $id, string $name, string $description, string $author)
     {
         $this->id = $id;
         $this->name = $name;
@@ -40,5 +40,15 @@ class WebsiteDTO
     public function getAuthor() : string
     {
         return $this->author;
+    }
+
+    public function serialize()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'author' => $this->author,
+        ];
     }
 }

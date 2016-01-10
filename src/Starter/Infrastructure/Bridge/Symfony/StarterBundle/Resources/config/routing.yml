@@ -12,3 +12,8 @@ website_disable:
     path: "/website/disable"
     defaults: { _controller: starter.application.action.disable_website }
     methods: [POST]
+
+website:
+    path: "/website/{id}"
+    defaults: { _controller: starter.application.action.view_website }
+    methods: [GET]
