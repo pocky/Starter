@@ -5,32 +5,35 @@ namespace Starter\Application\Responder;
 use Black\Website\Application\DTO\WebsiteDTO;
 use Black\Website\Application\Specification\WebsiteIsReadable;
 use Starter\Domain\Entity\Website;
+use Symfony\Component\Serializer\Serializer;
+use Zend\Diactoros\Response;
+use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Diactoros\Response\JsonResponse;
 
 class ViewWebsite
 {
     protected $specification;
 
+    protected $serializer;
+
     public function __construct(
-        WebsiteIsReadable $specification
+        WebsiteIsReadable $specification,
+        Serializer $serializer
     ) {
         $this->specification = $specification;
+        $this->serializer = $serializer;
     }
 
-    public function __invoke(Website $website) : JsonResponse
+    public function __invoke(Website $website) : Response
     {
         if ($this->specification->isSatisfiedBy($website)) {
 
-            $websiteDto = new WebsiteDTO(
-                $website->getWebsiteId()->getValue(),
-                $website->getName(),
-                $website->getDescription(),
-                $website->getAuthor()->getValue()
-            );
+            $response = new Response("php://memory", 200, ["Content-Type" => "application/json"]);
+            $response->getBody()->write($this->serializer->serialize($website, "json"));
 
-            return new JsonResponse($websiteDto->serialize());
+            return $response;
         }
 
-        return new JsonResponse(["error" => "Website is not readable"]);
+        return new JsonResponse(["error" => "Website is not readable"], 404);
     }
 }

@@ -16,4 +16,6 @@ services:
 
     starter.application.responder.view_website:
         class: "%starter.application.responder.view_website.class%"
-        arguments: ["@black_website.application.specification.website_is_readable"]
+        arguments:
+            - "@black_website.application.specification.website_is_readable"
+            - "@starter.serializer.default"

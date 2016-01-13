@@ -22,7 +22,7 @@ class WebsiteDTO
         $this->author = $author;
     }
 
-    public function getId() : int
+    public function getId() : string
     {
         return $this->id;
     }
@@ -40,15 +40,5 @@ class WebsiteDTO
     public function getAuthor() : string
     {
         return $this->author;
-    }
-
-    public function serialize()
-    {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'description' => $this->description,
-            'author' => $this->author,
-        ];
     }
 }

@@ -26,7 +26,7 @@ class StarterExtension extends Extension
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        foreach (["action", "responder"] as $basename) {
+        foreach (["action", "responder", "serializer"] as $basename) {
             $loader->load(sprintf('%s.yml', $basename));
         }
     }
