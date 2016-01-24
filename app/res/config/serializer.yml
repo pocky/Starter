@@ -1,0 +1,21 @@
+parameters:
+    app.application.serializer.encoder.json.class: Symfony\Component\Serializer\Encoder\JsonEncoder
+
+    app.application.serializer.normalizer.website.class: Application\Serializer\Normalizer\WebsiteNormalizer
+
+services:
+    app.application.serializer.encoder.json:
+        class: "%app.application.serializer.encoder.json.class%"
+
+    app.application.serializer.normalizer.website:
+        class: "%app.application.serializer.normalizer.website.class%"
+
+    app.serializer.default:
+        class: "Symfony\Component\Serializer\Serializer"
+        arguments:
+            0:
+                - "@app.application.serializer.normalizer.website"
+                - '@serializer.normalizer.object'
+            1:
+                - "@app.application.serializer.encoder.json"
+

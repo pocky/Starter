@@ -1,0 +1,32 @@
+parameters:
+    app.application.action.create_website.class: Application\Action\CreateWebsite
+    app.application.action.active_website.class: Application\Action\ActiveWebsite
+    app.application.action.disable_website.class: Application\Action\DisableWebsite
+    app.application.action.view_website.class: Application\Action\ViewWebsite
+
+services:
+    app.application.action.create_website:
+        class: "%app.application.action.create_website.class%"
+        arguments:
+            - "@black_website.application.action.create"
+            - "@app.application.responder.create_website"
+
+    app.application.action.active_website:
+        class: "%app.application.action.active_website.class%"
+        arguments:
+            - "@black_website.application.action.active"
+            - "@black_website.infrastructure.service.read"
+            - "@app.application.responder.active_website"
+
+    app.application.action.disable_website:
+        class: "%app.application.action.disable_website.class%"
+        arguments:
+            - "@black_website.application.action.disable"
+            - "@black_website.infrastructure.service.read"
+            - "@app.application.responder.disable_website"
+
+    app.application.action.view_website:
+        class: "%app.application.action.view_website.class%"
+        arguments:
+            - "@black_website.infrastructure.service.read"
+            - "@app.application.responder.view_website"

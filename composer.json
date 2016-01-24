@@ -5,16 +5,14 @@
     "description": "The \"Black Edition\" distribution build on top of \"Symfony Standard Edition\"",
     "autoload": {
         "psr-4": {
-            "Black\\Website\\": "src/Website/",
-            "Black\\Bundle\\WebsiteBundle\\": "src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/",
-            "Starter\\": "src/Starter/",
-            "Starter\\Bundle\\StarterBundle\\": "src/Starter/Infrastructure/Bridge/Symfony/StarterBundle/"
-
+            "Black\\Website\\": "app/src/Website/",
+            "Black\\Bundle\\WebsiteBundle\\": "app/src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/",
+            "": "app/src/"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
-        "psr-4": { "Tests\\": "tests/" }
+        "psr-4": { "Tests\\": "app/tests/" }
     },
     "require": {
         "php": ">=7.0",
@@ -80,18 +78,15 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
     },
-    "config": {
-        "bin-dir": "bin"
-    },
     "extra": {
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
-        "symfony-tests-dir": "tests",
+        "symfony-tests-dir": "src/tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/res/config/parameters.yml"
         },
         "branch-alias": {
             "dev-master": "2.8-dev"

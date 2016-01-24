@@ -5,6 +5,21 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+    protected function initializeContainer()
+    {
+        parent::initializeContainer();
+
+        $logger = $this->container->get('logger');
+        $logger->info("salut");
+    }
+
+    protected function prepareContainer(\Symfony\Component\DependencyInjection\ContainerBuilder $container)
+    {
+        parent::prepareContainer($container);
+
+        $container->addCompilerPass(new \Infrastructure\DependencyInjection\TestCompilerPass());
+    }
+
     public function registerBundles()
     {
         $bundles = [
@@ -19,7 +34,6 @@ class AppKernel extends Kernel
             new Black\Bundle\CommonBundle\BlackCommonBundle(),
             new Black\Bundle\CQRSBundle\BlackCQRSBundle(),
             new Black\Bundle\WebsiteBundle\WebsiteBundle(),
-            new Starter\Bundle\StarterBundle\StarterBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
@@ -35,7 +49,7 @@ class AppKernel extends Kernel
 
     public function getRootDir()
     {
-        return __DIR__;
+        return __DIR__ . '/res';
     }
 
     public function getCacheDir()
@@ -50,6 +64,6 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load($this->getRootDir().'/config/config_' . $this->getEnvironment() . '.yml');
+        $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 }

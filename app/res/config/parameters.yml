@@ -1,0 +1,18 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_name: starter
+    database_user: root
+    database_password: root
+    mailer_transport: mail
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisAintAnotherTRDRProjectChangeIt
+    debug_toolbar: true
+    debug_redirects: false
+    delivery_email: alexandre@lablackroom.com
+    monolog_from_email: monolog@www.starter.blackroom.blackroom
+    monolog_to_email: alexandre@lablackroom.com
+    monolog_subject: 'Monolog from www.starter.blackroom project'
+    locale: en

@@ -1,0 +1,19 @@
+website_create:
+    path: "/website"
+    defaults: { _controller: app.application.action.create_website }
+    methods: [POST]
+
+website_activate:
+    path: "/website/activate"
+    defaults: { _controller: app.application.action.active_website }
+    methods: [POST]
+
+website_disable:
+    path: "/website/disable"
+    defaults: { _controller: app.application.action.disable_website }
+    methods: [POST]
+
+website:
+    path: "/website/{id}"
+    defaults: { _controller: app.application.action.view_website }
+    methods: [GET]

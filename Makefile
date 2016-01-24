@@ -5,3 +5,6 @@ permissions:
 
 cache:
 	bin/console cache:clear
+
+phpspec:
+    bin/console phpspec run

@@ -1,9 +1,11 @@
 default:
     autoload:
-        "":  %paths.base%/features/bootstrap
+        'app': %paths.base%/app/features/bootstrap
 
     suites:
         default:
+            paths:
+                - %paths.base%/app/features
             contexts:
                 - FeatureContext
             filters: { tags: "@ui" }
@@ -22,14 +24,16 @@ default:
 
 domain:
     autoload:
-        "":  %paths.base%/features/bootstrap
+        '': %paths.base%/app/features/bootstrap
 
     suites:
         default:
+            paths:
+                - %paths.base%/app/features
             contexts:
                 - WebsiteContext
             filters: { tags: "@domain" }
 
     extensions:
         RMiller\BehatSpec\BehatExtension:
-            path: bin/phpspec
+            path: vendor/bin/phpspec
