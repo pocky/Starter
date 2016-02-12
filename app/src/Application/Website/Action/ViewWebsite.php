@@ -1,11 +1,11 @@
 <?php
 
-namespace Application\Action;
+namespace Application\Website\Action;
 
 use Black\Website\Application\DTO\FindWebsiteDTO;
 use Black\Website\Domain\ValueObject\WebsiteId;
 use Black\Website\Infrastructure\Service\ReadService;
-use Application\Responder\ViewWebsite as Responder;
+use Application\Website\Responder\ViewWebsite as Responder;
 
 class ViewWebsite
 {

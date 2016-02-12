@@ -17,7 +17,7 @@ class CreateWebsiteCommandSpec extends ObjectBehavior
     function let()
     {
         $author = new Author("John Doe");
-        $this->beConstructedWith("name", "description", $author);
+        $this->beConstructedWith("name", "description", $author, "fr_FR");
     }
 
     function it_should_have_a_name()
@@ -34,5 +34,10 @@ class CreateWebsiteCommandSpec extends ObjectBehavior
     {
         $this->getAuthor()->beAnInstanceOf('Black\Website\Domain\ValueObject\Author');
         $this->getAuthor()->getValue()->shouldReturn("John Doe");
+    }
+
+    function it_should_have_a_language()
+    {
+        $this->getLanguage()->shouldReturn("fr_FR");
     }
 }

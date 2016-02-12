@@ -38,10 +38,12 @@ class YamlRepositorySpec extends ObjectBehavior
     {
         $websiteId = new WebsiteId(1234);
         $author = new Author("john");
+
         $website->getWebsiteId()->willReturn($websiteId);
         $website->getName()->willReturn("name");
         $website->getDescription()->willReturn("description");
         $website->getAuthor()->willReturn($author);
+        $website->getLanguage()->willReturn("fr_FR");
         $website->getCreatedAt()->willReturn(new \DateTime());
         $website->getStatus()->willReturn(WebsiteStatus::INACTIVE);
 
@@ -63,10 +65,12 @@ class YamlRepositorySpec extends ObjectBehavior
     {
         $id = new WebsiteId(1234);
         $author = new Author("john");
+
         $website->getWebsiteId()->willReturn($id);
         $website->getName()->willReturn("name");
         $website->getDescription()->willReturn("description");
         $website->getAuthor()->willReturn($author);
+        $website->getLanguage()->willReturn("fr_FR");
         $website->getCreatedAt()->willReturn(new \DateTime());
         $website->getStatus()->willReturn(WebsiteStatus::INACTIVE);
         $this->add($website);

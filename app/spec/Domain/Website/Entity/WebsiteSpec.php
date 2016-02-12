@@ -1,18 +1,19 @@
 <?php
 
-namespace spec\Domain\Entity;
+namespace spec\Domain\Website\Entity;
 
 use Black\Website\Domain\ValueObject\Author;
 use Black\Website\Domain\ValueObject\WebsiteId;
-use Domain\Entity\Website;
+use Domain\Website\Entity\Website;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Rhumsaa\Uuid\Uuid;
 
 class WebsiteSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Domain\Entity\Website');
+        $this->shouldHaveType('Domain\Website\Entity\Website');
         $this->shouldImplement('Black\Website\Domain\Entity\Website');
     }
 
@@ -20,11 +21,11 @@ class WebsiteSpec extends ObjectBehavior
     {
         $websiteId = new WebsiteId(1234);
         $author = new Author("john doe");
-        $this->beConstructedWith($websiteId, "name", "description", $author);
+        $this->beConstructedWith($websiteId, "name", "description", $author, "fr");
     }
 
     function it_should_get_an_id(Website $website)
     {
-        $website->getId()->willReturn(1);
+        $website->getId()->willReturn(Uuid::uuid4());
     }
 }

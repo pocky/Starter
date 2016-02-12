@@ -1,6 +1,8 @@
-Domain\Entity\Website:
+Domain\Website\Entity\Website:
     type: entity
     id:
         id:
-            type: integer
-            generator: { strategy: AUTO }
+            type: binary
+            length: 128
+            autoincrement: false
+            generator: { strategy: UUID }

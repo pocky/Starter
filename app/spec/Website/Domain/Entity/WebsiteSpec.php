@@ -18,7 +18,7 @@ class WebsiteSpec extends ObjectBehavior
     {
         $websiteId = new WebsiteId(1234);
         $author = new Author("john doe");
-        $this->beConstructedWith($websiteId, "name", "description", $author);
+        $this->beConstructedWith($websiteId, "name", "description", $author, "fr");
     }
 
     public function it_should_get_website_id()
@@ -39,6 +39,11 @@ class WebsiteSpec extends ObjectBehavior
     public function it_should_have_an_author()
     {
         $this->getAuthor()->getValue()->shouldReturn("john doe");
+    }
+
+    public function it_should_have_a_language()
+    {
+        $this->getLanguage()->shouldReturn("fr");
     }
 
     public function it_should_have_a_creation_date()

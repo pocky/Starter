@@ -33,7 +33,8 @@ class YamlRepository implements WebsiteRepository
                 new WebsiteId($row['id']),
                 $row['name'],
                 $row['description'],
-                new Author($row['author'])
+                new Author($row['author']),
+                $row['language']
             );
         }
 
@@ -57,6 +58,7 @@ class YamlRepository implements WebsiteRepository
             'name' => $website->getName(),
             'description' => $website->getDescription(),
             'author' => $website->getAuthor()->getValue(),
+            'language' => $website->getLanguage(),
             'createdAt' => $website->getCreatedAt()->format('r'),
             'status' => $website->getStatus()
         ];
@@ -98,6 +100,7 @@ class YamlRepository implements WebsiteRepository
                 $row['name'] = $website->getName();
                 $row['description'] = $website->getDescription();
                 $row['author'] = $website->getAuthor()->getValue();
+                $row['language'] = $website->getLanguage();
                 $row['createdAt'] = $website->getCreatedAt()->format('r');
                 $row['status'] = $website->getStatus();
                 $row['updatedAt'] = $website->getUpdatedtAt()->format('r');

@@ -16,18 +16,26 @@ class Website
 
     protected $author;
 
+    protected $language;
+
     protected $createdAt;
 
     protected $status;
 
     protected $updatedAt;
 
-    public function __construct(WebsiteId $websiteId, string $name, string $description, Author $author)
-    {
+    public function __construct(
+        WebsiteId $websiteId,
+        string $name,
+        string $description,
+        Author $author,
+        string $language
+    ) {
         $this->websiteId = $websiteId;
         $this->name = $name;
         $this->description = $description;
         $this->author = $author;
+        $this->language = $language;
         $this->createdAt = new \DateTime();
         $this->status = WebsiteStatus::INACTIVE;
     }
@@ -50,6 +58,11 @@ class Website
     public function getAuthor() : Author
     {
         return $this->author;
+    }
+
+    public function getLanguage() : string
+    {
+        return $this->language;
     }
 
     public function activate()

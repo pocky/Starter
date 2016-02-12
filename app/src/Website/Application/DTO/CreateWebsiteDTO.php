@@ -12,11 +12,18 @@ class CreateWebsiteDTO
 
     private $author;
 
-    public function __construct(string $name, string $description, string $author)
-    {
+    private $language;
+
+    public function __construct(
+        string $name,
+        string $description,
+        string $author,
+        string $language
+    ) {
         $this->name = $name;
         $this->description = $description;
         $this->author = $author;
+        $this->language = $language;
     }
 
     public function getName() : string
@@ -32,5 +39,10 @@ class CreateWebsiteDTO
     public function getAuthor() : string
     {
         return $this->author;
+    }
+
+    public function getLanguage() : string
+    {
+        return $this->language;
     }
 }

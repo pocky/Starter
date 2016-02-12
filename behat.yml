@@ -36,4 +36,4 @@ domain:
 
     extensions:
         RMiller\BehatSpec\BehatExtension:
-            path: vendor/bin/phpspec
+            path: %paths.base%/vendor/bin/phpspec

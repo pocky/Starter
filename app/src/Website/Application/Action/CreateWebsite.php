@@ -15,9 +15,9 @@ class CreateWebsite
         $this->bus = $bus;
     }
 
-    public function __invoke($name, $description, Author $author)
+    public function __invoke(string $name, string $description, Author $author, string $language)
     {
-        $command = new CreateWebsiteCommand($name, $description, $author);
+        $command = new CreateWebsiteCommand($name, $description, $author, $language);
         $this->bus->handle($command);
     }
 }

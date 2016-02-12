@@ -9,15 +9,8 @@ class AppKernel extends Kernel
     {
         parent::initializeContainer();
 
-        $logger = $this->container->get('logger');
-        $logger->info("salut");
-    }
-
-    protected function prepareContainer(\Symfony\Component\DependencyInjection\ContainerBuilder $container)
-    {
-        parent::prepareContainer($container);
-
-        $container->addCompilerPass(new \Infrastructure\DependencyInjection\TestCompilerPass());
+        //$logger = $this->container->get('logger');
+        //$logger->info("salut");
     }
 
     public function registerBundles()

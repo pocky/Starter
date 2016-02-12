@@ -13,11 +13,18 @@ class CreateWebsiteCommand implements Command
 
     private $author;
 
-    public function __construct(string $name, string $description, Author $author)
-    {
+    private $language;
+
+    public function __construct(
+        string $name,
+        string $description,
+        Author $author,
+        string $language
+    ) {
         $this->name = $name;
         $this->description = $description;
         $this->author = $author;
+        $this->language = $language;
     }
 
     public function getName() : string
@@ -33,5 +40,10 @@ class CreateWebsiteCommand implements Command
     public function getAuthor() : Author
     {
         return $this->author;
+    }
+
+    public function getLanguage() : string
+    {
+        return $this->language;
     }
 }

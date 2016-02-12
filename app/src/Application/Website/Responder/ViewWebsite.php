@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Responder;
+namespace Application\Website\Responder;
 
 use Black\Website\Application\DTO\WebsiteDTO;
 use Black\Website\Application\Specification\WebsiteIsReadable;

@@ -41,7 +41,8 @@ class CreateWebsiteHandler implements CommandHandler
             $websiteId,
             $command->getName(),
             $command->getDescription(),
-            $command->getAuthor()
+            $command->getAuthor(),
+            $command->getLanguage()
         );
 
         $this->service->createWebsite($website);

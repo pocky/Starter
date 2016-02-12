@@ -1,19 +1,15 @@
 <?php
 
-namespace Application\Action;
+namespace Application\Website\Action;
 
-use Black\DDD\CQRSinPHP\Infrastructure\CQRS\Bus;
-use Black\Website\Application\Action\ActiveWebsite as Action;
-use Black\Website\Application\DTO\ActiveWebsiteDTO;
-use Black\Website\Application\DTO\CreateWebsiteDTO;
-use Black\Website\Domain\ValueObject\Author;
+use Black\Website\Application\Action\DisableWebsite as Action;
+use Black\Website\Application\DTO\DisableWebsiteDTO;
 use Black\Website\Domain\ValueObject\WebsiteId;
-use Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand;
 use Black\Website\Infrastructure\Service\ReadService;
 use Psr\Http\Message\ServerRequestInterface;
-use Application\Responder\ActiveWebsite as Responder;
+use Application\Website\Responder\DisableWebsite as Responder;
 
-class ActiveWebsite
+class DisableWebsite
 {
     protected $action;
 
@@ -34,7 +30,7 @@ class ActiveWebsite
     public function __invoke(ServerRequestInterface $request)
     {
         $data = json_decode($request->getBody()->getContents());
-        $dto = new ActiveWebsiteDTO($data->id);
+        $dto = new DisableWebsiteDTO($data->id);
 
         $website = $this->service->find(new WebsiteId($dto->getId()));
         $this->action->__invoke($website);

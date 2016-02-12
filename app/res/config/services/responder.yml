@@ -1,8 +1,8 @@
 parameters:
-    app.application.responder.create_website.class: Application\Responder\CreateWebsite
-    app.application.responder.active_website.class: Application\Responder\ActiveWebsite
-    app.application.responder.disable_website.class: Application\Responder\DisableWebsite
-    app.application.responder.view_website.class: Application\Responder\ViewWebsite
+    app.application.responder.create_website.class: Application\Website\Responder\CreateWebsite
+    app.application.responder.active_website.class: Application\Website\Responder\ActiveWebsite
+    app.application.responder.disable_website.class: Application\Website\Responder\DisableWebsite
+    app.application.responder.view_website.class: Application\Website\Responder\ViewWebsite
 
 services:
     app.application.responder.create_website:

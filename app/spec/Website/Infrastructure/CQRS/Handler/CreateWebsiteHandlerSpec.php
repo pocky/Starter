@@ -30,6 +30,7 @@ class CreateWebsiteHandlerSpec extends ObjectBehavior
         $command->getName()->willReturn("name");
         $command->getDescription()->willReturn("description");
         $command->getAuthor()->willReturn(new Author("John doe"));
+        $command->getLanguage()->willReturn("fr_FR");
 
         $this->handle($command);
     }

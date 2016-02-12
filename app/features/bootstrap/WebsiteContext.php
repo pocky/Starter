@@ -38,17 +38,17 @@ class WebsiteContext extends DomainContext
     }
 
     /**
-     * @When I create my website with a :name, a :description and an :author
+     * @When I create my website with a :name, a :description and an :author in :language
      */
-    public function iWantToCreateAWebsiteWithANameADescriptionAndAnAuthor($name, $description, $author)
+    public function iWantToCreateAWebsiteWithANameADescriptionAndAnAuthor($name, $description, $author, $language)
     {
         $websiteRepository = new \Black\Website\Infrastructure\Persistence\CQRS\WriteRepository($this->repository);
         $service = new \Black\Website\Infrastructure\Service\WriteService($websiteRepository);
 
-        $dto = new \Black\Website\Application\DTO\CreateWebsiteDTO($name, $description, $author);
+        $dto = new \Black\Website\Application\DTO\CreateWebsiteDTO($name, $description, $author, $language);
         $author = new \Black\Website\Domain\ValueObject\Author($dto->getAuthor());
 
-        $command = new \Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand($dto->getName(), $dto->getDescription(), $author);
+        $command = new \Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand($dto->getName(), $dto->getDescription(), $author, $dto->getLanguage());
         $handler = new \Black\Website\Infrastructure\CQRS\Handler\CreateWebsiteHandler($service, $this->repository, $this->dispatcher);
         $handler->handle($command);
     }

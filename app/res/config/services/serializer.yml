@@ -1,7 +1,7 @@
 parameters:
     app.application.serializer.encoder.json.class: Symfony\Component\Serializer\Encoder\JsonEncoder
 
-    app.application.serializer.normalizer.website.class: Application\Serializer\Normalizer\WebsiteNormalizer
+    app.application.serializer.normalizer.website.class: Application\Website\Serializer\Normalizer\WebsiteNormalizer
 
 services:
     app.application.serializer.encoder.json:

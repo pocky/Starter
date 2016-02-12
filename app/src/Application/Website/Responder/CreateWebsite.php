@@ -1,10 +1,10 @@
 <?php
 
-namespace Application\Responder;
+namespace Application\Website\Responder;
 
 use Zend\Diactoros\Response\JsonResponse;
 
-class ActiveWebsite
+class CreateWebsite
 {
     public function __invoke() : JsonResponse
     {
