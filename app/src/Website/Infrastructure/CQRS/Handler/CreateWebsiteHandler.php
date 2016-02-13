@@ -40,6 +40,7 @@ class CreateWebsiteHandler implements CommandHandler
         $website = new $this->website(
             $websiteId,
             $command->getName(),
+            $command->getHeadline(),
             $command->getDescription(),
             $command->getAuthor(),
             $command->getLanguage()

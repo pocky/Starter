@@ -2,7 +2,8 @@ Black\Website\Domain\Entity\Website:
     type: mappedSuperclass
     fields:
         name: { type: string }
-        description: { type: string }
+        headline: { type: string, nullable: true }
+        description: { type: string, nullable: true }
         createdAt: { type: datetime }
         status: { type: string }
         updatedAt: { type: datetime, nullable: true }

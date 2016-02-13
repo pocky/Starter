@@ -10,14 +10,22 @@ class WebsiteDTO
 
     private $name;
 
+    private $headline;
+
     private $description;
 
     private $author;
 
-    public function __construct(string $id, string $name, string $description, string $author)
-    {
+    public function __construct(
+        string $id,
+        string $name,
+        string $headline,
+        string $description,
+        string $author
+    ) {
         $this->id = $id;
         $this->name = $name;
+        $this->headline = $headline;
         $this->description = $description;
         $this->author = $author;
     }
@@ -30,6 +38,11 @@ class WebsiteDTO
     public function getName() : string
     {
         return $this->name;
+    }
+
+    public function getHeadline() : string
+    {
+        return $this->headline;
     }
 
     public function getDescription() : string

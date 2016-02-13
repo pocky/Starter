@@ -9,15 +9,23 @@ class UpdateWebsiteCommand
 {
     private $name;
 
+    private $headline;
+
     private $description;
 
     private $author;
 
     private $website;
 
-    public function __construct(string $name, string $description, Author $author, Website $website)
-    {
+    public function __construct(
+        string $name,
+        string $headline,
+        string $description,
+        Author $author,
+        Website $website
+    ) {
         $this->name = $name;
+        $this->headline = $headline;
         $this->description = $description;
         $this->author = $author;
         $this->website = $website;
@@ -26,6 +34,11 @@ class UpdateWebsiteCommand
     public function getName() : string
     {
         return $this->name;
+    }
+
+    public function getHeadline() : string
+    {
+        return $this->headline;
     }
 
     public function getDescription() : string

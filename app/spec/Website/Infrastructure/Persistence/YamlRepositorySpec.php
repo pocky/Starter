@@ -41,6 +41,7 @@ class YamlRepositorySpec extends ObjectBehavior
 
         $website->getWebsiteId()->willReturn($websiteId);
         $website->getName()->willReturn("name");
+        $website->getHeadline()->willReturn("headline");
         $website->getDescription()->willReturn("description");
         $website->getAuthor()->willReturn($author);
         $website->getLanguage()->willReturn("fr_FR");
@@ -68,6 +69,7 @@ class YamlRepositorySpec extends ObjectBehavior
 
         $website->getWebsiteId()->willReturn($id);
         $website->getName()->willReturn("name");
+        $website->getHeadline()->willReturn("headline");
         $website->getDescription()->willReturn("description");
         $website->getAuthor()->willReturn($author);
         $website->getLanguage()->willReturn("fr_FR");

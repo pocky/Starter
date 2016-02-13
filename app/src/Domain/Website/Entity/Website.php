@@ -14,12 +14,13 @@ class Website extends BaseWebsite
     public function __construct(
         WebsiteId $websiteId,
         $name,
+        $headline,
         $description,
         Author $author,
         $language
     ) {
         $this->id = Uuid::uuid4();
-        parent::__construct($websiteId, $name, $description, $author, $language);
+        parent::__construct($websiteId, $name, $headline, $description, $author, $language);
     }
 
     public function getId()

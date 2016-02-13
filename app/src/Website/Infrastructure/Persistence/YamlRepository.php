@@ -32,6 +32,7 @@ class YamlRepository implements WebsiteRepository
             $websites[] = new Website(
                 new WebsiteId($row['id']),
                 $row['name'],
+                $row['headline'],
                 $row['description'],
                 new Author($row['author']),
                 $row['language']
@@ -56,6 +57,7 @@ class YamlRepository implements WebsiteRepository
         $rows[] = [
             'id' => $website->getWebsiteId()->getValue(),
             'name' => $website->getName(),
+            'headline' => $website->getHeadline(),
             'description' => $website->getDescription(),
             'author' => $website->getAuthor()->getValue(),
             'language' => $website->getLanguage(),
@@ -98,6 +100,7 @@ class YamlRepository implements WebsiteRepository
             if ($website->getWebsiteId()->isEqualTo(new WebsiteId($row['id']))) {
                 $row['id'] = $website->getWebsiteId()->getValue();
                 $row['name'] = $website->getName();
+                $row['headline'] = $website->getHeadline();
                 $row['description'] = $website->getDescription();
                 $row['author'] = $website->getAuthor()->getValue();
                 $row['language'] = $website->getLanguage();

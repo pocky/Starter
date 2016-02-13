@@ -32,9 +32,15 @@ class WriteService
         $this->writeRepository->update($website);
     }
 
-    public function update($name, $description, Author $author, Website $website)
-    {
-        $website->update($name, $description, $author);
+    public function update
+    (
+        $name,
+        $headline,
+        $description,
+        Author $author,
+        Website $website
+    ) {
+        $website->update($name, $headline, $description, $author);
         $this->writeRepository->update($website);
     }
 }

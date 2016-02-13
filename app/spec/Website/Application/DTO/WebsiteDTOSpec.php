@@ -15,7 +15,7 @@ class WebsiteDTOSpec extends ObjectBehavior
 
     function let()
     {
-        $this->beConstructedWith(1234, "name", "description", "John Doe");
+        $this->beConstructedWith(1234, "name", "headline", "description", "John Doe");
     }
 
     function it_should_have_an_id()
@@ -26,6 +26,11 @@ class WebsiteDTOSpec extends ObjectBehavior
     function it_should_have_a_name()
     {
         $this->getName()->shouldReturn("name");
+    }
+
+    function it_should_have_an_headline()
+    {
+        $this->getHeadline()->shouldReturn("headline");
     }
 
     function it_should_have_a_description()

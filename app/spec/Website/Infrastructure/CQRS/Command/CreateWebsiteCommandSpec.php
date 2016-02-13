@@ -17,12 +17,17 @@ class CreateWebsiteCommandSpec extends ObjectBehavior
     function let()
     {
         $author = new Author("John Doe");
-        $this->beConstructedWith("name", "description", $author, "fr_FR");
+        $this->beConstructedWith("name", "headline", "description", $author, "fr_FR");
     }
 
     function it_should_have_a_name()
     {
         $this->getName()->shouldReturn("name");
+    }
+
+    function it_should_have_an_headline()
+    {
+        $this->getHeadline()->shouldReturn("headline");
     }
 
     function it_should_have_a_description()

@@ -28,6 +28,7 @@ class CreateWebsiteHandlerSpec extends ObjectBehavior
     function it_should_handle_a_command(CreateWebsiteCommand $command)
     {
         $command->getName()->willReturn("name");
+        $command->getHeadline()->willReturn("headline");
         $command->getDescription()->willReturn("description");
         $command->getAuthor()->willReturn(new Author("John doe"));
         $command->getLanguage()->willReturn("fr_FR");

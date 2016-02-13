@@ -42,8 +42,8 @@ class WriteServiceSpec extends ObjectBehavior
     function it_should_update(Website $website)
     {
         $author = new Author("John Doe");
-        $website->update("name", "description", $author)->shouldBeCalled();
+        $website->update("name", "headline", "description", $author)->shouldBeCalled();
 
-        $this->update("name", "description", $author, $website);
+        $this->update("name", "headline", "description", $author, $website);
     }
 }

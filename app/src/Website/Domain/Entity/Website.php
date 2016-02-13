@@ -12,6 +12,8 @@ class Website
 
     protected $name;
 
+    protected $headline;
+
     protected $description;
 
     protected $author;
@@ -27,12 +29,14 @@ class Website
     public function __construct(
         WebsiteId $websiteId,
         string $name,
+        string $headline,
         string $description,
         Author $author,
         string $language
     ) {
         $this->websiteId = $websiteId;
         $this->name = $name;
+        $this->headline = $headline;
         $this->description = $description;
         $this->author = $author;
         $this->language = $language;
@@ -48,6 +52,11 @@ class Website
     public function getName() : string
     {
         return $this->name;
+    }
+
+    public function getHeadline() : string
+    {
+        return $this->headline;
     }
 
     public function getDescription() : string
@@ -92,10 +101,11 @@ class Website
         $this->status = WebsiteStatus::INACTIVE;
     }
 
-    public function update(string $name, string $description, Author $author)
+    public function update(string $name, string $headline, string $description, Author $author)
     {
         $this->updatedAt = new \DateTime();
         $this->name = $name;
+        $this->headline = $headline;
         $this->description = $description;
         $this->author = $author;
     }

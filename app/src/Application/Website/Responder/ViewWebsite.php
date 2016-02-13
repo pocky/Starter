@@ -4,7 +4,7 @@ namespace Application\Website\Responder;
 
 use Black\Website\Application\DTO\WebsiteDTO;
 use Black\Website\Application\Specification\WebsiteIsReadable;
-use Domain\Entity\Website;
+use Domain\Website\Entity\Website;
 use Symfony\Component\Serializer\Serializer;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\Response\HtmlResponse;

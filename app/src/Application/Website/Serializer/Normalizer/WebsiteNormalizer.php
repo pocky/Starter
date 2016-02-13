@@ -30,6 +30,7 @@ class WebsiteNormalizer extends SerializerAwareNormalizer implements NormalizerI
         $dto = new WebsiteDTO(
             $website->getWebsiteId()->getValue(),
             $website->getName(),
+            $website->getHeadline(),
             $website->getDescription(),
             $website->getAuthor()->getValue()
         );
@@ -37,6 +38,7 @@ class WebsiteNormalizer extends SerializerAwareNormalizer implements NormalizerI
         return [
             'id' => $dto->getId(),
             "name" => $dto->getName(),
+            "headline" => $dto->getHeadline(),
             "description" => $dto->getName(),
             "author" => $dto->getAuthor(),
         ];

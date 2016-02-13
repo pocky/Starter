@@ -25,6 +25,7 @@ class UpdateWebsiteHandlerSpec extends ObjectBehavior
     public function it_should_handle(UpdateWebsiteCommand $command, Website $website)
     {
         $command->getName()->willReturn("name");
+        $command->getHeadline()->willReturn("headline");
         $command->getDescription()->willReturn("description");
         $author = new Author("John Doe");
         $command->getAuthor()->willReturn($author);

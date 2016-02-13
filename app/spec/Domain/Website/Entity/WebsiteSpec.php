@@ -21,7 +21,7 @@ class WebsiteSpec extends ObjectBehavior
     {
         $websiteId = new WebsiteId(1234);
         $author = new Author("john doe");
-        $this->beConstructedWith($websiteId, "name", "description", $author, "fr");
+        $this->beConstructedWith($websiteId, "name", "headline", "description", $author, "fr");
     }
 
     function it_should_get_an_id(Website $website)

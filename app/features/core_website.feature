@@ -3,7 +3,7 @@ Feature: Manage a website
 
   Scenario: Create a website
     Given I don't have any website
-    When I create my website with a name, a description and an author in fr_FR
+    When I create my website with a name, an headline, a description and an author in fr_FR
     Then I must have a website with id 1234
 
   Scenario: Active a website

@@ -9,6 +9,8 @@ class CreateWebsiteCommand implements Command
 {
     private $name;
 
+    private $headline;
+
     private $description;
 
     private $author;
@@ -17,11 +19,13 @@ class CreateWebsiteCommand implements Command
 
     public function __construct(
         string $name,
+        string $headline,
         string $description,
         Author $author,
         string $language
     ) {
         $this->name = $name;
+        $this->headline = $headline;
         $this->description = $description;
         $this->author = $author;
         $this->language = $language;
@@ -30,6 +34,11 @@ class CreateWebsiteCommand implements Command
     public function getName() : string
     {
         return $this->name;
+    }
+
+    public function getHeadline() : string
+    {
+        return $this->headline;
     }
 
     public function getDescription() : string

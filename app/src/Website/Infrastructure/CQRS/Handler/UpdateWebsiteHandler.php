@@ -16,6 +16,12 @@ class UpdateWebsiteHandler
 
     public function handle(UpdateWebsiteCommand $command)
     {
-        $this->service->update($command->getName(), $command->getDescription(), $command->getAuthor(), $command->getWebsite());
+        $this->service->update(
+            $command->getName(),
+            $command->getHeadline(),
+            $command->getDescription(),
+            $command->getAuthor(),
+            $command->getWebsite()
+        );
     }
 }

@@ -38,17 +38,17 @@ class WebsiteContext extends DomainContext
     }
 
     /**
-     * @When I create my website with a :name, a :description and an :author in :language
+     * @When I create my website with a :name, an :headline, a :description and an :author in :language
      */
-    public function iWantToCreateAWebsiteWithANameADescriptionAndAnAuthor($name, $description, $author, $language)
+    public function iWantToCreateAWebsiteWithANameADescriptionAndAnAuthor($name, $headline, $description, $author, $language)
     {
         $websiteRepository = new \Black\Website\Infrastructure\Persistence\CQRS\WriteRepository($this->repository);
         $service = new \Black\Website\Infrastructure\Service\WriteService($websiteRepository);
 
-        $dto = new \Black\Website\Application\DTO\CreateWebsiteDTO($name, $description, $author, $language);
+        $dto = new \Black\Website\Application\DTO\CreateWebsiteDTO($name, $headline, $description, $author, $language);
         $author = new \Black\Website\Domain\ValueObject\Author($dto->getAuthor());
 
-        $command = new \Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand($dto->getName(), $dto->getDescription(), $author, $dto->getLanguage());
+        $command = new \Black\Website\Infrastructure\CQRS\Command\CreateWebsiteCommand($dto->getName(), $dto->getHeadline(), $dto->getDescription(), $author, $dto->getLanguage());
         $handler = new \Black\Website\Infrastructure\CQRS\Handler\CreateWebsiteHandler($service, $this->repository, $this->dispatcher);
         $handler->handle($command);
     }
@@ -72,7 +72,7 @@ class WebsiteContext extends DomainContext
     {
         $websiteId = new \Black\Website\Domain\ValueObject\WebsiteId(1234);
         $author = new \Black\Website\Domain\ValueObject\Author("John Doe");
-        $this->website = new \Black\Website\Domain\Entity\Website($websiteId, "name2", "description", $author);
+        $this->website = new \Black\Website\Domain\Entity\Website($websiteId, "name2", "headline", "description", $author, "fr_FR");
 
         $websiteRepository = new \Black\Website\Infrastructure\Persistence\CQRS\WriteRepository($this->repository);
         $this->service = new \Black\Website\Infrastructure\Service\WriteService($websiteRepository);
@@ -136,7 +136,7 @@ class WebsiteContext extends DomainContext
      */
     public function iUpdateHisNameWith($name)
     {
-        $dto = new \Black\Website\Application\DTO\WebsiteDTO(1234, $name, "description", "John Doe");
+        $dto = new \Black\Website\Application\DTO\WebsiteDTO(1234, $name, "headline", "description", "John Doe");
 
         $id = new \Black\Website\Domain\ValueObject\WebsiteId($dto->getId());
         $author = new \Black\Website\Domain\ValueObject\Author($dto->getAuthor());
@@ -144,7 +144,7 @@ class WebsiteContext extends DomainContext
         $repository = new \Black\Website\Infrastructure\Persistence\CQRS\ReadRepository($this->repository);
         $this->website = $repository->find($id);
 
-        $command = new \Black\Website\Infrastructure\CQRS\Command\UpdateWebsiteCommand($dto->getName(), $dto->getDescription(), $author, $this->website);
+        $command = new \Black\Website\Infrastructure\CQRS\Command\UpdateWebsiteCommand($dto->getName(), $dto->getName(), $dto->getDescription(), $author, $this->website);
         $handler = new \Black\Website\Infrastructure\CQRS\Handler\UpdateWebsiteHandler($this->service, $this->dispatcher);
         $handler->handle($command);
     }
