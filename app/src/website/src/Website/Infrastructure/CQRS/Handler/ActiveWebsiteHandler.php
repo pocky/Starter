@@ -6,7 +6,6 @@ use Black\DDD\CQRSinPHP\Infrastructure\CQRS\Command;
 use Black\DDD\CQRSinPHP\Infrastructure\CQRS\CommandHandler;
 use Black\Website\Domain\Event\WebsiteIsActivated;
 use Black\Website\Domain\WebsiteEvents;
-use Black\Website\Infrastructure\CQRS\Command\ActiveWebsiteCommand;
 use Black\Website\Infrastructure\Service\WriteService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 

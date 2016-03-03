@@ -5,8 +5,9 @@
     "description": "The \"Black Edition\" distribution build on top of \"Symfony Standard Edition\"",
     "autoload": {
         "psr-4": {
-            "Black\\Website\\": "app/src/Website/",
-            "Black\\Bundle\\WebsiteBundle\\": "app/src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/",
+            "Black\\Website\\": "app/src/website/src/Website",
+            "Black\\Bundle\\WebsiteBundle\\": "app/src/website/src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/",
+            "Black\\Page\\": "app/src/page/src/Page",
             "": "app/src/"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
@@ -15,7 +16,7 @@
         "psr-4": { "Tests\\": "app/tests/" }
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=5.5.9",
         "symfony/symfony": "^2.8",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
@@ -29,24 +30,24 @@
         "cocur/slugify": "^1.2",
         "ramsey/uuid": "^2.8",
         "puli/symfony-bundle": "^1.0",
-        "symfony/psr-http-message-bridge": "^0.2.0",
+        "puli/twig-extension": "^1.0",
+        "symfony/psr-http-message-bridge": "^0.",
         "zendframework/zend-diactoros": "^1.3",
         "black/common": "dev-master",
         "black/cqrs-php": "dev-master"
     },
     "require-dev": {
-        "hautelook/alice-bundle": "dev-master",
+        "hautelook/alice-bundle": "~1.2",
         "behat/behat": "~3.0",
-        "knplabs/friendly-contexts": "~0.5",
+        "knplabs/friendly-contexts": "~0.7",
         "behat/symfony2-extension": "~2.0",
         "behat/mink-browserkit-driver": "~1.3",
-        "behat/mink-selenium2-driver": "~1.2",
+        "behat/mink": "dev-master",
         "phpspec/phpspec": "^2.4",
-        "phpspec/prophecy": "dev-master",
         "memio/spec-gen": "^0.4",
         "symfony/phpunit-bridge": "^2.7",
         "phpunit/phpunit": "~5.0",
-        "rmiller/behat-spec": "^0.3.0",
+        "rmiller/behat-spec": "^0.2.0",
         "braincrafted/testing-bundle": "^0.4.1",
         "mikey179/vfsStream": "^1.6",
         "puli/cli": "^1.0"

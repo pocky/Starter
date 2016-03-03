@@ -1,0 +1,16 @@
+extensions:
+  - Memio\SpecGen\MemioSpecGenExtension
+  - RMiller\BehatSpec\PhpSpecExtension
+
+suites:
+    website_suite:
+        namespace: Black\Website
+        psr4_prefix: Black
+        src_path: %paths.config%/app/src
+        spec_path: %paths.config%/app
+
+    website_bundle_suite:
+        namespace: Black\Bundle\WebsiteBundle
+        psr4_prefix: Black\Bundle
+        src_path: %paths.config%/app/src/website/src/Infrastructure/Bridge/Symfony
+        spec_path: %paths.config%/app

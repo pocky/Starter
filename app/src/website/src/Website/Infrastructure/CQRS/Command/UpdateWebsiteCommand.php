@@ -2,10 +2,11 @@
 
 namespace Black\Website\Infrastructure\CQRS\Command;
 
+use Black\DDD\CQRSinPHP\Infrastructure\CQRS\Command;
 use Black\Website\Domain\ValueObject\Author;
 use Black\Website\Domain\Entity\Website;
 
-class UpdateWebsiteCommand
+class UpdateWebsiteCommand implements Command
 {
     private $name;
 
