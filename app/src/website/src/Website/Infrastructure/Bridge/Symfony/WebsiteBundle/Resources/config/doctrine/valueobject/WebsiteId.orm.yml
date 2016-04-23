@@ -1,4 +1,0 @@
-Black\Website\Domain\ValueObject\WebsiteId:
-    type: embeddable
-    fields:
-        value: { type: string }

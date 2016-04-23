@@ -17,21 +17,3 @@ suites:
         namespace: Infrastructure
         src_path: %paths.config%/app/src
         spec_path: %paths.config%/app
-
-    website_suite:
-        namespace: Black\Website
-        psr4_prefix: Black
-        src_path: %paths.config%/app/src/website/src
-        spec_path: %paths.config%/app/src/website
-
-    website_bundle_suite:
-        namespace: Black\Bundle\WebsiteBundle
-        psr4_prefix: Black\Bundle
-        src_path: %paths.config%/app/src/website/src/Website/Infrastructure/Bridge/Symfony
-        spec_path: %paths.config%/app
-
-    page_suite:
-        namespace: Black\Page
-        psr4_prefix: Black
-        src_path: %paths.config%/app/src/page/src
-        spec_path: %paths.config%/app/src/page

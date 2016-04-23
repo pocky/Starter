@@ -1,6 +1,0 @@
-parameters:
-    black_website.application.specification.website_is_readable.class: Black\Website\Application\Specification\WebsiteIsReadable
-
-services:
-    black_website.application.specification.website_is_readable:
-        class: "%black_website.application.specification.website_is_readable.class%"

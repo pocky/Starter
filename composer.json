@@ -5,9 +5,9 @@
     "description": "The \"Black Edition\" distribution build on top of \"Symfony Standard Edition\"",
     "autoload": {
         "psr-4": {
-            "Black\\Website\\": "app/src/website/src/Website",
-            "Black\\Bundle\\WebsiteBundle\\": "app/src/website/src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/",
-            "Black\\Page\\": "app/src/page/src/Page",
+            "Black\\Website\\": "../website/src/Website",
+            "Black\\Bundle\\WebsiteBundle\\": "../website/src/Website/Infrastructure/Bridge/Symfony/WebsiteBundle/",
+            "Black\\Page\\": "../page/src/Page",
             "": "app/src/"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]

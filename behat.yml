@@ -16,8 +16,6 @@ default:
             sessions:
                 default:
                     symfony2: ~
-                javascript:
-                    selenium2: ~
 
         Knp\FriendlyContexts\Extension: ~
         Behat\Symfony2Extension: ~
