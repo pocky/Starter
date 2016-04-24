@@ -21,4 +21,9 @@
         <server name="KERNEL_DIR" value="app/" />
     </php>
 
+    <filter>
+        <whitelist>
+            <directory>app/src</directory>
+        </whitelist>
+    </filter>
 </phpunit>

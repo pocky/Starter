@@ -1,6 +1,6 @@
 default:
     autoload:
-        'app': %paths.base%/app/features/bootstrap
+        "":  %paths.base%/app/features/bootstrap
 
     suites:
         default:
@@ -22,7 +22,7 @@ default:
 
 domain:
     autoload:
-        '': %paths.base%/app/features/bootstrap
+        "":  %paths.base%/app/features/bootstrap
 
     suites:
         default:

@@ -3,7 +3,8 @@ Black Standard Edition
 
 This package is a custom Symfony Edition for black projects.
 
-__CAUTION__ The Black Standard Edition don't follow Semantic Versioning of Symfony Standard Edition since v2.5.1
+__CAUTION__ The Black Standard Edition don't follow Semantic Versioning 
+of Symfony Standard Edition since v2.5.1
 
 Black Standard Edition
 ========================
@@ -31,6 +32,28 @@ We use Symfony 3.0 directory structure since v2.5.1.
 See [What is the new Symfony3 directory structure?][25] for more details.
 
 Black Standard Edition use [Puli][2] as resource locator.
+=======
+Installation
+---------------
+
+```
+$ composer create-project black-project/black-standard-edition my_project_name
+```
+
+Testing Tools
+----------------
+
+[**Behat**][22] and [**PhpSpec**][24] will be your BFF.
+
+OH WAIT
+----------
+
+Black Standard Edition use [Puli][2] as resource locator.
+
+### Directory Structure
+
+As you can see, there is no `src` root folder and all your code will be in `app/src`.
+This is because we are not using the directory structure of Symfony Standard Edition.
 
 What's inside?
 ---------------
@@ -70,9 +93,12 @@ It comes pre-configured with the following bundles:
   * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
     configuring and working with Symfony distributions
     
-  * [**PuliSymfonyBundle**][12] — a universal package system for PHP. Puli aims 
+  * [**PuliSymfonyBundle**][12] — an universal package system for PHP. Puli aims 
     to replace “bundles”, “plugins”, “modules” and similar specialized packages of
     different frameworks with one generic, framework independent solution.
+    
+  * [**AliceBundle**][13] - A Symfony bundle to manage fixtures with nelmio/alice 
+    and fzaninotto/Faker.
 
 All libraries and bundles included in the Black Standard Edition are
 released under the MIT or BSD license.
@@ -88,6 +114,6 @@ Enjoy!
 [10]: https://symfony.com/doc/current/cookbook/email.html
 [11]: https://symfony.com/doc/current/cookbook/logging/monolog.html
 [12]: http://docs.puli.io/en/latest/extensions/symfony-bundle.html
+[13]: https://github.com/hautelook/AliceBundle#alicebundle
 [22]: http://behat.org/
 [24]: http://phpspec.net/
-[25]: http://stackoverflow.com/questions/23993295/what-is-the-new-symfony-3-directory-structure

@@ -11,11 +11,11 @@ services:
         class: "%app.application.serializer.normalizer.website.class%"
 
     app.serializer.default:
-        class: "Symfony\Component\Serializer\Serializer"
+        class: Symfony\Component\Serializer\Serializer
         arguments:
             0:
                 - "@app.application.serializer.normalizer.website"
-                - '@serializer.normalizer.object'
+                - "@serializer.normalizer.object"
             1:
                 - "@app.application.serializer.encoder.json"
 

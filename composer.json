@@ -20,11 +20,15 @@
         {
             "type": "path",
             "url": "../packages/website"
+        },
+        {
+            "type": "path",
+            "url": "../packages/common"
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "symfony/symfony": "^2.8",
+        "php": ">=7.0.1",
+        "symfony/symfony": "^3.0",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
@@ -51,12 +55,12 @@
         "knplabs/friendly-contexts": "~0.7",
         "behat/symfony2-extension": "~2.0",
         "behat/mink-browserkit-driver": "~1.3",
-        "behat/mink": "dev-master",
+        "behat/mink": "~1.7",
         "phpspec/phpspec": "^2.4",
         "memio/spec-gen": "^0.4",
         "symfony/phpunit-bridge": "^2.7",
         "phpunit/phpunit": "~5.0",
-        "rmiller/behat-spec": "^0.2.0",
+        "rmiller/behat-spec": "^0.3",
         "braincrafted/testing-bundle": "^0.4.1",
         "mikey179/vfsStream": "^1.6",
         "puli/cli": "^1.0"
@@ -99,7 +103,7 @@
             "file": "app/res/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.8-dev"
+            "dev-master": "3.0-dev"
         }
     },
     "support": {

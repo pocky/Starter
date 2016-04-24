@@ -12,7 +12,7 @@ parameters:
     debug_toolbar: true
     debug_redirects: false
     delivery_email: alexandre@lablackroom.com
-    monolog_from_email: monolog@www.starter.blackroom.blackroom
+    monolog_from_email: monolog@www.standard.blackroom.blackroom
     monolog_to_email: alexandre@lablackroom.com
-    monolog_subject: 'Monolog from www.starter.blackroom project'
+    monolog_subject: 'Monolog from www.standard.blackroom project'
     locale: en

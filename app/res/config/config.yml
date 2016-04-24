@@ -14,8 +14,6 @@ framework:
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
-    serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -28,6 +26,7 @@ framework:
         save_path:   "/var/sessions/%kernel.environment%"
     fragments:       ~
     http_method_override: true
+    serializer: { enabled: true }
 
 # Twig Configuration
 twig:
@@ -57,7 +56,6 @@ doctrine:
             collate: utf8mb4_unicode_ci
             engine: InnoDB
 
-
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -77,6 +75,17 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+# FrameworkExtra Configuration
+sensio_framework_extra:
+    router:
+        annotations: false
+    view:
+        annotations: false
+    cache:
+        annotations: false
+    security:
+        annotations: false
 
 parameters:
     app.backend_type_orm: true

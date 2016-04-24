@@ -77,10 +77,6 @@
             "install-path": "vendor/cocur/slugify",
             "installer": "composer"
         },
-        "dantleech/symfony-form-array-to-delimited-string-transformer": {
-            "install-path": "vendor/dantleech/symfony-form-array-to-delimited-string-transformer",
-            "installer": "composer"
-        },
         "doctrine/annotations": {
             "install-path": "vendor/doctrine/annotations",
             "installer": "composer"
@@ -152,10 +148,6 @@
         },
         "incenteev/composer-parameter-handler": {
             "install-path": "vendor/incenteev/composer-parameter-handler",
-            "installer": "composer"
-        },
-        "ircmaxell/password-compat": {
-            "install-path": "vendor/ircmaxell/password-compat",
             "installer": "composer"
         },
         "jdorn/sql-formatter": {
@@ -453,24 +445,12 @@
             "installer": "composer",
             "env": "dev"
         },
-        "symfony/polyfill-apcu": {
-            "install-path": "vendor/symfony/polyfill-apcu",
-            "installer": "composer"
-        },
         "symfony/polyfill-intl-icu": {
             "install-path": "vendor/symfony/polyfill-intl-icu",
             "installer": "composer"
         },
         "symfony/polyfill-mbstring": {
             "install-path": "vendor/symfony/polyfill-mbstring",
-            "installer": "composer"
-        },
-        "symfony/polyfill-php54": {
-            "install-path": "vendor/symfony/polyfill-php54",
-            "installer": "composer"
-        },
-        "symfony/polyfill-php55": {
-            "install-path": "vendor/symfony/polyfill-php55",
             "installer": "composer"
         },
         "symfony/polyfill-php56": {
@@ -487,10 +467,6 @@
         },
         "symfony/psr-http-message-bridge": {
             "install-path": "vendor/symfony/psr-http-message-bridge",
-            "installer": "composer"
-        },
-        "symfony/security-acl": {
-            "install-path": "vendor/symfony/security-acl",
             "installer": "composer"
         },
         "symfony/swiftmailer-bundle": {
