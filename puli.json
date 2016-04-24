@@ -60,6 +60,14 @@
             "install-path": "vendor/black/cqrs-php",
             "installer": "composer"
         },
+        "black/page": {
+            "install-path": "vendor/black/page",
+            "installer": "composer"
+        },
+        "black/website": {
+            "install-path": "vendor/black/website",
+            "installer": "composer"
+        },
         "braincrafted/testing-bundle": {
             "install-path": "vendor/braincrafted/testing-bundle/Braincrafted/Bundle/TestingBundle",
             "installer": "composer",
@@ -396,6 +404,11 @@
             "installer": "composer",
             "env": "dev"
         },
+        "sebastian/object-enumerator": {
+            "install-path": "vendor/sebastian/object-enumerator",
+            "installer": "composer",
+            "env": "dev"
+        },
         "sebastian/recursion-context": {
             "install-path": "vendor/sebastian/recursion-context",
             "installer": "composer",
@@ -439,6 +452,10 @@
             "install-path": "vendor/symfony/phpunit-bridge",
             "installer": "composer",
             "env": "dev"
+        },
+        "symfony/polyfill-apcu": {
+            "install-path": "vendor/symfony/polyfill-apcu",
+            "installer": "composer"
         },
         "symfony/polyfill-intl-icu": {
             "install-path": "vendor/symfony/polyfill-intl-icu",
