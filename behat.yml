@@ -1,0 +1,41 @@
+default:
+
+    autoload:
+        "":  %paths.base%/app/features/bootstrap
+
+    suites:
+        default:
+            paths:
+                - %paths.base%/app/features
+            contexts:
+                - FeatureContext
+            filters: { tags: "@ui" }
+
+    extensions:
+        Behat\MinkExtension:
+            base_url:  'http://www.example.com'
+            sessions:
+                default:
+                    symfony2: ~
+                javascript:
+                    selenium2: ~
+
+        Knp\FriendlyContexts\Extension: ~
+        Behat\Symfony2Extension: ~
+
+domain:
+
+    autoload:
+        "":  %paths.base%/app/features/bootstrap
+
+    suites:
+        default:
+            paths:
+                - %paths.base%/app/features
+            contexts:
+                - DomainContext
+            filters: { tags: "@domain" }
+
+    extensions:
+        RMiller\BehatSpec\BehatExtension:
+            path: vendor/bin/phpspec
